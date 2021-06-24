@@ -57,30 +57,30 @@ start();
 
 ## Middlewares
 
-```
+```js
 app.use((req, res) => {
-  req.foo = 'bar'
- console.log(`Requested route ${req.getUrl()}`)
-})
+  req.foo = 'bar';
+  console.log(`Requested route ${req.getUrl()}`);
+});
 
-app.get('/foo', async (req) => req.foo)
+app.get('/foo', async (req) => req.foo);
 ```
 
 ## Plugins
 
-```
+```js
 // register middlewares or routes here
 const plugin = (app, options) => {
-  app.foo = 'bar'
+  app.foo = 'bar';
 
   app.use((req, res) => {
-    console.log(`Requested route ${req.getUrl()}`)
-  })
+    console.log(`Requested route ${req.getUrl()}`);
+  });
 
-  app.get('/foo', async () => app.foo)
-}
+  app.get('/foo', async () => app.foo);
+};
 
-app.register(plugin, {})
+app.register(plugin, {});
 ```
 
 This framework uses https://github.com/uNetworking/uWebSockets under the hood
