@@ -1,0 +1,29 @@
+{
+  "name": "@sact/shine",
+  "version": "0.2.0",
+  "description": "shine",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "docs": "typedoc --plugin typedoc-plugin-markdown --out docs src/index.ts",
+    "build": "rm -rf dist && rollup -c",
+    "prepublishOnly": "yarn test && yarn build",
+    "test": "jest"
+  },
+  "files": [
+    "tsconfig.json",
+    "build",
+    "dist",
+    "LICENSE",
+    "readme.md",
+    "bin"
+  ],
+  "license": "MIT",
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "dependencies": {
+    "fs-jetpack": "^4.1.0"
+  }
+}

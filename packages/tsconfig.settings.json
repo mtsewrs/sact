@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "inlineSourceMap": true,
+    "rootDir": ".",
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["dom", "esnext"],
+    "importHelpers": true,
+    "declaration": true,
+    "noImplicitThis": true,
+    "downlevelIteration": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules", "test", "dist"],
+  "references": [
+    { "path": "../core" },
+    { "path": "../session" },
+    { "path": "../cookie" }
+  ]
+}

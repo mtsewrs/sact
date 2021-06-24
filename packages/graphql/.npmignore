@@ -1,0 +1,5 @@
+node_modules
+*.lua
+build
+.rpt2_*
+.DS_Store

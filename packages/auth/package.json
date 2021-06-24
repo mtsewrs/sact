@@ -1,0 +1,22 @@
+{
+  "name": "@sact/auth",
+  "version": "0.1.0",
+  "main": "./dist/auth.js",
+  "types": "./dist/auth.d.ts",
+  "scripts": {
+    "docs": "typedoc --plugin typedoc-plugin-markdown --out docs src/auth.ts",
+    "build": "rm -rf dist && rollup -c",
+    "test": "jest",
+    "prepublishOnly": "yarn test && yarn build"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "ff021c91132db9e0a74a7475ef054c61b8052016"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@sact/session",
+  "version": "0.1.0",
+  "main": "./dist/index.js",
+  "module": "./dist/session.esm.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "docs": "typedoc --plugin typedoc-plugin-markdown --out docs src/index.ts",
+    "build": "rm -rf dist && rollup -c",
+    "test": "jest",
+    "prepublishOnly": "yarn test && yarn build"
+  },
+  "dependencies": {
+    "cookie": "^0.4.1",
+    "ioredis": "^4.9.0",
+    "ms": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/cookie": "^0.3.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "ff021c91132db9e0a74a7475ef054c61b8052016"
+}
