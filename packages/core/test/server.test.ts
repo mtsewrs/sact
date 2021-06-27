@@ -31,7 +31,7 @@ app.get('/error', async () => {
 });
 
 describe('Basic core server functionality ', () => {
-  beforeEach(() => app.listen(9001));
+  beforeEach(() => app.listen());
 
   afterEach(() => {
     app.close();

@@ -14,7 +14,7 @@
     "mime": "^2.4.6",
     "pino": "^5.12.0",
     "pino-pretty": "^2.6.0",
-    "uWebSockets.js": "uNetworking/uWebSockets.js#v19.1.0",
+    "uWebSockets.js": "uNetworking/uWebSockets.js#v19.3.0",
     "vary": "^1.1.2"
   },
   "devDependencies": {

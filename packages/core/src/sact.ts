@@ -71,20 +71,20 @@ export class Sact<REQ = unknown, RES = unknown> {
     }
   }
 
-  async listen(port = 9001): Promise<{
+  async listen(port = 0): Promise<{
     port: number;
     token: unknown;
     url: string;
   }> {
-    this.port = port;
     return new Promise((resolve, reject) => {
       this.app.listen(port, (token) => {
         if (token) {
+          this.port = port = this.uws.us_socket_local_port(token);
           this.token = token;
           resolve({
             port,
             token,
-            url: `http://localhost:${port}`,
+            url: `localhost:${port}`,
           });
         } else {
           reject('[sact] Failed to listen');

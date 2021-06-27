@@ -45,8 +45,9 @@ app.get('/', async () => ({ foo: 'bar' }));
 
 async function start() {
   try {
-    await app.listen(9001);
-    console.log('Server started');
+    // a automatic port will be chosen for you
+    const { url } = await app.listen();
+    console.log('Server started on ', url);
   } catch (error) {
     console.error(error);
   }
