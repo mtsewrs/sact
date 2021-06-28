@@ -2,7 +2,6 @@
   "name": "@sact/graphql",
   "version": "0.1.0",
   "main": "./dist/index.js",
-  "module": "./dist/graphql.esm.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "docs": "typedoc --plugin typedoc-plugin-markdown --out docs src/index.ts",

@@ -69,7 +69,6 @@ describe('Graphql Server', () => {
     const resp = await request(app).post('/graphql').send({
       query: '{error}',
     });
-    console.log(resp);
     expect(resp.status).toEqual(400);
   });
 });

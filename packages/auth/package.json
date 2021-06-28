@@ -1,12 +1,13 @@
 {
   "name": "@sact/auth",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "./dist/auth.js",
   "types": "./dist/auth.d.ts",
   "scripts": {
     "docs": "typedoc --plugin typedoc-plugin-markdown --out docs src/auth.ts",
     "build": "rm -rf dist && rollup -c",
     "test": "jest",
+    "publish": "npm publish",
     "prepublishOnly": "yarn test && yarn build"
   },
   "dependencies": {
