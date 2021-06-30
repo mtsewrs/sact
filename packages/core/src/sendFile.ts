@@ -1,6 +1,5 @@
 import fs from 'fs';
 import util from 'util';
-import etag from 'etag';
 import { createGzip, createBrotliCompress } from 'zlib';
 import { Response } from './types';
 import { HttpError } from './http';
@@ -10,21 +9,10 @@ const stat = util.promisify(fs.stat);
 export const sendFile = async (
   name: string,
   res: Response,
-  etagHeader: string,
   options: any,
   mime: string
 ) => {
   const stats = await stat(name);
-  const hash = etag(stats, { weak: false });
-  if (options.cache && etagHeader === hash) {
-    res.cork(() => {
-      if (!res.aborted) {
-        res.writeStatus('304');
-        res.end();
-      }
-    });
-    return;
-  }
 
   res.writeHeader('content-type', mime);
   if (options.cache)
@@ -33,7 +21,6 @@ export const sendFile = async (
     res.writeHeader('content-encoding', options.compress);
   }
 
-  res.writeHeader('etag', hash);
   const { mtime, size } = stats;
   mtime.setMilliseconds(0);
 

@@ -13,8 +13,8 @@ export type Ctx<
     params?: unknown
   }
 > = {
-  res?: Response<T['res']>
-  req?: Request<BodyReq & T['req']>
+  res: Response<T['res']>
+  req: Request<BodyReq & T['req']>
   isWs: boolean
   params: T['params'] | any
 } & T['context']
@@ -31,6 +31,7 @@ export interface Options {
    */
   ts?: boolean
   wsOnly?: boolean
+  httpOnly?: boolean
 }
 
 export const shine: PLuginFunction<Options, BodyReq> = (app, options) => {
@@ -38,11 +39,12 @@ export const shine: PLuginFunction<Options, BodyReq> = (app, options) => {
   const prefix = options.prefix || ''
   const ts = options.ts
   const wsOnly = options.wsOnly || false
+  const httpOnly = options.httpOnly || false
 
   const path = options.path || 'src/routes'
   let paths = jetpack.list(path)
   const functions = jetpack.find(path, {
-    matching: ts ? '**/*.ts' : '**/*.js'
+    matching: ts ? '**/*.ts' : '**/*.js',
   })
   if (!functions.length) {
     throw new Error('[@sact/shine] Could not find' + path)
@@ -59,18 +61,19 @@ export const shine: PLuginFunction<Options, BodyReq> = (app, options) => {
         if (methods[p]) {
           methods[p] = {
             ...methods[p],
-            [name]: method.default || method[name]
+            [name]: method.default || method[name],
           }
         } else {
           methods[p] = {
-            [name]: method.default || method[name]
+            [name]: method.default || method[name],
           }
         }
       }
     }
   }
-
-  ws(app, methods, context, ts)
+  if (!httpOnly) {
+    ws(app, methods, context, ts)
+  }
   if (!wsOnly) {
     http(app, paths, methods, context, prefix)
   }

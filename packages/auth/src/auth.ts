@@ -81,8 +81,8 @@ const auth: PLuginFunction<Options> = (
     };
 
     req.authenticateOrFail = async () => {
-      if (req.cookies[tokenName]) {
-        const token = req.cookies[tokenName];
+      const token = req.cookies[tokenName];
+      if (token) {
         let id = null;
         try {
           const jwt = await verify(token, secret);

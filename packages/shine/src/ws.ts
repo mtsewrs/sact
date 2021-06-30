@@ -44,9 +44,20 @@ export function ws(
       }
 
       if (!type) {
+        ws.cork(() => {
+          ws.send(
+            JSON.stringify({
+              error: true,
+              message: 'Unknown type',
+              type: 'unknown',
+            })
+          )
+        })
         return
       } else if (type === 'request') {
-        const func: (ctx: any) => Promise<any> = methods[path][method]
+        const func: (ctx: any) => Promise<any> = methods[path]
+          ? methods[path][method]
+          : null
         if (!func) {
           ws.cork(() => {
             ws.send(
@@ -55,7 +66,7 @@ export function ws(
                 method,
                 path,
                 message: 'method not found',
-                type: 'server'
+                type: 'server',
               })
             )
           })
@@ -67,7 +78,7 @@ export function ws(
             ...context,
             isWs: true,
             ws,
-            params: params || {}
+            params: params || {},
           })
           ws.cork(() => {
             ws.send(JSON.stringify({ result, method, path, type: 'request' }))
@@ -80,12 +91,12 @@ export function ws(
                 message: error.message,
                 method,
                 path,
-                type: 'server'
+                type: 'server',
               })
             )
           })
         }
       }
-    }
+    },
   })
 }

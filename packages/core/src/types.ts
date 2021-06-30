@@ -1,4 +1,3 @@
-import { Logger } from 'pino';
 import {
   AppOptions,
   HttpResponse,
@@ -9,7 +8,6 @@ import {
 export type cb = (err?: Error) => void;
 
 export interface Options extends AppOptions {
-  logger?: Logger;
   ssl?: boolean;
 }
 

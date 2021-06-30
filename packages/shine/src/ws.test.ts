@@ -12,19 +12,18 @@ app.register(shine, {
   path: 'src/routes',
   context,
   ts: true,
+  wsOnly: true,
 })
 
 describe('shine', () => {
-  beforeEach(async () => {
-    await app.listen(9001)
-  })
+  beforeEach(() => app.listen())
 
   afterEach(() => {
     app.close()
   })
 
   test('can request data using callback', (done) => {
-    const client = new Client('ws://localhost:9001')
+    const client = new Client('ws://localhost:' + app.port)
     client.req('user', 'hello', {}, (data) => {
       expect(data.result.hello).toBe(context.hello)
       done()
@@ -32,7 +31,7 @@ describe('shine', () => {
   })
 
   test('can request data using promise', async () => {
-    const client = new Client('ws://localhost:9001')
+    const client = new Client('ws://localhost:' + app.port)
     const data = await client.request<{ result: { hello: string } }>(
       'user',
       'hello'
@@ -41,7 +40,7 @@ describe('shine', () => {
   })
 
   test('can handle promise errors', async () => {
-    const client = new Client('ws://localhost:9001')
+    const client = new Client('ws://localhost:' + app.port)
     try {
       await client.request('user', 'noop')
     } catch (error) {

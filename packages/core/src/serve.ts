@@ -42,13 +42,7 @@ export const serve: PLuginFunction<Options> = (sact, options = {}) => {
         const content_mime = mime.getType(ext);
         if (options.cache) res.writeHeader('cache-control', 'must-revalidate');
         compress && res.writeHeader('content-encoding', compress);
-        await sendFile(
-          file,
-          response,
-          request.getHeader('if-none-match'),
-          options,
-          content_mime
-        );
+        await sendFile(file, response, options, content_mime);
       } catch (err) {
         const notFound = err.message && err.message.includes('ENOENT');
         if (notFound) {
@@ -84,7 +78,6 @@ export const serve: PLuginFunction<Options> = (sact, options = {}) => {
           await sendFile(
             path.join(folder, index as string),
             res,
-            req.getHeader('if-none-match'),
             options,
             content_mime
           );
@@ -96,13 +89,7 @@ export const serve: PLuginFunction<Options> = (sact, options = {}) => {
       }
     } else {
       try {
-        await sendFile(
-          name,
-          res,
-          req.getHeader('if-none-match'),
-          options,
-          content_mime
-        );
+        await sendFile(name, res, options, content_mime);
       } catch (err) {
         res.cork(() => {
           if (!res.aborted) {

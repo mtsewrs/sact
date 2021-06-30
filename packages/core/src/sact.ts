@@ -1,4 +1,3 @@
-import pino, { Logger } from 'pino';
 import * as uws from 'uWebSockets.js';
 
 import { CallbackFunction, Options, Server } from './types';
@@ -23,13 +22,9 @@ export class Sact<REQ = unknown, RES = unknown> {
   /**
    * @ignore
    */
-  logger: Logger;
-  /**
-   * The built in pino logger
-   */
   token: unknown;
   /**
-   * @ignore
+   * the port the app is listening on
    */
   port: number;
   /**
@@ -38,19 +33,12 @@ export class Sact<REQ = unknown, RES = unknown> {
   uws = uws;
 
   constructor(options: Options = {}) {
-    const { logger, ssl, ...opt } = options;
+    const { ssl, ...opt } = options;
 
     if (!!ssl) {
       this.app = uws.SSLApp(opt) as Server;
     } else {
       this.app = uws.App(opt) as Server;
-    }
-    if (logger instanceof pino) {
-      this.logger = logger;
-    } else {
-      this.logger = pino({
-        prettyPrint: process.env.NODE_ENV !== 'production',
-      });
     }
   }
 

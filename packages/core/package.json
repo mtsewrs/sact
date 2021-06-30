@@ -10,17 +10,12 @@
     "prepublishOnly": "yarn test && yarn build"
   },
   "dependencies": {
-    "etag": "^1.8.1",
     "mime": "^2.4.6",
-    "pino": "^5.12.0",
-    "pino-pretty": "^2.6.0",
     "uWebSockets.js": "uNetworking/uWebSockets.js#v19.3.0",
     "vary": "^1.1.2"
   },
   "devDependencies": {
-    "@types/etag": "^1.8.0",
-    "@types/mime": "^2.0.3",
-    "@types/pino": "^5.8.6"
+    "@types/mime": "^2.0.3"
   },
   "prettier": {
     "printWidth": 80,

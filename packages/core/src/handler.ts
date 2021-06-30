@@ -119,24 +119,24 @@ export const handler =
                 res.writeHeader('Content-Type', 'application/json');
                 res.end(
                   JSON.stringify({
+                    error: true,
                     message: error.message,
                     status: error.status,
-                    stack: error.stack,
                   })
                 );
               });
             }
           } else {
-            sact.logger.error(error);
+            console.error(error);
             if (!res.aborted) {
               res.cork(() => {
                 res.writeStatus('500');
                 res.writeHeader('Content-Type', 'application/json');
                 res.end(
                   JSON.stringify({
+                    error: true,
                     message: error.message,
                     status: 500,
-                    stack: error.stack,
                   })
                 );
               });

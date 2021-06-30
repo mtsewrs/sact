@@ -12,28 +12,34 @@ app.register(shine, {
   context,
   path: 'src/routes',
   ts: true,
+  prefix: '/api',
 })
 
 describe('shine', () => {
-  beforeEach(async () => {
-    await app.listen(9001)
-  })
+  beforeEach(() => app.listen())
 
   afterEach(() => {
     app.close()
   })
 
+  test('handle error', async () => {
+    const resp = await request(app).post('/api/user')
+    expect(resp.status).toEqual(400)
+  })
+
   test('basic route', async () => {
     const text = 'some text'
     const resp = await request(app)
-      .post('/user')
+      .post('/api/user')
       .send({ method: 'hello', params: { text } })
     expect(resp.body.hello).toEqual(context.hello)
     expect(resp.body.text).toEqual(text)
   })
 
   test('not found', async () => {
-    const resp = await request(app).post('/user').send({ method: 'notFound' })
+    const resp = await request(app)
+      .post('/api/user')
+      .send({ method: 'notFound' })
     expect(resp.body.message).toEqual('Method not found')
     expect(resp.body.status).toEqual(400)
   })
