@@ -1,6 +1,6 @@
 {
   "name": "@sact/shine",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "shine",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
