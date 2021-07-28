@@ -5,19 +5,18 @@ import { parse } from 'path'
 import { http } from './http'
 import { ws } from './ws'
 
-export type Ctx<
+export interface Ctx<
   T extends {
     req?: unknown
     res?: unknown
-    context?: unknown
     params?: unknown
   }
-> = {
+> {
+  params: T['params']
   res: Response<T['res']>
   req: Request<BodyReq & T['req']>
   isWs: boolean
-  params: T['params'] | any
-} & T['context']
+}
 
 export interface Options {
   context?: any

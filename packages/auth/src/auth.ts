@@ -10,8 +10,8 @@ export interface Options {
   tokenName?: string;
 }
 
-export type AuthReq = {
-  user: string | null;
+export interface AuthReq {
+  user: string;
   /**
    * Login in the user by id
    *
@@ -32,11 +32,11 @@ export type AuthReq = {
    * Authenticate the user or throw a 401 status if failed
    *
    * ```typescript
-   * await req.authenticate() //  👈 All you need to do, the user will then be available on req.user
+   * await req.authenticateOrFail() //  👈 All you need to do, the user will then be available on req.user
    * ```
    */
   authenticateOrFail: () => Promise<void>;
-};
+}
 
 const verify = (
   token: string,

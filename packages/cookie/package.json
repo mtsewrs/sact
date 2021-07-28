@@ -6,7 +6,8 @@
   "scripts": {
     "docs": "typedoc --plugin typedoc-plugin-markdown --out docs src/cookie.ts",
     "test": "jest",
-    "build": "rm -rf dist && rollup -c"
+    "build": "rm -rf dist && rollup -c",
+    "prepublishOnly": "yarn test && yarn build"
   },
   "dependencies": {
     "cookie": "^0.3.1"

@@ -12,7 +12,7 @@ export interface CookieReq {
   };
 }
 
-export type Options = CookieSerializeOptions;
+export interface Options extends CookieSerializeOptions {}
 
 const cookie: PLuginFunction<Options> = (
   sact: Sact<CookieReq, CookieRes>,

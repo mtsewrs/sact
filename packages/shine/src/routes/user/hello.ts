@@ -1,9 +1,9 @@
 import { Ctx } from '../..'
 
-interface Context {
+interface Context<params> extends Ctx<{ params: params }> {
   hello: string
 }
 
-export const hello = async (ctx: Ctx<{ context: Context }>) => {
+export const hello = async (ctx: Context<{ text: string }>) => {
   return { hello: ctx.hello, text: ctx.params.text }
 }

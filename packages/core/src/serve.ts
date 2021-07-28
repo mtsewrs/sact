@@ -19,10 +19,10 @@ interface Options {
   [key: string]: any;
 }
 
-export type FileRes = {
+export interface FileRes {
   sendFile: (file: string, response: Response) => Promise<void>;
   stream: ReadStream;
-};
+}
 
 export const serve: PLuginFunction<Options> = (sact, options = {}) => {
   const folder = options.folder || 'public';

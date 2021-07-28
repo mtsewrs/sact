@@ -4,7 +4,7 @@ import { Response, Request } from './types';
  * @ignore
  */
 export const handler =
-  (path: string, callback: any, sact: any) =>
+  (callback: any, sact: any) =>
   (res: Response, req: Request): void => {
     res.onAborted(() => {
       res.aborted = true;
