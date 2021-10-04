@@ -1,6 +1,6 @@
 import { unescape } from 'querystring';
 import mime from 'mime/lite';
-import { Response, Request } from './types';
+import { Response } from './types';
 import { PLuginFunction } from './index';
 import { sendFile } from './sendFile';
 
@@ -30,11 +30,7 @@ export const serve: PLuginFunction<Options> = (sact, options = {}) => {
   const index = options.index || false;
   const compress = options.compress ? options.compress : undefined;
   sact.use((req, res) => {
-    res.sendFile = async (
-      file: string,
-      response: Response,
-      request: Request
-    ) => {
+    res.sendFile = async (file: string, response: Response) => {
       try {
         const url = req.getUrl().replace(`${prefix ? prefix + '/' : ''}`, '');
         const name = path.join(folder, unescape(url));

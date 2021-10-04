@@ -2,13 +2,13 @@ import { PLuginFunction } from './sact';
 import { readBody } from './readBody';
 
 export interface BodyReq {
-  fields?: {
-    data: ArrayBuffer;
-    name: string;
-    type?: string;
-    filename?: string;
-  }[];
   body?: {
+    fields?: {
+      data: ArrayBuffer;
+      name: string;
+      type?: string;
+      filename?: string;
+    }[];
     [key: string]: any;
   };
 }
@@ -26,15 +26,18 @@ interface Options {
   limit?: number;
 }
 
+const blacklist = ['get', 'options', 'head', 'delete'];
+
+// @TODO use body as function
 export const body: PLuginFunction<Options, BodyReq> = (sact, options = {}) => {
   const limit = options.limit || sizes.SIZE_5MB;
   sact.use(async (req, res) => {
-    if (req.getMethod() === 'post') {
+    if (!blacklist.includes(req.getMethod())) {
       const header = req.getHeader('content-type');
       const buffer = await readBody(res, limit);
       if (header !== 'application/json') {
         const data = sact.uws.getParts(buffer, header);
-        req.fields = data;
+        req.body = { fields: data };
       } else {
         req.body = JSON.parse(buffer.toString());
       }

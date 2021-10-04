@@ -28,12 +28,10 @@ export type Response<T = { [key: string]: any }> = IResponse & T;
 export interface IResponse extends HttpResponse {
   send: (data?: string, async?: boolean) => void;
   sendFile: (file: string, res: Response, req: Request) => Promise<void>;
-  setHeader: (key: string, value: string) => IResponse;
   header: (key: string, value: string) => IResponse;
-  getHeader: (value: string) => string;
   redirect: (path: string) => void;
   aborted: boolean;
-  headers: { [key: string]: string };
+  headers: [string, string][];
   statusCode: number;
 }
 

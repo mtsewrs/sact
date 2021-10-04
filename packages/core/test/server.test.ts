@@ -22,7 +22,7 @@ app.post('/', async (req) => {
 });
 
 app.post('/files', async (req) => {
-  const [field, image] = req.fields;
+  const [field, image] = req.body.fields;
   return { name: field.name, filename: image.filename };
 });
 

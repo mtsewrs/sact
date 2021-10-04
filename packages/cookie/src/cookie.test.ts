@@ -14,6 +14,11 @@ app.get('/', async (_, res) => {
   return 'ok';
 });
 
+app.get('/cookies', async (req) => {
+  console.log(req.cookies);
+  return req.cookies;
+});
+
 describe('cookie', () => {
   beforeEach(() => app.listen(9002));
 
@@ -21,10 +26,18 @@ describe('cookie', () => {
     app.close();
   });
 
+  let cookies = null;
+
   test('setCookie', async () => {
     const resp = await request(app).get('/');
+    cookies = resp.header['set-cookie'];
     expect(resp.header['set-cookie']).toEqual([
       'hello=world; Max-Age=2419200; Domain=example.com; Secure',
     ]);
+  });
+
+  test('cookies', async () => {
+    const resp = await request(app).get('/cookies').set({ cookie: cookies });
+    expect(resp.body.hello).toEqual('world');
   });
 });

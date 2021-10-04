@@ -13,13 +13,18 @@ export interface Options {
 export interface AuthReq {
   user: string;
   /**
+   * Log user out
+   */
+  logout: () => Promise<void>;
+  /**
    * Login in the user by id
    *
    * ```typescript
-   * await req.login('some-user-id')
+   * // login the user by id and some optional meta data
+   * await req.login('some-user-id', {})
    * ```
    */
-  login: (id: string, meta?: any) => Promise<void>;
+  login: <T>(id: string, meta?: T) => Promise<void>;
   /**
    * Authenticate the user
    *
@@ -80,20 +85,25 @@ const auth: PLuginFunction<Options> = (
       res.setCookie(tokenName, token);
     };
 
+    req.logout = async () => {
+      await req.session.delete();
+      res.setCookie(tokenName, '');
+    };
+
     req.authenticateOrFail = async () => {
       const token = req.cookies[tokenName];
       if (token) {
-        let id = null;
+        let id: string = null;
         try {
           const jwt = await verify(token, secret);
-          id = jwt.id;
+          id = jwt.id as string;
         } catch (error) {
           if (error.name === 'TokenExpiredError') {
             const session = await req.session.get();
             if (session) {
               const token = await sign({ id: session.id }, secret);
               res.setCookie(tokenName, token);
-              id = session;
+              id = session.id;
             }
           }
         }

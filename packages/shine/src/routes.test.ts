@@ -32,6 +32,7 @@ describe('shine', () => {
     const resp = await request(app)
       .post('/api/user')
       .send({ method: 'hello', params: { text } })
+    console.log(resp.headers)
     expect(resp.body.hello).toEqual(context.hello)
     expect(resp.body.text).toEqual(text)
   })

@@ -1,5 +1,13 @@
 import { Response, Request } from './types';
 
+function writeHeaders(res: Response) {
+  if (!!res.headers.length) {
+    res.headers.forEach(([key, value]) => {
+      res.writeHeader(key, value);
+    });
+  }
+}
+
 /**
  * @ignore
  */
@@ -21,57 +29,18 @@ export const handler =
       return;
     };
 
-    res.headers = {};
+    res.headers = [];
 
     res.header = (k: string, v: string) => {
-      res.headers[k] = v;
+      res.headers.push([k, v]);
       return res;
     };
 
-    res.setHeader = (k: string, v: string) => {
-      res.headers[k] = v;
-      return res;
-    };
-
-    res.getHeader = (v: string) => {
-      return res.headers[v];
-    };
-
-    res.send = (
-      data?: string,
-      /**
-       * if you do anything async like promises set this to true
-       */
-      async = false
-    ) => {
-      if (!res.aborted) {
-        if (async) {
-          res.cork(() => {
-            const headers = Object.entries(res.headers);
-            if (!!headers.length) {
-              headers.forEach(([key, value]) => {
-                res.writeHeader(key, value);
-              });
-            }
-            res.end(data ? data : '');
-          });
-        } else {
-          const headers = Object.entries(res.headers);
-          if (!!headers.length) {
-            headers.forEach(([key, value]) => {
-              res.writeHeader(key, value);
-            });
-          }
-          res.end(data ? data : '');
-        }
-      }
-      return;
-    };
-
-    res.redirect = (path) => {
-      res.writeStatus('301');
-      res.writeHeader('Location', path);
-      res.send();
+    res.getHeader = (key: string) => {
+      const h = res.headers.find(
+        ([k]) => (console.log(key, k) as any) || k === key
+      );
+      return h && h[1];
     };
 
     const middlewarePromises = [];
@@ -90,6 +59,27 @@ export const handler =
       }
     }
 
+    res.send = (
+      data?: string,
+      /**
+       * if you do anything async like promises set this to true
+       */
+      async = false
+    ) => {
+      if (!res.aborted) {
+        if (async) {
+          res.cork(() => {
+            writeHeaders(res);
+            res.end(data ? data : '');
+          });
+        } else {
+          writeHeaders(res);
+          res.end(data ? data : '');
+        }
+      }
+      return;
+    };
+
     function handlePromise(promise: Promise<any>) {
       promise
         .then((data) => {
@@ -102,9 +92,7 @@ export const handler =
           if (!res.aborted) {
             res.cork(() => {
               res.statusCode && res.writeStatus(String(res.statusCode));
-              Object.entries(res.headers).forEach(([key, value]) => {
-                res.writeHeader(key, value);
-              });
+              writeHeaders(res);
               ['array', 'object', 'number'].includes(typeof data) &&
                 res.writeHeader('Content-Type', 'application/json');
               res.end(result);
@@ -117,6 +105,7 @@ export const handler =
               res.cork(() => {
                 res.writeStatus(String(error.status));
                 res.writeHeader('Content-Type', 'application/json');
+                writeHeaders(res);
                 res.end(
                   JSON.stringify({
                     error: true,
@@ -147,11 +136,7 @@ export const handler =
 
     if (!!middlewarePromises.length) {
       const promise = Promise.all(middlewarePromises).then(() => {
-        if (callback[Symbol.toStringTag] === 'AsyncFunction') {
-          return callback(req, res, next);
-        } else {
-          return callback(req, res, next);
-        }
+        return callback(req, res, next);
       });
       handlePromise(promise);
     } else {
