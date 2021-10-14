@@ -45,6 +45,7 @@ export class Sact<REQ = unknown, RES = unknown> {
   }
 
   /**
+   * only needed for supertest
    * @ignore
    */
   address() {

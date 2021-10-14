@@ -37,9 +37,7 @@ export const handler =
     };
 
     res.getHeader = (key: string) => {
-      const h = res.headers.find(
-        ([k]) => (console.log(key, k) as any) || k === key
-      );
+      const h = res.headers.find(([k]) => k === key);
       return h && h[1];
     };
 
