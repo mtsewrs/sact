@@ -1,6 +1,6 @@
 {
   "name": "@sact/cookie",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "./dist/cookie.js",
   "types": "./dist/cookie.d.ts",
   "scripts": {
