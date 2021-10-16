@@ -20,4 +20,4 @@
 
 #### Defined in
 
-cookie.ts:10
+[packages/cookie/src/cookie.ts:10](https://github.com/mattiasewers/sact/blob/df76a34/packages/cookie/src/cookie.ts#L10)

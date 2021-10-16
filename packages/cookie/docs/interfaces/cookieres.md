@@ -31,7 +31,7 @@
 
 #### Defined in
 
-cookie.ts:6
+[packages/cookie/src/cookie.ts:6](https://github.com/mattiasewers/sact/blob/df76a34/packages/cookie/src/cookie.ts#L6)
 
 ___
 
@@ -56,4 +56,4 @@ ___
 
 #### Defined in
 
-cookie.ts:5
+[packages/cookie/src/cookie.ts:5](https://github.com/mattiasewers/sact/blob/df76a34/packages/cookie/src/cookie.ts#L5)

@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-- `TemplatedApp`
+- [`TemplatedApp`](templatedapp.md)
 
   ↳ **`Server`**
 
@@ -12,26 +12,58 @@
 
 ### Methods
 
+- [addServerName](server.md#addservername)
 - [any](server.md#any)
 - [connect](server.md#connect)
 - [del](server.md#del)
 - [get](server.md#get)
 - [head](server.md#head)
 - [listen](server.md#listen)
+- [missingServerName](server.md#missingservername)
 - [numSubscribers](server.md#numsubscribers)
 - [options](server.md#options)
 - [patch](server.md#patch)
 - [post](server.md#post)
 - [publish](server.md#publish)
 - [put](server.md#put)
+- [removeServerName](server.md#removeservername)
 - [trace](server.md#trace)
 - [ws](server.md#ws)
 
 ## Methods
 
+### addServerName
+
+▸ **addServerName**(`hostname`, `options`): [`TemplatedApp`](templatedapp.md)
+
+Adds a server name.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `hostname` | `string` |
+| `options` | [`AppOptions`](appoptions.md) |
+
+#### Returns
+
+[`TemplatedApp`](templatedapp.md)
+
+#### Inherited from
+
+[TemplatedApp](templatedapp.md).[addServerName](templatedapp.md#addservername)
+
+#### Defined in
+
+node_modules/uWebSockets.js/index.d.ts:310
+
+___
+
 ### any
 
 ▸ **any**(`pattern`, `handler`): [`Server`](server.md)
+
+Registers an HTTP handler matching specified URL pattern on any HTTP method.
 
 #### Parameters
 
@@ -46,11 +78,11 @@
 
 #### Overrides
 
-TemplatedApp.any
+[TemplatedApp](templatedapp.md).[any](templatedapp.md#any)
 
 #### Defined in
 
-packages/core/src/types.ts:68
+[packages/core/src/types.ts:67](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L67)
 
 ___
 
@@ -58,6 +90,8 @@ ___
 
 ▸ **connect**(`pattern`, `handler`): [`Server`](server.md)
 
+Registers an HTTP CONNECT handler matching specified URL pattern.
+
 #### Parameters
 
 | Name | Type |
@@ -71,11 +105,11 @@ ___
 
 #### Overrides
 
-TemplatedApp.connect
+[TemplatedApp](templatedapp.md).[connect](templatedapp.md#connect)
 
 #### Defined in
 
-packages/core/src/types.ts:60
+[packages/core/src/types.ts:59](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L59)
 
 ___
 
@@ -83,6 +117,8 @@ ___
 
 ▸ **del**(`pattern`, `handler`): [`Server`](server.md)
 
+Registers an HTTP DELETE handler matching specified URL pattern.
+
 #### Parameters
 
 | Name | Type |
@@ -96,11 +132,11 @@ ___
 
 #### Overrides
 
-TemplatedApp.del
+[TemplatedApp](templatedapp.md).[del](templatedapp.md#del)
 
 #### Defined in
 
-packages/core/src/types.ts:53
+[packages/core/src/types.ts:52](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L52)
 
 ___
 
@@ -108,6 +144,8 @@ ___
 
 ▸ **get**(`pattern`, `handler`): [`Server`](server.md)
 
+Registers an HTTP GET handler matching specified URL pattern.
+
 #### Parameters
 
 | Name | Type |
@@ -121,11 +159,11 @@ ___
 
 #### Overrides
 
-TemplatedApp.get
+[TemplatedApp](templatedapp.md).[get](templatedapp.md#get)
 
 #### Defined in
 
-packages/core/src/types.ts:47
+[packages/core/src/types.ts:46](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L46)
 
 ___
 
@@ -133,6 +171,8 @@ ___
 
 ▸ **head**(`pattern`, `handler`): [`Server`](server.md)
 
+Registers an HTTP HEAD handler matching specified URL pattern.
+
 #### Parameters
 
 | Name | Type |
@@ -146,17 +186,17 @@ ___
 
 #### Overrides
 
-TemplatedApp.head
+[TemplatedApp](templatedapp.md).[head](templatedapp.md#head)
 
 #### Defined in
 
-packages/core/src/types.ts:59
+[packages/core/src/types.ts:58](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L58)
 
 ___
 
 ### listen
 
-▸ **listen**(`host`, `port`, `cb`): `TemplatedApp`
+▸ **listen**(`host`, `port`, `cb`): [`TemplatedApp`](templatedapp.md)
 
 Listens to hostname & port. Callback hands either false or a listen socket.
 
@@ -164,23 +204,23 @@ Listens to hostname & port. Callback hands either false or a listen socket.
 
 | Name | Type |
 | :------ | :------ |
-| `host` | `RecognizedString` |
+| `host` | [`RecognizedString`](../modules.md#recognizedstring) |
 | `port` | `number` |
-| `cb` | (`listenSocket`: `us_listen_socket`) => `void` |
+| `cb` | (`listenSocket`: [`us_listen_socket`](us_listen_socket.md)) => `void` |
 
 #### Returns
 
-`TemplatedApp`
+[`TemplatedApp`](templatedapp.md)
 
 #### Inherited from
 
-TemplatedApp.listen
+[TemplatedApp](templatedapp.md).[listen](templatedapp.md#listen)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:271
+node_modules/uWebSockets.js/index.d.ts:278
 
-▸ **listen**(`port`, `cb`): `TemplatedApp`
+▸ **listen**(`port`, `cb`): [`TemplatedApp`](templatedapp.md)
 
 Listens to port. Callback hands either false or a listen socket.
 
@@ -193,17 +233,17 @@ Listens to port. Callback hands either false or a listen socket.
 
 #### Returns
 
-`TemplatedApp`
+[`TemplatedApp`](templatedapp.md)
 
 #### Inherited from
 
-TemplatedApp.listen
+[TemplatedApp](templatedapp.md).[listen](templatedapp.md#listen)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:273
+node_modules/uWebSockets.js/index.d.ts:280
 
-▸ **listen**(`port`, `options`, `cb`): `TemplatedApp`
+▸ **listen**(`port`, `options`, `cb`): [`TemplatedApp`](templatedapp.md)
 
 Listens to port and sets Listen Options. Callback hands either false or a listen socket.
 
@@ -212,20 +252,46 @@ Listens to port and sets Listen Options. Callback hands either false or a listen
 | Name | Type |
 | :------ | :------ |
 | `port` | `number` |
-| `options` | `ListenOptions` |
-| `cb` | (`listenSocket`: ``false`` \| `us_listen_socket`) => `void` |
+| `options` | [`ListenOptions`](../enums/listenoptions.md) |
+| `cb` | (`listenSocket`: ``false`` \| [`us_listen_socket`](us_listen_socket.md)) => `void` |
 
 #### Returns
 
-`TemplatedApp`
+[`TemplatedApp`](templatedapp.md)
 
 #### Inherited from
 
-TemplatedApp.listen
+[TemplatedApp](templatedapp.md).[listen](templatedapp.md#listen)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:275
+node_modules/uWebSockets.js/index.d.ts:282
+
+___
+
+### missingServerName
+
+▸ **missingServerName**(`cb`): [`TemplatedApp`](templatedapp.md)
+
+Registers a synchronous callback on missing server names. See /examples/ServerName.js.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `cb` | (`hostname`: `string`) => `void` |
+
+#### Returns
+
+[`TemplatedApp`](templatedapp.md)
+
+#### Inherited from
+
+[TemplatedApp](templatedapp.md).[missingServerName](templatedapp.md#missingservername)
+
+#### Defined in
+
+node_modules/uWebSockets.js/index.d.ts:314
 
 ___
 
@@ -239,7 +305,7 @@ Returns number of subscribers for this topic.
 
 | Name | Type |
 | :------ | :------ |
-| `topic` | `RecognizedString` |
+| `topic` | [`RecognizedString`](../modules.md#recognizedstring) |
 
 #### Returns
 
@@ -247,11 +313,11 @@ Returns number of subscribers for this topic.
 
 #### Inherited from
 
-TemplatedApp.numSubscribers
+[TemplatedApp](templatedapp.md).[numSubscribers](templatedapp.md#numsubscribers)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:301
+node_modules/uWebSockets.js/index.d.ts:308
 
 ___
 
@@ -259,6 +325,8 @@ ___
 
 ▸ **options**(`pattern`, `handler`): [`Server`](server.md)
 
+Registers an HTTP OPTIONS handler matching specified URL pattern.
+
 #### Parameters
 
 | Name | Type |
@@ -272,11 +340,11 @@ ___
 
 #### Overrides
 
-TemplatedApp.options
+[TemplatedApp](templatedapp.md).[options](templatedapp.md#options)
 
 #### Defined in
 
-packages/core/src/types.ts:49
+[packages/core/src/types.ts:48](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L48)
 
 ___
 
@@ -284,6 +352,8 @@ ___
 
 ▸ **patch**(`pattern`, `handler`): [`Server`](server.md)
 
+Registers an HTTP PATCH handler matching specified URL pattern.
+
 #### Parameters
 
 | Name | Type |
@@ -297,11 +367,11 @@ ___
 
 #### Overrides
 
-TemplatedApp.patch
+[TemplatedApp](templatedapp.md).[patch](templatedapp.md#patch)
 
 #### Defined in
 
-packages/core/src/types.ts:54
+[packages/core/src/types.ts:53](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L53)
 
 ___
 
@@ -309,6 +379,8 @@ ___
 
 ▸ **post**(`pattern`, `handler`): [`Server`](server.md)
 
+Registers an HTTP POST handler matching specified URL pattern.
+
 #### Parameters
 
 | Name | Type |
@@ -322,11 +394,11 @@ ___
 
 #### Overrides
 
-TemplatedApp.post
+[TemplatedApp](templatedapp.md).[post](templatedapp.md#post)
 
 #### Defined in
 
-packages/core/src/types.ts:48
+[packages/core/src/types.ts:47](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L47)
 
 ___
 
@@ -340,8 +412,8 @@ Publishes a message under topic, for all WebSockets under this app. See WebSocke
 
 | Name | Type |
 | :------ | :------ |
-| `topic` | `RecognizedString` |
-| `message` | `RecognizedString` |
+| `topic` | [`RecognizedString`](../modules.md#recognizedstring) |
+| `message` | [`RecognizedString`](../modules.md#recognizedstring) |
 | `isBinary?` | `boolean` |
 | `compress?` | `boolean` |
 
@@ -351,11 +423,11 @@ Publishes a message under topic, for all WebSockets under this app. See WebSocke
 
 #### Inherited from
 
-TemplatedApp.publish
+[TemplatedApp](templatedapp.md).[publish](templatedapp.md#publish)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:299
+node_modules/uWebSockets.js/index.d.ts:306
 
 ___
 
@@ -363,6 +435,8 @@ ___
 
 ▸ **put**(`pattern`, `handler`): [`Server`](server.md)
 
+Registers an HTTP PUT handler matching specified URL pattern.
+
 #### Parameters
 
 | Name | Type |
@@ -376,11 +450,37 @@ ___
 
 #### Overrides
 
-TemplatedApp.put
+[TemplatedApp](templatedapp.md).[put](templatedapp.md#put)
 
 #### Defined in
 
-packages/core/src/types.ts:58
+[packages/core/src/types.ts:57](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L57)
+
+___
+
+### removeServerName
+
+▸ **removeServerName**(`hostname`): [`TemplatedApp`](templatedapp.md)
+
+Removes a server name.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `hostname` | `string` |
+
+#### Returns
+
+[`TemplatedApp`](templatedapp.md)
+
+#### Inherited from
+
+[TemplatedApp](templatedapp.md).[removeServerName](templatedapp.md#removeservername)
+
+#### Defined in
+
+node_modules/uWebSockets.js/index.d.ts:312
 
 ___
 
@@ -388,6 +488,8 @@ ___
 
 ▸ **trace**(`pattern`, `handler`): [`Server`](server.md)
 
+Registers an HTTP TRACE handler matching specified URL pattern.
+
 #### Parameters
 
 | Name | Type |
@@ -401,17 +503,17 @@ ___
 
 #### Overrides
 
-TemplatedApp.trace
+[TemplatedApp](templatedapp.md).[trace](templatedapp.md#trace)
 
 #### Defined in
 
-packages/core/src/types.ts:64
+[packages/core/src/types.ts:63](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L63)
 
 ___
 
 ### ws
 
-▸ **ws**(`pattern`, `behavior`): `TemplatedApp`
+▸ **ws**(`pattern`, `behavior`): [`TemplatedApp`](templatedapp.md)
 
 Registers a handler matching specified URL pattern where WebSocket upgrade requests are caught.
 
@@ -419,17 +521,17 @@ Registers a handler matching specified URL pattern where WebSocket upgrade reque
 
 | Name | Type |
 | :------ | :------ |
-| `pattern` | `RecognizedString` |
-| `behavior` | `WebSocketBehavior` |
+| `pattern` | [`RecognizedString`](../modules.md#recognizedstring) |
+| `behavior` | [`WebSocketBehavior`](websocketbehavior.md) |
 
 #### Returns
 
-`TemplatedApp`
+[`TemplatedApp`](templatedapp.md)
 
 #### Inherited from
 
-TemplatedApp.ws
+[TemplatedApp](templatedapp.md).[ws](templatedapp.md#ws)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:297
+node_modules/uWebSockets.js/index.d.ts:304

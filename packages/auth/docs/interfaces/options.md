@@ -19,7 +19,7 @@ secret for jwt token
 
 #### Defined in
 
-auth.ts:9
+[auth.ts:9](https://github.com/mattiasewers/sact/blob/df76a34/packages/auth/src/auth.ts#L9)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-auth.ts:10
+[auth.ts:10](https://github.com/mattiasewers/sact/blob/df76a34/packages/auth/src/auth.ts#L10)

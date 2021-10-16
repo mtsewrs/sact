@@ -1,16 +1,10 @@
-import { PLuginFunction } from './sact';
+import { MultipartField, PLuginFunction, Sact } from './sact';
 import { readBody } from './readBody';
+import { HttpError } from './error';
 
 export interface BodyReq {
-  body?: {
-    fields?: {
-      data: ArrayBuffer;
-      name: string;
-      type?: string;
-      filename?: string;
-    }[];
-    [key: string]: any;
-  };
+  json: () => Promise<{ [key: string]: any }>;
+  fields: () => Promise<MultipartField[]>;
 }
 
 export enum sizes {
@@ -26,23 +20,25 @@ interface Options {
   limit?: number;
 }
 
-const blacklist = ['get', 'options', 'head', 'delete'];
-
-// @TODO use body as function
-export const body: PLuginFunction<Options, BodyReq> = (sact, options = {}) => {
+export const body: PLuginFunction<Options> = (
+  sact: Sact<BodyReq>,
+  options = {}
+) => {
   const limit = options.limit || sizes.SIZE_5MB;
   sact.use(async (req, res) => {
-    if (!blacklist.includes(req.getMethod())) {
+    req.json = async () => {
+      const buffer = await readBody(res, limit);
+      try {
+        return JSON.parse(buffer.toString());
+      } catch {
+        throw new HttpError('Invalid json', 400);
+      }
+    };
+
+    req.fields = async () => {
       const header = req.getHeader('content-type');
       const buffer = await readBody(res, limit);
-      if (header !== 'application/json') {
-        const data = sact.uws.getParts(buffer, header);
-        req.body = { fields: data };
-      } else {
-        req.body = JSON.parse(buffer.toString());
-      }
-    } else {
-      return Promise.resolve();
-    }
+      return sact.uws.getParts(buffer, header);
+    };
   });
 };

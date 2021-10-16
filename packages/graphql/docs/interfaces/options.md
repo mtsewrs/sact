@@ -35,7 +35,7 @@
 
 #### Defined in
 
-graphql/src/graphql.ts:13
+[graphql/src/graphql.ts:13](https://github.com/mattiasewers/sact/blob/df76a34/packages/graphql/src/graphql.ts#L13)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-graphql/src/graphql.ts:12
+[graphql/src/graphql.ts:12](https://github.com/mattiasewers/sact/blob/df76a34/packages/graphql/src/graphql.ts#L12)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-graphql/src/graphql.ts:10
+[graphql/src/graphql.ts:10](https://github.com/mattiasewers/sact/blob/df76a34/packages/graphql/src/graphql.ts#L10)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-graphql/src/graphql.ts:11
+[graphql/src/graphql.ts:11](https://github.com/mattiasewers/sact/blob/df76a34/packages/graphql/src/graphql.ts#L11)
 
 ___
 
@@ -89,4 +89,4 @@ ___
 
 #### Defined in
 
-graphql/src/graphql.ts:17
+[graphql/src/graphql.ts:17](https://github.com/mattiasewers/sact/blob/df76a34/packages/graphql/src/graphql.ts#L17)

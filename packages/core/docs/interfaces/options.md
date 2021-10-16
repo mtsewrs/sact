@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-- `AppOptions`
+- [`AppOptions`](appoptions.md)
 
   ↳ **`Options`**
 
@@ -15,7 +15,6 @@
 - [cert\_file\_name](options.md#cert_file_name)
 - [dh\_params\_file\_name](options.md#dh_params_file_name)
 - [key\_file\_name](options.md#key_file_name)
-- [logger](options.md#logger)
 - [passphrase](options.md#passphrase)
 - [ssl](options.md#ssl)
 - [ssl\_prefer\_low\_memory\_usage](options.md#ssl_prefer_low_memory_usage)
@@ -24,67 +23,57 @@
 
 ### cert\_file\_name
 
-• `Optional` **cert\_file\_name**: `RecognizedString`
+• `Optional` **cert\_file\_name**: [`RecognizedString`](../modules.md#recognizedstring)
 
 #### Inherited from
 
-AppOptions.cert\_file\_name
+[AppOptions](appoptions.md).[cert_file_name](appoptions.md#cert_file_name)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:256
+node_modules/uWebSockets.js/index.d.ts:263
 
 ___
 
 ### dh\_params\_file\_name
 
-• `Optional` **dh\_params\_file\_name**: `RecognizedString`
+• `Optional` **dh\_params\_file\_name**: [`RecognizedString`](../modules.md#recognizedstring)
 
 #### Inherited from
 
-AppOptions.dh\_params\_file\_name
+[AppOptions](appoptions.md).[dh_params_file_name](appoptions.md#dh_params_file_name)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:258
+node_modules/uWebSockets.js/index.d.ts:265
 
 ___
 
 ### key\_file\_name
 
-• `Optional` **key\_file\_name**: `RecognizedString`
+• `Optional` **key\_file\_name**: [`RecognizedString`](../modules.md#recognizedstring)
 
 #### Inherited from
 
-AppOptions.key\_file\_name
+[AppOptions](appoptions.md).[key_file_name](appoptions.md#key_file_name)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:255
-
-___
-
-### logger
-
-• `Optional` **logger**: `Logger`
-
-#### Defined in
-
-packages/core/src/types.ts:12
+node_modules/uWebSockets.js/index.d.ts:262
 
 ___
 
 ### passphrase
 
-• `Optional` **passphrase**: `RecognizedString`
+• `Optional` **passphrase**: [`RecognizedString`](../modules.md#recognizedstring)
 
 #### Inherited from
 
-AppOptions.passphrase
+[AppOptions](appoptions.md).[passphrase](appoptions.md#passphrase)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:257
+node_modules/uWebSockets.js/index.d.ts:264
 
 ___
 
@@ -94,7 +83,7 @@ ___
 
 #### Defined in
 
-packages/core/src/types.ts:13
+[packages/core/src/types.ts:9](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L9)
 
 ___
 
@@ -106,8 +95,8 @@ This translates to SSL_MODE_RELEASE_BUFFERS
 
 #### Inherited from
 
-AppOptions.ssl\_prefer\_low\_memory\_usage
+[AppOptions](appoptions.md).[ssl_prefer_low_memory_usage](appoptions.md#ssl_prefer_low_memory_usage)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:260
+node_modules/uWebSockets.js/index.d.ts:267

@@ -39,4 +39,4 @@
 
 #### Defined in
 
-session/src/index.ts:25
+[session/src/index.ts:25](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/index.ts#L25)

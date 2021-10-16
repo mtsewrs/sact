@@ -46,7 +46,7 @@ Error.constructor
 
 #### Defined in
 
-packages/core/src/http.ts:2
+[packages/core/src/error.ts:2](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/error.ts#L2)
 
 ## Properties
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-packages/core/src/http.ts:2
+[packages/core/src/error.ts:2](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/error.ts#L2)
 
 ___
 

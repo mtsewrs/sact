@@ -1,33 +1,38 @@
 import request from 'supertest';
-import { promises as fs } from 'fs';
-import { Sact, body, BodyReq, FileRes, serve, HttpError } from '../src/index';
+import { Sact, body, BodyReq, HttpError } from '../src/index';
 
-const app = new Sact<BodyReq, FileRes>();
+const app = new Sact<BodyReq>();
 
-app.register(body, {
-  limit: 10000,
-});
-
-app.register(serve, {
-  folder: 'test/public',
-  prefix: 'static',
-});
+app.register(body);
 
 app.get('/', async () => {
   return { foo: 'bar' };
 });
 
 app.post('/', async (req) => {
-  return req.body.foo;
+  const body = await req.json();
+  return body.foo;
 });
 
 app.post('/files', async (req) => {
-  const [field, image] = req.body.fields;
+  const [field, image] = await req.fields();
   return { name: field.name, filename: image.filename };
 });
 
 app.get('/error', async () => {
   throw new HttpError('error', 400);
+});
+
+app.get('/send', (_, res) => {
+  res.send('hello');
+});
+
+app.get('/next', (_, __, next) => {
+  next();
+});
+
+app.get('/*', async () => {
+  return 'ok';
 });
 
 describe('Basic core server functionality ', () => {
@@ -65,22 +70,13 @@ describe('Basic core server functionality ', () => {
     expect(resp.status).toEqual(400);
   });
 
-  it('can serve static files', async () => {
-    const text = 'hello there!'.repeat(10);
-    const filename = 'test.txt';
-    await fs.writeFile(__dirname + '/public/' + filename, text);
-    const resp = await request(app).get('/static/' + filename);
-    expect(resp.text).toEqual(text);
-    expect(resp.status).toEqual(200);
+  it('res.send', async () => {
+    const resp = await request(app).get('/send');
+    expect(resp.text).toEqual('hello');
   });
 
-  it('should return code 413 when payload is to large', async () => {
-    const text = 'hello there!'.repeat(10000);
-    const filename = 'error.txt';
-    await fs.writeFile(__dirname + '/public/' + filename, text);
-    const resp = await request(app)
-      .post('/files')
-      .attach('logo', __dirname + '/public/' + filename);
-    expect(resp.status).toEqual(413);
+  it('can call next', async () => {
+    const resp = await request(app).get('/next');
+    expect(resp.text).toEqual('ok');
   });
 });

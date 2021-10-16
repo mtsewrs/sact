@@ -31,7 +31,7 @@
 
 #### Defined in
 
-session/src/index.ts:22
+[session/src/index.ts:22](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/index.ts#L22)
 
 ___
 
@@ -56,4 +56,4 @@ ___
 
 #### Defined in
 
-session/src/index.ts:21
+[session/src/index.ts:21](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/index.ts#L21)

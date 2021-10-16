@@ -8,24 +8,11 @@
 
 - [CookieReq](interfaces/cookiereq.md)
 - [CookieRes](interfaces/cookieres.md)
-
-### Type aliases
-
-- [Options](modules.md#options)
+- [Options](interfaces/options.md)
 
 ### Functions
 
 - [cookie](modules.md#cookie)
-
-## Type aliases
-
-### Options
-
-Ƭ **Options**: `CookieSerializeOptions`
-
-#### Defined in
-
-cookie.ts:15
 
 ## Functions
 
@@ -38,7 +25,7 @@ cookie.ts:15
 | Name | Type |
 | :------ | :------ |
 | `sact` | `Sact`<`unknown`, `unknown`\> |
-| `opt?` | `CookieSerializeOptions` |
+| `opt?` | [`Options`](interfaces/options.md) |
 
 #### Returns
 
@@ -46,4 +33,4 @@ cookie.ts:15
 
 #### Defined in
 
-cookie.ts:17
+[packages/cookie/src/cookie.ts:17](https://github.com/mattiasewers/sact/blob/df76a34/packages/cookie/src/cookie.ts#L17)

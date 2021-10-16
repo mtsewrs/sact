@@ -31,4 +31,4 @@
 
 #### Defined in
 
-graphql/src/graphql.ts:22
+[graphql/src/graphql.ts:22](https://github.com/mattiasewers/sact/blob/df76a34/packages/graphql/src/graphql.ts#L22)

@@ -57,13 +57,7 @@ export const handler =
       }
     }
 
-    res.send = (
-      data?: string,
-      /**
-       * if you do anything async like promises set this to true
-       */
-      async = false
-    ) => {
+    res.send = (data?: string, async = false) => {
       if (!res.aborted) {
         if (async) {
           res.cork(() => {

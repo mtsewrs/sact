@@ -1,5 +1,14 @@
 import { WebSocket } from 'uWebSockets.js';
 
+/**
+ * const rateLimit = RateLimit(1, 10000) //  limit is: 1 message per 10 seconds.
+ *
+ * rateLimit(ws) returns true if over limit
+ *
+ * @param limit
+ * @param interval
+ * @returns (ws: WebSocket) => boolean
+ */
 export const RateLimit = (limit: number, interval: number) => {
   let now = 0;
   const last = Symbol() as unknown as string;

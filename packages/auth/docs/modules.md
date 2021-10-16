@@ -6,34 +6,12 @@
 
 ### Interfaces
 
+- [AuthReq](interfaces/authreq.md)
 - [Options](interfaces/options.md)
-
-### Type aliases
-
-- [AuthReq](modules.md#authreq)
 
 ### Functions
 
 - [auth](modules.md#auth)
-
-## Type aliases
-
-### AuthReq
-
-Ƭ **AuthReq**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `authenticate` | () => `Promise`<`void`\> |
-| `authenticateOrFail` | () => `Promise`<`void`\> |
-| `login` | (`id`: `string`, `meta?`: `any`) => `Promise`<`void`\> |
-| `user` | `string` \| ``null`` |
-
-#### Defined in
-
-auth.ts:13
 
 ## Functions
 
@@ -54,4 +32,4 @@ auth.ts:13
 
 #### Defined in
 
-auth.ts:66
+[auth.ts:71](https://github.com/mattiasewers/sact/blob/df76a34/packages/auth/src/auth.ts#L71)

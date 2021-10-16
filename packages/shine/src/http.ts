@@ -9,21 +9,24 @@ export function http(
 ) {
   for (let i = 0; i < paths.length; i++) {
     app.post(prefix + '/' + paths[i], (req, res) => {
-      const method = req.body ? req.body.method : null
-      const path = paths[i]
-      const func: (ctx: any) => Promise<any> = methods[path]
-        ? methods[path][method]
-        : null
-      if (!func) {
-        throw new HttpError('Method not found', 400)
-      }
+      return req.json().then((body) => {
+        const method = body ? body.method : null
+        const params = body.params || {}
+        const path = paths[i]
+        const func: (ctx: any) => Promise<any> = methods[path]
+          ? methods[path][method]
+          : null
+        if (!func) {
+          throw new HttpError('Method not found', 404)
+        }
 
-      return func({
-        ...context,
-        req,
-        res,
-        isWs: false,
-        params: req.body.params || {},
+        return func({
+          ...context,
+          req,
+          res,
+          isWs: false,
+          params,
+        })
       })
     })
   }

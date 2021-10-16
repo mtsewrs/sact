@@ -1,5 +1,5 @@
 import { Response } from './types';
-import { HttpError } from './http';
+import { HttpError } from './error';
 
 export function readBody(res: Response, limit: number): Promise<Buffer> {
   return new Promise((resolve, reject) => {

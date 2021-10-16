@@ -18,7 +18,7 @@
 ### Properties
 
 - [app](sact.md#app)
-- [token](sact.md#token)
+- [port](sact.md#port)
 - [uws](sact.md#uws)
 
 ### Methods
@@ -57,7 +57,7 @@
 
 #### Defined in
 
-packages/core/src/sact.ts:38
+[packages/core/src/sact.ts:35](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L35)
 
 ## Properties
 
@@ -69,19 +69,19 @@ uws App or SSLApp instance, use if you have custom needs
 
 #### Defined in
 
-packages/core/src/sact.ts:14
+[packages/core/src/sact.ts:15](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L15)
 
 ___
 
-### token
+### port
 
-• **token**: `unknown`
+• **port**: `number`
 
-The built in pino logger
+the port the app is listening on
 
 #### Defined in
 
-packages/core/src/sact.ts:30
+[packages/core/src/sact.ts:31](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L31)
 
 ___
 
@@ -93,7 +93,7 @@ uws module
 
 #### Defined in
 
-packages/core/src/sact.ts:38
+[packages/core/src/sact.ts:35](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L35)
 
 ## Methods
 
@@ -114,7 +114,7 @@ packages/core/src/sact.ts:38
 
 #### Defined in
 
-packages/core/src/sact.ts:143
+[packages/core/src/sact.ts:134](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L134)
 
 ___
 
@@ -130,7 +130,7 @@ stop the server
 
 #### Defined in
 
-packages/core/src/sact.ts:67
+[packages/core/src/sact.ts:58](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L58)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-packages/core/src/sact.ts:125
+[packages/core/src/sact.ts:116](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L116)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `port` | `number` | `9001` |
+| `port` | `number` | `0` |
 
 #### Returns
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-packages/core/src/sact.ts:74
+[packages/core/src/sact.ts:65](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L65)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `topic` | `RecognizedString` |
+| `topic` | [`RecognizedString`](../modules.md#recognizedstring) |
 
 #### Returns
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-packages/core/src/sact.ts:121
+[packages/core/src/sact.ts:112](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L112)
 
 ___
 
@@ -212,7 +212,7 @@ ___
 
 #### Defined in
 
-packages/core/src/sact.ts:131
+[packages/core/src/sact.ts:122](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L122)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-packages/core/src/sact.ts:137
+[packages/core/src/sact.ts:128](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L128)
 
 ___
 
@@ -245,8 +245,8 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `topic` | `RecognizedString` |
-| `message` | `RecognizedString` |
+| `topic` | [`RecognizedString`](../modules.md#recognizedstring) |
+| `message` | [`RecognizedString`](../modules.md#recognizedstring) |
 | `isBinary?` | `boolean` |
 | `compress?` | `boolean` |
 
@@ -256,7 +256,7 @@ ___
 
 #### Defined in
 
-packages/core/src/sact.ts:154
+[packages/core/src/sact.ts:145](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L145)
 
 ___
 
@@ -270,7 +270,7 @@ ___
 
 #### Defined in
 
-packages/core/src/sact.ts:110
+[packages/core/src/sact.ts:101](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L101)
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-packages/core/src/sact.ts:102
+[packages/core/src/sact.ts:93](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L93)
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-packages/core/src/sact.ts:96
+[packages/core/src/sact.ts:87](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L87)
 
 ___
 
@@ -330,7 +330,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `path` | `string` |
-| `opt` | `WebSocketBehavior` |
+| `opt` | [`WebSocketBehavior`](../interfaces/websocketbehavior.md) |
 
 #### Returns
 
@@ -338,4 +338,4 @@ ___
 
 #### Defined in
 
-packages/core/src/sact.ts:149
+[packages/core/src/sact.ts:140](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L140)

@@ -16,7 +16,6 @@
 - Middleware support
 - Plugin system
 - Body parsing
-- File serving
 
 ### Core plugins
 
@@ -37,7 +36,7 @@ API documentation are heavily lacking but generated ones by typedoc are located 
 #### Minimal setup
 
 ```js
-import { Stract } from '@sact/core';
+import { Sact } from '@sact/core';
 
 const app = new Sact();
 

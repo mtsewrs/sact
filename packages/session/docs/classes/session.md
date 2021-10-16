@@ -55,7 +55,7 @@
 
 #### Defined in
 
-session/src/session.ts:18
+[session/src/session.ts:18](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/session.ts#L18)
 
 ## Properties
 
@@ -65,7 +65,7 @@ session/src/session.ts:18
 
 #### Defined in
 
-session/src/session.ts:16
+[session/src/session.ts:16](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/session.ts#L16)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-session/src/session.ts:15
+[session/src/session.ts:15](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/session.ts#L15)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-session/src/session.ts:18
+[session/src/session.ts:18](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/session.ts#L18)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-session/src/session.ts:17
+[session/src/session.ts:17](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/session.ts#L17)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-session/src/session.ts:14
+[session/src/session.ts:14](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/session.ts#L14)
 
 ## Methods
 
@@ -119,7 +119,7 @@ session/src/session.ts:14
 
 #### Defined in
 
-session/src/session.ts:67
+[session/src/session.ts:67](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/session.ts#L67)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-session/src/session.ts:54
+[session/src/session.ts:54](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/session.ts#L54)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-session/src/session.ts:50
+[session/src/session.ts:50](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/session.ts#L50)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-session/src/session.ts:27
+[session/src/session.ts:27](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/session.ts#L27)
 
 ___
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-session/src/session.ts:61
+[session/src/session.ts:61](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/session.ts#L61)
 
 ___
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-session/src/session.ts:44
+[session/src/session.ts:44](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/session.ts#L44)
 
 ___
 
@@ -224,4 +224,4 @@ ___
 
 #### Defined in
 
-session/src/session.ts:39
+[session/src/session.ts:39](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/session.ts#L39)

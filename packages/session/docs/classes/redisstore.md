@@ -52,7 +52,7 @@ GenericStore.constructor
 
 #### Defined in
 
-session/src/redis-store.ts:18
+[session/src/redis-store.ts:18](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/redis-store.ts#L18)
 
 ## Properties
 
@@ -66,7 +66,7 @@ GenericStore.byteLength
 
 #### Defined in
 
-session/src/generic-store.ts:12
+[session/src/generic-store.ts:12](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L12)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-session/src/redis-store.ts:17
+[session/src/redis-store.ts:17](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/redis-store.ts#L17)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-session/src/redis-store.ts:18
+[session/src/redis-store.ts:18](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/redis-store.ts#L18)
 
 ___
 
@@ -100,7 +100,7 @@ GenericStore.prefix
 
 #### Defined in
 
-session/src/generic-store.ts:11
+[session/src/generic-store.ts:11](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L11)
 
 ## Methods
 
@@ -114,7 +114,7 @@ session/src/generic-store.ts:11
 
 #### Defined in
 
-session/src/redis-store.ts:26
+[session/src/redis-store.ts:26](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/redis-store.ts#L26)
 
 ___
 
@@ -128,7 +128,7 @@ ___
 
 #### Defined in
 
-session/src/redis-store.ts:30
+[session/src/redis-store.ts:30](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/redis-store.ts#L30)
 
 ___
 
@@ -146,7 +146,7 @@ GenericStore.createSessionId
 
 #### Defined in
 
-session/src/generic-store.ts:24
+[session/src/generic-store.ts:24](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L24)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-session/src/redis-store.ts:80
+[session/src/redis-store.ts:80](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/redis-store.ts#L80)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-session/src/redis-store.ts:38
+[session/src/redis-store.ts:38](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/redis-store.ts#L38)
 
 ___
 
@@ -207,7 +207,7 @@ ___
 
 #### Defined in
 
-session/src/redis-store.ts:59
+[session/src/redis-store.ts:59](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/redis-store.ts#L59)
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 #### Defined in
 
-session/src/redis-store.ts:55
+[session/src/redis-store.ts:55](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/redis-store.ts#L55)
 
 ___
 
@@ -245,7 +245,7 @@ GenericStore.getReferenceKey
 
 #### Defined in
 
-session/src/generic-store.ts:32
+[session/src/generic-store.ts:32](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L32)
 
 ___
 
@@ -269,7 +269,7 @@ GenericStore.getSessionKey
 
 #### Defined in
 
-session/src/generic-store.ts:28
+[session/src/generic-store.ts:28](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L28)
 
 ___
 
@@ -291,4 +291,4 @@ ___
 
 #### Defined in
 
-session/src/redis-store.ts:64
+[session/src/redis-store.ts:64](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/redis-store.ts#L64)

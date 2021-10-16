@@ -47,7 +47,7 @@ GenericStore.constructor
 
 #### Defined in
 
-session/src/memory-store.ts:11
+[session/src/memory-store.ts:11](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/memory-store.ts#L11)
 
 ## Properties
 
@@ -61,7 +61,7 @@ GenericStore.byteLength
 
 #### Defined in
 
-session/src/generic-store.ts:12
+[session/src/generic-store.ts:12](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L12)
 
 ___
 
@@ -75,7 +75,7 @@ GenericStore.prefix
 
 #### Defined in
 
-session/src/generic-store.ts:11
+[session/src/generic-store.ts:11](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L11)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-session/src/memory-store.ts:11
+[session/src/memory-store.ts:11](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/memory-store.ts#L11)
 
 ## Methods
 
@@ -103,7 +103,7 @@ GenericStore.createSessionId
 
 #### Defined in
 
-session/src/generic-store.ts:24
+[session/src/generic-store.ts:24](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L24)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-session/src/memory-store.ts:28
+[session/src/memory-store.ts:28](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/memory-store.ts#L28)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-session/src/memory-store.ts:17
+[session/src/memory-store.ts:17](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/memory-store.ts#L17)
 
 ___
 
@@ -167,7 +167,7 @@ GenericStore.getReferenceKey
 
 #### Defined in
 
-session/src/generic-store.ts:32
+[session/src/generic-store.ts:32](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L32)
 
 ___
 
@@ -191,7 +191,7 @@ GenericStore.getSessionKey
 
 #### Defined in
 
-session/src/generic-store.ts:28
+[session/src/generic-store.ts:28](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L28)
 
 ___
 
@@ -213,4 +213,4 @@ ___
 
 #### Defined in
 
-session/src/memory-store.ts:22
+[session/src/memory-store.ts:22](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/memory-store.ts#L22)

@@ -27,7 +27,7 @@
 
 #### Defined in
 
-session/src/index.ts:15
+[session/src/index.ts:15](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/index.ts#L15)
 
 ___
 
@@ -37,4 +37,4 @@ ___
 
 #### Defined in
 
-session/src/index.ts:14
+[session/src/index.ts:14](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/index.ts#L14)

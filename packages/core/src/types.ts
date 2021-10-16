@@ -5,8 +5,6 @@ import {
   TemplatedApp,
 } from 'uWebSockets.js';
 
-export type cb = (err?: Error) => void;
-
 export interface Options extends AppOptions {
   ssl?: boolean;
 }
@@ -20,17 +18,22 @@ export type CallbackFunction<
 > = (
   req: Request<REQ>,
   res: Response<RES>,
+  /**
+   *
+   * This is not like express next, it is to say that this route handler did not handle the route, causing the router to continue looking for a matching route handler, or fail.
+   */
   next: () => void
 ) => Promise<any> | void;
 
 export type Response<T = { [key: string]: any }> = IResponse & T;
 
 export interface IResponse extends HttpResponse {
+  /**
+   * if you do anything async like promises set async to true, default is false
+   */
   send: (data?: string, async?: boolean) => void;
   sendFile: (file: string, res: Response, req: Request) => Promise<void>;
   header: (key: string, value: string) => IResponse;
-  redirect: (path: string) => void;
-  aborted: boolean;
   headers: [string, string][];
   statusCode: number;
 }

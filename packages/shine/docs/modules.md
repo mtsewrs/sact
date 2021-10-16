@@ -6,31 +6,12 @@
 
 ### Interfaces
 
+- [Ctx](interfaces/ctx.md)
 - [Options](interfaces/options.md)
-
-### Type aliases
-
-- [Ctx](modules.md#ctx)
 
 ### Functions
 
 - [shine](modules.md#shine)
-
-## Type aliases
-
-### Ctx
-
-Ƭ **Ctx**<`T`\>: { `isWs`: `boolean` ; `params`: `T`[``"params"``] \| `any` ; `req?`: `Request`<`BodyReq` & `T`[``"req"``]\> ; `res?`: `Response`<`T`[``"res"``]\>  } & `T`[``"context"``]
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Object` |
-
-#### Defined in
-
-index.ts:8
 
 ## Functions
 
@@ -51,4 +32,4 @@ index.ts:8
 
 #### Defined in
 
-index.ts:36
+[index.ts:32](https://github.com/mattiasewers/sact/blob/df76a34/packages/shine/src/index.ts#L32)

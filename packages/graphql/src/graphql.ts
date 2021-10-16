@@ -31,7 +31,7 @@ export const graphql: PLuginFunction<Options, BodyReq> = (sact, opt) => {
   const path = opt.path || '/graphql';
 
   sact.post(path, async (req, res) => {
-    const { query, variables } = req.body;
+    const { query, variables } = await req.json();
 
     if (!query) {
       return '[sact-graphql] query must be supplied to graphql';
