@@ -1,4 +1,10 @@
-import { PLuginFunction, Response, Request, BodyReq } from '@sact/core';
+import {
+  PLuginFunction,
+  Response,
+  Request,
+  BodyReq,
+  HttpError,
+} from '@sact/core';
 import {
   RenderPageOptions,
   renderPlaygroundPage,
@@ -17,7 +23,7 @@ export interface Options {
   schema: GraphQLSchema;
 }
 
-const cache: { [key: string]: CompiledQuery } = {};
+const cache = new Map<string, CompiledQuery>();
 
 export const graphql: PLuginFunction<Options, BodyReq> = (sact, opt) => {
   if (!opt || !opt.schema) {
@@ -34,17 +40,19 @@ export const graphql: PLuginFunction<Options, BodyReq> = (sact, opt) => {
     const { query, variables } = await req.json();
 
     if (!query) {
-      return '[sact-graphql] query must be supplied to graphql';
+      throw new HttpError('query must be supplied to graphql', 400);
     }
 
-    if (!(query in cache)) {
+    if (!cache.has(query)) {
       const document = parse(query);
-      cache[query] = compileQuery(opt.schema, document) as CompiledQuery;
+      cache.set(query, compileQuery(opt.schema, document) as CompiledQuery);
     }
 
-    if (!isCompiledQuery(cache[query])) {
+    const cached = cache.get(query);
+
+    if (!isCompiledQuery(cached)) {
       res.statusCode = 500;
-      return cache[query];
+      return cached;
     }
 
     const context =
@@ -54,7 +62,7 @@ export const graphql: PLuginFunction<Options, BodyReq> = (sact, opt) => {
         : typeof opt.context === 'function'
         ? opt.context(res, req)
         : opt.context;
-    const executionResult = await cache[query].query(null, context, variables);
+    const executionResult = await cached.query(null, context, variables);
     const err: any = executionResult.errors ? executionResult.errors[0] : null;
     if (err && err.originalError && !err.originalError.status) {
       res.statusCode = 500;
