@@ -20,7 +20,7 @@
 ### Core plugins
 
 - @sact/cookie - Cookie parsing
-- @sact/session - Sessions
+- @sact/session - Sessions using redis or in-memory
 - @sact/auth - Opinionated authentication
 - @sact/graphql - Graphql
 - @sact/shine - Shine (opinionated json-rpc api sub-framework)
