@@ -19,7 +19,13 @@ export class RedisStore extends GenericStore {
 
   constructor(options: Options = {}) {
     super(options);
-    this.client = options.client || new Redis();
+    if (process.env.NODE_ENV === 'CI') {
+      this.client = new Redis({
+        host: process.env.REDIS_HOST,
+      });
+    } else {
+      this.client = options.client || new Redis();
+    }
     this.maxAge = getMS(options.maxAge || '28 days');
   }
 
@@ -39,7 +45,7 @@ export class RedisStore extends GenericStore {
     const key = this.getReferenceKey(id);
     const session_ids = await this.client.smembers(key);
     await Promise.all(
-      session_ids.map(session_id => {
+      session_ids.map((session_id) => {
         // deletes the session and removes the session from all the referenced sets
         if (session_id) {
           return this.delete(session_id, id);
@@ -67,7 +73,7 @@ export class RedisStore extends GenericStore {
     const multi = [
       HMSET,
       ['pexpire', key, this.maxAge],
-      ['sadd', this.getReferenceKey(id), session_id]
+      ['sadd', this.getReferenceKey(id), session_id],
     ];
     HMSET.push('id', id);
     for (const field of Object.keys(meta)) {
@@ -82,7 +88,7 @@ export class RedisStore extends GenericStore {
 
     const multi = [
       ['del', key],
-      ['srem', this.getReferenceKey(value), session_id]
+      ['srem', this.getReferenceKey(value), session_id],
     ];
 
     return this.client.multi(multi).exec();

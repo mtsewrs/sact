@@ -47,6 +47,10 @@ jobs:
 
       - name: Test code
         run: yarn test
+        env:
+          # The hostname used to communicate with the Redis service container
+          CI: true
+          REDIS_HOST: redis
 
   auto-merge:
     needs: test_build
