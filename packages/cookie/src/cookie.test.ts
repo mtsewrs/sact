@@ -15,7 +15,6 @@ app.get('/', async (_, res) => {
 });
 
 app.get('/cookies', async (req) => {
-  console.log(req.cookies);
   return req.cookies;
 });
 
