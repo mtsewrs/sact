@@ -58,7 +58,7 @@ jobs:
   auto-merge:
     needs: test_build
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
 
     steps:
