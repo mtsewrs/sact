@@ -3,7 +3,7 @@ import { readBody } from './readBody';
 import { HttpError } from './error';
 
 export interface BodyReq {
-  json: () => Promise<{ [key: string]: any }>;
+  json: <T = { [key: string]: any }>() => Promise<T>;
   fields: () => Promise<MultipartField[]>;
 }
 
@@ -17,6 +17,9 @@ export enum sizes {
 }
 
 interface Options {
+  /**
+   * body limit, defaults to 5 mb
+   */
   limit?: number;
 }
 

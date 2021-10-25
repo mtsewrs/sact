@@ -53,7 +53,7 @@ describe('Basic core server functionality ', () => {
     expect(resp.status).toEqual(200);
   });
 
-  it('accepts files', async () => {
+  it('accepts multipart requests', async () => {
     const resp = await request(app)
       .post('/files')
       .field('logo_field', 'my awesome logo')
