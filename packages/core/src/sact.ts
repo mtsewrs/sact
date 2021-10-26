@@ -2,7 +2,7 @@ import * as uws from 'uWebSockets.js';
 
 export * from 'uWebSockets.js';
 
-import { CallbackFunction, Options, Server } from './types';
+import { CallbackFunction, Options } from './types';
 
 import { handler } from './handler';
 
@@ -12,7 +12,7 @@ export class Sact<REQ = unknown, RES = unknown> {
   /**
    * uws App or SSLApp instance, use if you have custom needs
    */
-  app: Server;
+  app: uws.TemplatedApp;
   /**
    * @ignore
    */
@@ -38,9 +38,9 @@ export class Sact<REQ = unknown, RES = unknown> {
     const { ssl, ...opt } = options;
 
     if (!!ssl) {
-      this.app = uws.SSLApp(opt) as Server;
+      this.app = uws.SSLApp(opt);
     } else {
-      this.app = uws.App(opt) as Server;
+      this.app = uws.App(opt);
     }
   }
 
@@ -114,25 +114,25 @@ export class Sact<REQ = unknown, RES = unknown> {
   }
 
   get(path: string, callback: CallbackFunction<REQ, RES>) {
-    this.app.get(path, handler(callback, this));
+    this.app.get(path, handler(callback, this.middlewares));
 
     return this;
   }
 
   options(path: string, callback: CallbackFunction<REQ, RES>) {
-    this.app.options(path, handler(callback, this));
+    this.app.options(path, handler(callback, this.middlewares));
 
     return this;
   }
 
   post(path: string, callback: CallbackFunction<REQ, RES>) {
-    this.app.post(path, handler(callback, this));
+    this.app.post(path, handler(callback, this.middlewares));
 
     return this;
   }
 
   any(path: string, callback: CallbackFunction<REQ, RES>) {
-    this.app.any(path, handler(callback, this));
+    this.app.any(path, handler(callback, this.middlewares));
 
     return this;
   }

@@ -28,7 +28,7 @@ export const body: PLuginFunction<Options> = (
   options = {}
 ) => {
   const limit = options.limit || sizes.SIZE_5MB;
-  sact.use(async (req, res) => {
+  sact.use((req, res) => {
     req.json = async () => {
       const buffer = await readBody(res, limit);
       try {

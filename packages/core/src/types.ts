@@ -1,9 +1,4 @@
-import {
-  AppOptions,
-  HttpResponse,
-  HttpRequest,
-  TemplatedApp,
-} from 'uWebSockets.js';
+import { AppOptions, HttpResponse, HttpRequest } from 'uWebSockets.js';
 
 export interface Options extends AppOptions {
   ssl?: boolean;
@@ -23,7 +18,7 @@ export type CallbackFunction<
    * This is not like express next, it is to say that this route handler did not handle the route, causing the router to continue looking for a matching route handler, or fail.
    */
   next: () => void
-) => Promise<any> | void;
+) => void | Promise<any>;
 
 export type Response<T = { [key: string]: any }> = IResponse & T;
 
@@ -38,31 +33,4 @@ export interface IResponse extends HttpResponse {
   statusCode: number;
 }
 
-export type Request<T = { [key: string]: any }> = IRequest & T;
-
-export interface IRequest extends HttpRequest {}
-
-export interface Server extends TemplatedApp {
-  get(pattern: string, handler: (res: Response, req: Request) => void): Server;
-  post(pattern: string, handler: (res: Response, req: Request) => void): Server;
-  options(
-    pattern: string,
-    handler: (res: Response, req: Request) => void
-  ): Server;
-  del(pattern: string, handler: (res: Response, req: Request) => void): Server;
-  patch(
-    pattern: string,
-    handler: (res: Response, req: Request) => void
-  ): Server;
-  put(pattern: string, handler: (res: Response, req: Request) => void): Server;
-  head(pattern: string, handler: (res: Response, req: Request) => void): Server;
-  connect(
-    pattern: string,
-    handler: (res: Response, req: Request) => void
-  ): Server;
-  trace(
-    pattern: string,
-    handler: (res: Response, req: Request) => void
-  ): Server;
-  any(pattern: string, handler: (res: Response, req: Request) => void): Server;
-}
+export type Request<T = { [key: string]: any }> = HttpRequest & T;
