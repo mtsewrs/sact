@@ -29,13 +29,13 @@ const cookie: PLuginFunction<Options> = (
 
     res.setCookie = (name, value) => {
       const setCookie = Cookie.serialize(name, value, options);
-      res.header('Set-Cookie', setCookie);
+      res.writeHeader('Set-Cookie', setCookie);
       return res;
     };
 
     res.clearCookie = (name) => {
       const setCookie = Cookie.serialize(name, '', options);
-      res.header('Set-Cookie', setCookie);
+      res.writeHeader('Set-Cookie', setCookie);
       return res;
     };
   });

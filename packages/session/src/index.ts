@@ -56,7 +56,7 @@ const session: PLuginFunction<Options> = (
 
     res.setCookie = (name, value) => {
       const setCookie = cookie.serialize(name, value, options.cookie);
-      res.header('Set-Cookie', setCookie);
+      res.writeHeader('Set-Cookie', setCookie);
       return res;
     };
 

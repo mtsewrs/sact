@@ -1,66 +1,5 @@
+import { handlePromise } from './handlePromise';
 import { Response, Request, CallbackFunction } from './types';
-
-function writeHeaders(res: Response) {
-  if (!!res.headers.length) {
-    res.headers.forEach(([key, value]) => {
-      res.writeHeader(key, value);
-    });
-  }
-}
-
-function handlePromise(res: Response, promise: Promise<any>) {
-  promise
-    .then((data) => {
-      if (res.next_called || typeof data === 'undefined') {
-        return;
-      }
-      const result = ['array', 'object', 'number'].includes(typeof data)
-        ? JSON.stringify(data)
-        : data;
-      if (!res.aborted) {
-        res.cork(() => {
-          res.statusCode && res.writeStatus(String(res.statusCode));
-          writeHeaders(res);
-          ['array', 'object', 'number'].includes(typeof data) &&
-            res.writeHeader('Content-Type', 'application/json');
-          res.end(result);
-        });
-      }
-    })
-    .catch((error) => {
-      if (error.status) {
-        if (!res.aborted) {
-          res.cork(() => {
-            res.writeStatus(String(error.status));
-            res.writeHeader('Content-Type', 'application/json');
-            writeHeaders(res);
-            res.end(
-              JSON.stringify({
-                error: true,
-                message: error.message,
-                status: error.status,
-              })
-            );
-          });
-        }
-      } else {
-        console.error(error);
-        if (!res.aborted) {
-          res.cork(() => {
-            res.writeStatus('500');
-            res.writeHeader('Content-Type', 'application/json');
-            res.end(
-              JSON.stringify({
-                error: true,
-                message: error.message,
-                status: 500,
-              })
-            );
-          });
-        }
-      }
-    });
-}
 
 /**
  * @ignore
@@ -75,34 +14,15 @@ export const handler =
       }
     });
 
-    req.headers = {};
-
-    const next = () => {
-      res.next_called = true;
-      req.setYield(true);
-    };
-
-    res.headers = [];
-
-    res.header = (k: string, v: string) => {
-      res.headers.push([k, v]);
-      return res;
-    };
-
-    res.getHeader = (key: string) => {
-      const h = res.headers.find(([k]) => k === key);
-      return h && h[1];
-    };
-
     const middlewarePromises = [];
     if (!!middlewares.length) {
       for (let i = 0; i < middlewares.length; i++) {
         const middleware = middlewares[i];
         if (middleware[Symbol.toStringTag] === 'AsyncFunction') {
-          const promise = middleware(req, res, next);
+          const promise = middleware(req, res);
           middlewarePromises.push(promise);
         } else {
-          const promise = middleware(req, res, next);
+          const promise = middleware(req, res);
           if (promise instanceof Promise) {
             middlewarePromises.push(promise);
           }
@@ -110,31 +30,17 @@ export const handler =
       }
     }
 
-    res.send = (data?: string, async = false) => {
-      if (!res.aborted) {
-        if (async) {
-          res.cork(() => {
-            writeHeaders(res);
-            res.end(data ? data : '');
-          });
-        } else {
-          writeHeaders(res);
-          res.end(data ? data : '');
-        }
-      }
-    };
-
     if (!!middlewarePromises.length) {
       const promise = Promise.all(middlewarePromises).then(() => {
-        return callback(req, res, next);
+        return callback(req, res);
       });
       handlePromise(res, promise);
     } else {
       if (callback[Symbol.toStringTag] === 'AsyncFunction') {
-        const promise = callback(req, res, next);
+        const promise = callback(req, res);
         handlePromise(res, promise as Promise<any>);
       } else {
-        const promise = callback(req, res, next);
+        const promise = callback(req, res);
         if (promise instanceof Promise) {
           handlePromise(res, promise);
         }

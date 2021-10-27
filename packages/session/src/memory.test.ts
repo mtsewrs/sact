@@ -7,22 +7,22 @@ const app = new Sact() as Sact<SessionReq<MemoryStore>> & {
 };
 
 app.register(session, {
-  store: new MemoryStore()
+  store: new MemoryStore(),
 });
 
 const name = 'some-id';
 
-app.get('/get', async req => {
+app.get('/get', async (req) => {
   const session = await req.session.get();
-  return session ? session.id : 'no session';
+  return session ? session : 'no session';
 });
 
-app.get('/set', async req => {
-  await req.session.set(name);
+app.get('/set', async (req) => {
+  await req.session.set(name, { role: 'admin' });
   return 'ok';
 });
 
-app.get('/delete', async req => {
+app.get('/delete', async (req) => {
   await req.session.delete();
   const session = await req.session.get();
   return session ? 'fail' : 'ok';
@@ -51,16 +51,13 @@ describe('memory session', () => {
   });
 
   test('get', async () => {
-    const resp = await request(app)
-      .get('/get')
-      .set({ cookie });
-    expect(resp.text).toEqual(name);
+    const resp = await request(app).get('/get').set({ cookie });
+    expect(resp.body.id).toEqual(name);
+    expect(resp.body.role).toEqual('admin');
   });
 
   test('delete', async () => {
-    const resp = await request(app)
-      .get('/delete')
-      .set({ cookie });
+    const resp = await request(app).get('/delete').set({ cookie });
     expect(resp.text).toEqual('ok');
   });
 });

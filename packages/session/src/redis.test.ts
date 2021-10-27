@@ -12,11 +12,11 @@ const name = 'some-id';
 
 app.get('/get', async (req) => {
   const session = await req.session.get();
-  return session ? session.id : 'no session';
+  return session ? session : 'no session';
 });
 
 app.get('/set', async (req) => {
-  await req.session.set(name);
+  await req.session.set(name, { role: 'admin' });
   return 'ok';
 });
 
@@ -59,7 +59,8 @@ describe('redis session', () => {
 
   test('get', async () => {
     const resp = await request(app).get('/get').set({ cookie });
-    expect(resp.text).toEqual(name);
+    expect(resp.body.id).toEqual(name);
+    expect(resp.body.role).toEqual('admin');
   });
 
   test('delete', async () => {

@@ -2,7 +2,7 @@
   <img align="center" height="300" src="https://user-images.githubusercontent.com/4136218/105098174-f9b08480-5aa9-11eb-8167-52683d4e5b97.png" />
 </p>
 
-<p align="center">⚡️ Simple and fast node websocket and http framework</p>
+<p align="center">⚡️ Minimal and fast node framework</p>
 <p align="center">
   <a href="https://www.npmjs.com/~sactcore" target="_blank"><img src="https://img.shields.io/npm/v/@sact/core.svg" alt="NPM Version" /></a>
   <a href="https://www.npmjs.com/~sactcore" target="_blank"><img src="https://img.shields.io/npm/dm/@sact/core.svg" alt="NPM Downloads" /></a>

@@ -23,16 +23,8 @@ app.get('/error', async () => {
   throw new HttpError('error', 400);
 });
 
-app.get('/send', (_, res) => {
-  res.send('hello');
-});
-
-app.get('/next', (_, __, next) => {
-  next();
-});
-
-app.get('/*', async () => {
-  return 'ok';
+app.get('/raw', (_, res) => {
+  res.end('hello');
 });
 
 describe('Basic core server functionality ', () => {
@@ -70,13 +62,9 @@ describe('Basic core server functionality ', () => {
     expect(resp.status).toEqual(400);
   });
 
-  it('res.send', async () => {
-    const resp = await request(app).get('/send');
+  it('can send a raw response', async () => {
+    const resp = await request(app).get('/raw');
     expect(resp.text).toEqual('hello');
-  });
-
-  it('can call next', async () => {
-    const resp = await request(app).get('/next');
-    expect(resp.text).toEqual('ok');
+    expect(resp.status).toEqual(200);
   });
 });
