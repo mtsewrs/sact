@@ -9,9 +9,6 @@ export const handler =
   (res: Response, req: Request): void => {
     res.onAborted(() => {
       res.aborted = true;
-      if (res.stream) {
-        res.stream.destroy();
-      }
     });
 
     const middlewarePromises = [];
