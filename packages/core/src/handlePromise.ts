@@ -1,3 +1,4 @@
+import { HttpError } from './error';
 import { Response } from './types';
 
 export function handlePromise(res: Response, promise: Promise<any>): void {
@@ -19,7 +20,7 @@ export function handlePromise(res: Response, promise: Promise<any>): void {
       }
     })
     .catch((error) => {
-      if (error.status) {
+      if (error instanceof HttpError) {
         if (!res.aborted) {
           res.cork(() => {
             res.writeStatus(String(error.status));
