@@ -1392,10 +1392,10 @@ graceful-fs@^4.2.4:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.8.tgz#e412b8d33f5e006593cbd3cee6df9f2cebbe802a"
   integrity sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==
 
-graphql-jit@^0.4.2:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/graphql-jit/-/graphql-jit-0.4.3.tgz#2ee37f221e8a982536a49e87c4bd4b3daf6ec35a"
-  integrity sha512-eM3W6pC04RhdtFte6/HE9+LBiO57b6cYV72Jkb3cAOJux46mfgR16UwI53QJJbUen0aHoy6oqkah15sDDx95Ug==
+graphql-jit@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/graphql-jit/-/graphql-jit-0.6.0.tgz#33e7ed3959eca5754b3fbcc44e31a68538b0b028"
+  integrity sha512-jyn9M0Hib9tIy+hvwvRAI5DlO6c7ZpzZcJdFsTPZJaleE+SV+OEB/81ez0S7DZsJ0MdVVkRVBgiCrZQD/oFO6Q==
   dependencies:
     fast-json-stringify "^1.13.0"
     generate-function "^2.3.1"
@@ -1411,17 +1411,10 @@ graphql-playground-html@^1.6.13:
   dependencies:
     xss "^1.0.6"
 
-graphql@*:
-  version "15.6.1"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.6.1.tgz#9125bdf057553525da251e19e96dab3d3855ddfc"
-  integrity sha512-3i5lu0z6dRvJ48QP9kFxBkJ7h4Kso7PS8eahyTFz5Jm6CvQfLtNIE8LX9N6JLnXTuwR+sIYnXzaWp6anOg0QQw==
-
-graphql@^14.5.8:
-  version "14.7.0"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.7.0.tgz#7fa79a80a69be4a31c27dda824dc04dac2035a72"
-  integrity sha512-l0xWZpoPKpppFzMfvVyFmp9vLN7w/ZZJPefUicMCepfJeQ8sMcztloGYY9DfjVPo6tIUDzU5Hw3MUbIjj9AVVA==
-  dependencies:
-    iterall "^1.2.2"
+graphql@*, graphql@^15.7.1:
+  version "15.7.1"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.7.1.tgz#c821a1741e04e2bc2c91e138f34c06a86c0464f1"
+  integrity sha512-x34S6gC0/peBZnlK60zCJox/d45A7p6At9oN9EPA3qhoIAlR4LNZmXRLkICBckwwTMJzVdA8cx3QIQZMOl606A==
 
 handlebars@^4.7.7:
   version "4.7.7"
@@ -1640,11 +1633,6 @@ istanbul-reports@^3.0.2:
   dependencies:
     html-escaper "^2.0.0"
     istanbul-lib-report "^3.0.0"
-
-iterall@^1.2.2:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.3.0.tgz#afcb08492e2915cbd8a0884eb93a8c94d0d72fea"
-  integrity sha512-QZ9qOMdF+QLHxy1QIpUHUU1D5pS2CG2P69LF6L6CPjPYA/XMOmKV3PZpawHoAjHNyB0swdVTRxdYT4tbBbxqwg==
 
 jest-changed-files@^27.3.0:
   version "27.3.0"
@@ -3032,10 +3020,10 @@ typescript@^4.3.4:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
   integrity sha512-DqGhF5IKoBl8WNf8C1gu8q0xZSInh9j1kJJMqT3a94w1JzVaBU4EXOSMrz9yDqMT0xt3selp83fuFMQ0uzv6qA==
 
-uWebSockets.js@uNetworking/uWebSockets.js#v20.1.0:
-  version "20.1.0"
-  uid "4dec549959d6910870f4e308e952e570bdd8a2d9"
-  resolved "https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/4dec549959d6910870f4e308e952e570bdd8a2d9"
+uWebSockets.js@uNetworking/uWebSockets.js#v20.2.0:
+  version "20.2.0"
+  uid "0e00c0ab784eaffb75e1727ae0787ec9a59719e5"
+  resolved "https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/0e00c0ab784eaffb75e1727ae0787ec9a59719e5"
 
 uglify-js@^3.1.4:
   version "3.14.2"
