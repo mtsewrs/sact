@@ -10,7 +10,7 @@
     "prepublishOnly": "yarn test && yarn build"
   },
   "dependencies": {
-    "graphql": "^15.7.1",
+    "graphql": "^16.0.1",
     "graphql-jit": "^0.6.0",
     "graphql-playground-html": "^1.6.13"
   },
