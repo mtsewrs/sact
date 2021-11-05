@@ -14,10 +14,23 @@ export class Session<STORE extends GenericStore> {
   _store: STORE;
   _options: Options;
   _id: string;
-  _req: Request;
+  _req: Request<{
+    cookies: {
+      [key: string]: any;
+    };
+  }>;
   _reply: Response;
 
-  constructor(req: Request, reply: Response, store: STORE, options: Options) {
+  constructor(
+    req: Request<{
+      cookies: {
+        [key: string]: any;
+      };
+    }>,
+    reply: Response,
+    store: STORE,
+    options: Options
+  ) {
     this._req = req;
     this._reply = reply;
     this._store = store;
