@@ -1351,10 +1351,10 @@ formidable@^1.2.0:
   resolved "https://registry.yarnpkg.com/formidable/-/formidable-1.2.2.tgz#bf69aea2972982675f00865342b982986f6b8dd9"
   integrity sha512-V8gLm+41I/8kguQ4/o1D3RIHRmhYFG4pnNyonvua+40rqcEmT4+V71yaZ3B457xbbgCsCfjSPi65u/W6vK1U5Q==
 
-fs-jetpack@^4.1.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/fs-jetpack/-/fs-jetpack-4.2.0.tgz#a3efc00abdb36f0f43ebd44405a4826098399d97"
-  integrity sha512-b7kFUlXAA4Q12qENTdU5DCQkf8ojEk4fpaXXu/bqayobwm0EfjjlwBCFqRBM2t8I75s0ifk0ajRqddXy2bAHJg==
+fs-jetpack@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/fs-jetpack/-/fs-jetpack-4.3.0.tgz#8202abd21c9160faadf3c258b4cf918a74f680de"
+  integrity sha512-Zx4OJ8HyKvZL9sgxegMGRCgAJSQET5Cqpj/SESwnzqHruHvhkilJBGLoZf6EiYr3UWJDqcPoWDX7aAfaj7D9Qw==
   dependencies:
     minimatch "^3.0.2"
     rimraf "^2.6.3"
