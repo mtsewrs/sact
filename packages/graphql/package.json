@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "graphql": "^16.0.1",
-    "graphql-jit": "^0.7.1",
+    "graphql-jit": "^0.7.2",
     "graphql-playground-html": "^1.6.30"
   },
   "devDependencies": {
