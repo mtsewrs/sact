@@ -16,7 +16,7 @@
     "jest": "^27.4.3",
     "rollup": "^2.60.2",
     "supertest": "^4.0.2",
-    "ts-jest": "^27.0.3",
+    "ts-jest": "^27.1.0",
     "tslib": "^2.3.0",
     "typedoc": "^0.22.10",
     "typedoc-plugin-markdown": "^3.11.7",
