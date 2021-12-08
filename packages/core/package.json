@@ -10,7 +10,7 @@
     "prepublishOnly": "yarn test && yarn build"
   },
   "dependencies": {
-    "uWebSockets.js": "uNetworking/uWebSockets.js#v20.4.0"
+    "uWebSockets.js": "uNetworking/uWebSockets.js#v20.5.0"
   },
   "prettier": {
     "printWidth": 80,
