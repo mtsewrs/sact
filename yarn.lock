@@ -3024,10 +3024,10 @@ typescript@^4.5.4:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.4.tgz#a17d3a0263bf5c8723b9c52f43c5084edf13c2e8"
   integrity sha512-VgYs2A2QIRuGphtzFV7aQJduJ2gyfTljngLzjpfW9FoYZF6xuw1W0vW9ghCKLfcWrCFxK81CSGRAvS1pn4fIUg==
 
-uWebSockets.js@uNetworking/uWebSockets.js#v20.5.0:
-  version "20.5.0"
-  uid "03ee82eb119f2741665e0ff242efc7299acdfa07"
-  resolved "https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/03ee82eb119f2741665e0ff242efc7299acdfa07"
+uWebSockets.js@uNetworking/uWebSockets.js#v20.6.0:
+  version "20.6.0"
+  uid a58e810e47a23696410f6073c8c905dc38f75da5
+  resolved "https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/a58e810e47a23696410f6073c8c905dc38f75da5"
 
 uglify-js@^3.1.4:
   version "3.14.2"
