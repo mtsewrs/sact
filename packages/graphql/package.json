@@ -10,13 +10,13 @@
     "prepublishOnly": "yarn test && yarn build"
   },
   "dependencies": {
-    "graphql": "^16.0.1",
-    "graphql-jit": "^0.7.1",
+    "graphql": "^16.1.0",
+    "graphql-jit": "^0.7.2",
     "graphql-playground-html": "^1.6.30"
   },
   "devDependencies": {
     "@types/graphql": "^14.5.0",
-    "@types/node": "^16.11.6"
+    "@types/node": "^16.11.13"
   },
   "gitHead": "686179b2bb78358d3739f7b2024fe34bedc698a7"
 }
