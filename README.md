@@ -83,4 +83,4 @@ const plugin = (app, options) => {
 app.register(plugin, {});
 ```
 
-This framework uses https://github.com/uNetworking/uWebSockets under the hood
+This framework uses https://github.com/uNetworking/uWebSockets

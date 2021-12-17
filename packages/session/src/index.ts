@@ -1,4 +1,4 @@
-import { Sact, PLuginFunction } from '@sact/core';
+import { PLuginFunction, Sact } from '@sact/core';
 import cookie, { CookieSerializeOptions } from 'cookie';
 import { Session, GenericStore } from './session';
 import { RedisStore } from './redis-store';
@@ -22,15 +22,18 @@ export interface SessionRes {
   clearCookie: (name: string) => void;
 }
 
+type Stores = RedisStore | MemoryStore;
+
+type App = Sact<SessionReq<Stores>, SessionRes>;
+
 const session: PLuginFunction<Options> = (
-  sact: Sact<SessionReq<any>, SessionRes> & { store: any },
-  options: Options
+  sact: App & { store: Stores },
+  options
 ) => {
   if (!options || !options.store) {
     throw new Error('[@sact/session] requires store option');
   }
   const store = options.store;
-  options.key = options.key || 'sid';
   sact.store = store;
 
   options.cookie = options.cookie

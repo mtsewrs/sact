@@ -4,7 +4,7 @@ import { HttpError } from './error';
 
 export interface BodyReq {
   json: <T = { [key: string]: any }>() => Promise<T>;
-  fields: () => Promise<MultipartField[]>;
+  fields: () => Promise<undefined | MultipartField[]>;
 }
 
 export enum sizes {

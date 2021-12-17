@@ -45,7 +45,7 @@ export class RedisStore extends GenericStore {
     const key = this.getReferenceKey(id);
     const session_ids = await this.client.smembers(key);
     await Promise.all(
-      session_ids.map((session_id) => {
+      session_ids.map((session_id: string) => {
         // deletes the session and removes the session from all the referenced sets
         if (session_id) {
           return this.delete(session_id, id);
@@ -67,7 +67,7 @@ export class RedisStore extends GenericStore {
     return await this.client.hgetall(key);
   }
 
-  async set(session_id: string, id: string, meta = {}): Promise<any> {
+  async set(session_id: string, id: string, meta: any): Promise<any> {
     const key = this.getSessionKey(session_id);
     const HMSET = ['hmset', key, 'id', session_id];
     const multi = [

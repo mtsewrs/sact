@@ -9,7 +9,7 @@ interface Options {
 
 export class GenericStore {
   prefix?: string;
-  byteLength?: number;
+  byteLength: number;
 
   constructor(options: Options = {}) {
     // name space for all keys

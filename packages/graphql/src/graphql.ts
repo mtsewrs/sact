@@ -4,6 +4,7 @@ import {
   Request,
   BodyReq,
   HttpError,
+  Sact,
 } from '@sact/core';
 import {
   RenderPageOptions,
@@ -25,7 +26,7 @@ export interface Options {
 
 const cache = new Map<string, CompiledQuery>();
 
-export const graphql: PLuginFunction<Options, BodyReq> = (sact, opt) => {
+export const graphql: PLuginFunction<Options> = (sact: Sact<BodyReq>, opt) => {
   if (!opt || !opt.schema) {
     throw new Error(
       '[sact-graphql] Graphql server requires options with a schema.'
@@ -50,17 +51,14 @@ export const graphql: PLuginFunction<Options, BodyReq> = (sact, opt) => {
 
     const cached = cache.get(query);
 
-    if (!isCompiledQuery(cached)) {
+    if (!isCompiledQuery<CompiledQuery, any>(cached)) {
       res.statusCode = 500;
       return cached;
     }
 
     const context =
-      typeof opt.context === 'function' &&
-      opt.context[Symbol.toStringTag] === 'AsyncFunction'
+      typeof opt.context === 'function'
         ? await opt.context(res, req)
-        : typeof opt.context === 'function'
-        ? opt.context(res, req)
         : opt.context;
     const executionResult = await cached.query(null, context, variables);
     const err: any = executionResult.errors ? executionResult.errors[0] : null;

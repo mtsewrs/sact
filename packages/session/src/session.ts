@@ -34,18 +34,19 @@ export class Session<STORE extends GenericStore> {
     this._req = req;
     this._reply = reply;
     this._store = store;
+    options.key = options.key || 'sid';
     this._options = options;
-  }
 
-  getSessionId() {
-    const options = this._options;
-    if (this._id) {
-      return this._id;
-    } else if (this._req.cookies[options.key]) {
-      this._id = this._req.cookies[options.key];
+    const key = options.key;
+
+    if (this._req.cookies[key]) {
+      this._id = this._req.cookies[key];
     } else {
       this._id = this._store.createSessionId();
     }
+  }
+
+  getSessionId(): string {
     return this._id;
   }
 

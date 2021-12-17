@@ -1,8 +1,8 @@
 import { Sact } from '@sact/core';
 import request from 'supertest';
-import { session, SessionReq, MemoryStore } from '.';
+import { session, SessionReq, MemoryStore, SessionRes } from '.';
 
-const app = new Sact() as Sact<SessionReq<MemoryStore>> & {
+const app = new Sact() as Sact<SessionReq<MemoryStore>, SessionRes> & {
   store: MemoryStore;
 };
 

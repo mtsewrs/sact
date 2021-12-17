@@ -25,7 +25,7 @@ describe('cookie', () => {
     app.close();
   });
 
-  let cookies = null;
+  let cookies: any | undefined;
 
   test('setCookie', async () => {
     const resp = await request(app).get('/');

@@ -1,7 +1,10 @@
 import { Response } from './types';
 import { HttpError } from './error';
 
-export function readBody(res: Response, limit: number): Promise<Buffer> {
+export function readBody(
+  res: Response<unknown>,
+  limit: number
+): Promise<Buffer> {
   return new Promise((resolve, reject) => {
     let buffer: Buffer = Buffer.from('');
     res.onData((ab, isLast) => {

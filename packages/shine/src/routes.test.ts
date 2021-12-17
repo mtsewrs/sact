@@ -1,10 +1,10 @@
 import request from 'supertest'
-import { Sact, body } from '@sact/core'
+import { Sact, body, BodyReq } from '@sact/core'
 import { shine } from '.'
 
 const context = { hello: 'world' }
 
-const app = new Sact()
+const app = new Sact<BodyReq>()
 
 app.register(body)
 

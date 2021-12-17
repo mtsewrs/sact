@@ -1,8 +1,10 @@
 import { Sact } from '@sact/core';
 import request from 'supertest';
-import { session, SessionReq, RedisStore } from '.';
+import { session, SessionReq, SessionRes, RedisStore } from '.';
 
-const app = new Sact() as Sact<SessionReq<RedisStore>> & { store: RedisStore };
+const app = new Sact() as Sact<SessionReq<RedisStore>, SessionRes> & {
+  store: RedisStore;
+};
 
 app.register(session, {
   store: new RedisStore(),

@@ -11,6 +11,8 @@
     "prepublishOnly": "yarn test && yarn build"
   },
   "dependencies": {
+    "@types/ioredis": "^4.28.5",
+    "@types/ms": "^0.7.31",
     "cookie": "^0.4.1",
     "ioredis": "^4.9.0",
     "ms": "^2.1.1"

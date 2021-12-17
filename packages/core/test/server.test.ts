@@ -15,7 +15,11 @@ app.post('/', async (req) => {
 });
 
 app.post('/files', async (req) => {
-  const [field, image] = await req.fields();
+  const fields = await req.fields();
+  if (!fields) {
+    throw new HttpError('No fields', 400);
+  }
+  const [field, image] = fields;
   return { name: field.name, filename: image.filename };
 });
 

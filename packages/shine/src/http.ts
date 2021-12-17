@@ -9,8 +9,9 @@ export function http(
 ) {
   for (let i = 0; i < paths.length; i++) {
     app.post(prefix + '/' + paths[i], (req, res) => {
-      return req.json().then((body) => {
-        const method = body ? body.method : null
+      return req.json<{ method: string; params: any }>().then((body) => {
+        if (!body?.method) throw new HttpError('No method specified', 400)
+        const method = body.method
         const params = body.params || {}
         const path = paths[i]
         const func: (ctx: any) => Promise<any> = methods[path]

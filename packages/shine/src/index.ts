@@ -1,4 +1,4 @@
-import { Request, Response, BodyReq, PLuginFunction } from '@sact/core'
+import { Request, Response, BodyReq, PLuginFunction, Sact } from '@sact/core'
 import * as jetpack from 'fs-jetpack'
 import { parse } from 'path'
 
@@ -29,23 +29,23 @@ export interface Options {
   ts?: boolean
 }
 
-export const shine: PLuginFunction<Options, BodyReq> = (app, options) => {
-  const context = options.context || {}
-  const prefix = options.prefix || ''
-  const ts = options.ts
+export const shine: PLuginFunction<Options> = (app: Sact<BodyReq>, options) => {
+  const context = options?.context || {}
+  const prefix = options?.prefix || ''
+  const ts = options?.ts
 
-  const path = options.path || 'src/routes'
+  const path = options?.path || 'src/routes'
   let paths = jetpack.list(path)
   const functions = jetpack.find(path, {
     matching: ts ? '**/*.ts' : '**/*.js',
   })
 
-  if (!functions.length) {
+  if (!functions.length || !paths?.length) {
     throw new Error('[@sact/shine] Could not find' + path)
   }
 
   const functionsFound = []
-  const methods = {}
+  const methods: { [key: string]: any } = {}
   for (let i = 0; i < paths.length; i++) {
     const p = paths[i]
 

@@ -1,12 +1,17 @@
+import { HttpRequest, HttpResponse } from 'uWebSockets.js';
+import { Request, Response } from '.';
 import { handlePromise } from './handlePromise';
-import { Response, Request, CallbackFunction } from './types';
+import { CallbackFunction } from './types';
 
 /**
  * @ignore
  */
 export const handler =
-  (callback: CallbackFunction, middlewares: CallbackFunction[]) =>
-  (res: Response, req: Request): void => {
+  <REQ, RES>(
+    callback: CallbackFunction<REQ, RES>,
+    middlewares: CallbackFunction<REQ, RES>[]
+  ) =>
+  (res: HttpResponse, req: HttpRequest): void => {
     res.onAborted(() => {
       res.aborted = true;
     });
@@ -15,32 +20,22 @@ export const handler =
     if (!!middlewares.length) {
       for (let i = 0; i < middlewares.length; i++) {
         const middleware = middlewares[i];
-        if (middleware[Symbol.toStringTag] === 'AsyncFunction') {
-          const promise = middleware(req, res);
+        const promise = middleware(req as Request<REQ>, res as Response<RES>);
+        if (promise instanceof Promise) {
           middlewarePromises.push(promise);
-        } else {
-          const promise = middleware(req, res);
-          if (promise instanceof Promise) {
-            middlewarePromises.push(promise);
-          }
         }
       }
     }
 
     if (!!middlewarePromises.length) {
       const promise = Promise.all(middlewarePromises).then(() => {
-        return callback(req, res);
+        return callback(req as Request<REQ>, res as Response<RES>);
       });
-      handlePromise(res, promise);
+      handlePromise(res as Response<RES>, promise);
     } else {
-      if (callback[Symbol.toStringTag] === 'AsyncFunction') {
-        const promise = callback(req, res);
-        handlePromise(res, promise as Promise<any>);
-      } else {
-        const promise = callback(req, res);
-        if (promise instanceof Promise) {
-          handlePromise(res, promise);
-        }
+      const promise = callback(req as Request<REQ>, res as Response<RES>);
+      if (promise instanceof Promise) {
+        handlePromise(res as Response<RES>, promise);
       }
     }
   };

@@ -16,7 +16,7 @@ export class Sact<REQ = unknown, RES = unknown> {
   /**
    * @ignore
    */
-  middlewares: CallbackFunction[] = [];
+  middlewares: CallbackFunction<REQ, RES>[] = [];
   /**
    * @ignore
    */
@@ -24,11 +24,11 @@ export class Sact<REQ = unknown, RES = unknown> {
   /**
    * @ignore
    */
-  token: unknown;
+  token?: uws.us_listen_socket | null;
   /**
    * the port the app is listening on
    */
-  port: number;
+  port?: number;
   /**
    * uws module
    */
@@ -62,6 +62,11 @@ export class Sact<REQ = unknown, RES = unknown> {
     }
   }
 
+  /**
+   *
+   * @param port number, defaults to 0
+   * @returns Promise with port, listen token and url
+   */
   async listen(port = 0): Promise<{
     port: number;
     token: unknown;
@@ -153,7 +158,7 @@ export class Sact<REQ = unknown, RES = unknown> {
   }
 }
 
-export type PLuginFunction<OPTIONS = any, REQ = unknown, RES = unknown> = (
-  sact: Sact<REQ, RES>,
+export type PLuginFunction<OPTIONS = any> = (
+  sact: any,
   opt?: OPTIONS
 ) => Promise<any> | void;
