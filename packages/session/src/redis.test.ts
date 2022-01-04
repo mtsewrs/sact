@@ -36,7 +36,7 @@ describe('redis session', () => {
   let done = false;
   beforeEach(async () => {
     await app.store.connect();
-    await app.listen(9002);
+    await app.listen();
   });
 
   afterEach(() => {

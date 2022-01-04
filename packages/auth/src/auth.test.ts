@@ -31,7 +31,7 @@ app.get('/login', async (req) => {
 });
 
 describe('auth', () => {
-  beforeEach(() => app.listen(9002));
+  beforeEach(() => app.listen());
 
   afterEach(() => {
     app.close();

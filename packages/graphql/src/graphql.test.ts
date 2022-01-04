@@ -43,7 +43,7 @@ app.register(graphql, {
 });
 
 beforeEach(async () => {
-  await app.listen(9002);
+  await app.listen();
 });
 
 afterEach(() => {

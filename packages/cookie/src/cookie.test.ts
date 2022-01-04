@@ -19,7 +19,7 @@ app.get('/cookies', async (req) => {
 });
 
 describe('cookie', () => {
-  beforeEach(() => app.listen(9002));
+  beforeEach(() => app.listen());
 
   afterEach(() => {
     app.close();

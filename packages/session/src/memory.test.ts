@@ -30,7 +30,7 @@ app.get('/delete', async (req) => {
 
 describe('memory session', () => {
   beforeEach(async () => {
-    await app.listen(9002);
+    await app.listen();
   });
 
   afterEach(() => {
