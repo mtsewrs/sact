@@ -25,7 +25,6 @@ export function http(
           ...context,
           req,
           res,
-          isWs: false,
           params,
         })
       })

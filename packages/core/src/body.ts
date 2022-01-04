@@ -1,10 +1,13 @@
+import { Readable } from 'stream';
 import { MultipartField, PLuginFunction, Sact } from './sact';
 import { readBody } from './readBody';
 import { HttpError } from './error';
+import { readStream } from './readStream';
 
 export interface BodyReq {
   json: <T = { [key: string]: any }>() => Promise<T>;
   fields: () => Promise<undefined | MultipartField[]>;
+  stream: () => Promise<Readable>;
 }
 
 export enum sizes {
@@ -42,6 +45,10 @@ export const body: PLuginFunction<Options> = (
       const header = req.getHeader('content-type');
       const buffer = await readBody(res, limit);
       return sact.uws.getParts(buffer, header);
+    };
+
+    req.stream = async () => {
+      return await readStream(res);
     };
   });
 };

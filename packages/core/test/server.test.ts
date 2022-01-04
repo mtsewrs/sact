@@ -1,5 +1,6 @@
 import request from 'supertest';
 import { Sact, body, BodyReq, HttpError } from '../src/index';
+import { Readable } from 'stream';
 
 const app = new Sact<BodyReq>();
 
@@ -23,6 +24,14 @@ app.post('/files', async (req) => {
   return { name: field.name, filename: image.filename };
 });
 
+app.post('/stream', async (req) => {
+  const stream = await req.stream();
+  if (!(stream instanceof Readable)) {
+    throw new HttpError('Not a stream', 500);
+  }
+  return { ok: true };
+});
+
 app.get('/error', async () => {
   throw new HttpError('error', 400);
 });
@@ -38,18 +47,18 @@ describe('Basic core server functionality ', () => {
     app.close();
   });
 
-  it('can respond with json', async () => {
+  test('send json', async () => {
     const resp = await request(app).get('/');
     expect(resp.body.foo).toEqual('bar');
   });
 
-  it('accepts json', async () => {
+  test('json post', async () => {
     const resp = await request(app).post('/').send({ foo: 'bar' });
     expect(resp.text).toEqual('bar');
     expect(resp.status).toEqual(200);
   });
 
-  it('accepts multipart requests', async () => {
+  test('multipart requests', async () => {
     const resp = await request(app)
       .post('/files')
       .field('logo_field', 'my awesome logo')
@@ -59,14 +68,21 @@ describe('Basic core server functionality ', () => {
     expect(resp.status).toEqual(200);
   });
 
-  it('custom error response', async () => {
+  test('read stream body', async () => {
+    const resp = await request(app)
+      .post('/stream')
+      .attach('logo', __dirname + '/public/logo.png');
+    expect(resp.status).toEqual(200);
+  });
+
+  test('custom error response', async () => {
     const resp = await request(app).get('/error');
     expect(resp.body.message).toEqual('error');
     expect(resp.body.status).toEqual(400);
     expect(resp.status).toEqual(400);
   });
 
-  it('can send a raw response', async () => {
+  test('send raw response', async () => {
     const resp = await request(app).get('/raw');
     expect(resp.text).toEqual('hello');
     expect(resp.status).toEqual(200);

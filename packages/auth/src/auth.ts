@@ -1,5 +1,6 @@
 import { PLuginFunction, HttpError, Sact } from '@sact/core';
-import { SessionReq, SessionRes, Stores } from '@sact/session';
+import { SessionReq, SessionRes, MemoryStore } from '@sact/session';
+import { RedisStore } from '@sact/session/src';
 import * as jwt from 'jsonwebtoken';
 
 export interface Options {
@@ -69,7 +70,7 @@ const sign = (data: { id: string | number }, secret: string): Promise<string> =>
   });
 
 const auth: PLuginFunction<Options> = (
-  sact: Sact<AuthReq & SessionReq<Stores>, SessionRes>,
+  sact: Sact<AuthReq & SessionReq<MemoryStore | RedisStore>, SessionRes>,
   options
 ) => {
   if (!options?.secret) {

@@ -4,9 +4,9 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "yarn workspaces run test",
-    "build": "yarn workspaces run build",
-    "docs": "yarn workspaces run docs"
+    "test": "yarn turbo run test",
+    "build": "yarn turbo run build",
+    "docs": "yarn turbo run docs"
   },
   "dependencies": {
     "@rollup/plugin-typescript": "^8.2.1",
@@ -26,5 +26,29 @@
     "singleQuote": true,
     "tabWidth": 2,
     "bracketSpacing": true
+  },
+  "devDependencies": {
+    "turbo": "^1.0.24"
+  },
+  "turbo": {
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          "dist"
+        ]
+      },
+      "test": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": []
+      },
+      "dev": {
+        "cache": false
+      }
+    }
   }
 }

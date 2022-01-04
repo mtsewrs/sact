@@ -1,15 +1,9 @@
 import { Sact } from '@sact/core';
-import {
-  session,
-  SessionReq,
-  MemoryStore,
-  Stores,
-  SessionRes,
-} from '@sact/session';
+import { session, SessionReq, MemoryStore, SessionRes } from '@sact/session';
 import request from 'supertest';
 import { auth, AuthReq } from './auth';
 
-const app = new Sact<SessionReq<Stores> & AuthReq, SessionRes>();
+const app = new Sact<SessionReq<MemoryStore> & AuthReq, SessionRes>();
 
 const id = 'some-id';
 
