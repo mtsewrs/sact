@@ -37,7 +37,7 @@
           "^build"
         ],
         "outputs": [
-          "dist"
+          "./dist"
         ]
       },
       "test": {
