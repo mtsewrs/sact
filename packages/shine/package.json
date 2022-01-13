@@ -24,6 +24,6 @@
     "singleQuote": true
   },
   "dependencies": {
-    "fs-jetpack": "^4.3.0"
+    "fs-jetpack": "^4.3.1"
   }
 }
