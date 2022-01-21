@@ -1,4 +1,4 @@
-[@sact/core](../README.md) / [Exports](../modules.md) / us_listen_socket
+[@sact/core](../README.md) / [Exports](../modules.md) / us\_listen\_socket
 
 # Interface: us\_listen\_socket
 

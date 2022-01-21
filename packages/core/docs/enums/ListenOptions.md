@@ -6,8 +6,8 @@
 
 ### Enumeration members
 
-- [LIBUS\_LISTEN\_DEFAULT](listenoptions.md#libus_listen_default)
-- [LIBUS\_LISTEN\_EXCLUSIVE\_PORT](listenoptions.md#libus_listen_exclusive_port)
+- [LIBUS\_LISTEN\_DEFAULT](ListenOptions.md#libus_listen_default)
+- [LIBUS\_LISTEN\_EXCLUSIVE\_PORT](ListenOptions.md#libus_listen_exclusive_port)
 
 ## Enumeration members
 
@@ -17,7 +17,7 @@
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:271
+node_modules/uWebSockets.js/index.d.ts:260
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:272
+node_modules/uWebSockets.js/index.d.ts:261

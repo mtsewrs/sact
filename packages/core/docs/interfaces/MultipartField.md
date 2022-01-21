@@ -6,10 +6,10 @@
 
 ### Properties
 
-- [data](multipartfield.md#data)
-- [filename](multipartfield.md#filename)
-- [name](multipartfield.md#name)
-- [type](multipartfield.md#type)
+- [data](MultipartField.md#data)
+- [filename](MultipartField.md#filename)
+- [name](MultipartField.md#name)
+- [type](MultipartField.md#type)
 
 ## Properties
 
@@ -19,7 +19,7 @@
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:332
+node_modules/uWebSockets.js/index.d.ts:321
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:335
+node_modules/uWebSockets.js/index.d.ts:324
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:333
+node_modules/uWebSockets.js/index.d.ts:322
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:334
+node_modules/uWebSockets.js/index.d.ts:323

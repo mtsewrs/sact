@@ -12,17 +12,17 @@
 
 ### Properties
 
-- [domain](options.md#domain)
-- [expires](options.md#expires)
-- [httpOnly](options.md#httponly)
-- [maxAge](options.md#maxage)
-- [path](options.md#path)
-- [sameSite](options.md#samesite)
-- [secure](options.md#secure)
+- [domain](Options.md#domain)
+- [expires](Options.md#expires)
+- [httpOnly](Options.md#httponly)
+- [maxAge](Options.md#maxage)
+- [path](Options.md#path)
+- [sameSite](Options.md#samesite)
+- [secure](Options.md#secure)
 
 ### Methods
 
-- [encode](options.md#encode)
+- [encode](Options.md#encode)
 
 ## Properties
 

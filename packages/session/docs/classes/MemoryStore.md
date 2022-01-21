@@ -12,22 +12,22 @@
 
 ### Constructors
 
-- [constructor](memorystore.md#constructor)
+- [constructor](MemoryStore.md#constructor)
 
 ### Properties
 
-- [byteLength](memorystore.md#bytelength)
-- [prefix](memorystore.md#prefix)
-- [store](memorystore.md#store)
+- [byteLength](MemoryStore.md#bytelength)
+- [prefix](MemoryStore.md#prefix)
+- [store](MemoryStore.md#store)
 
 ### Methods
 
-- [createSessionId](memorystore.md#createsessionid)
-- [delete](memorystore.md#delete)
-- [get](memorystore.md#get)
-- [getReferenceKey](memorystore.md#getreferencekey)
-- [getSessionKey](memorystore.md#getsessionkey)
-- [set](memorystore.md#set)
+- [createSessionId](MemoryStore.md#createsessionid)
+- [delete](MemoryStore.md#delete)
+- [get](MemoryStore.md#get)
+- [getReferenceKey](MemoryStore.md#getreferencekey)
+- [getSessionKey](MemoryStore.md#getsessionkey)
+- [set](MemoryStore.md#set)
 
 ## Constructors
 
@@ -47,13 +47,13 @@ GenericStore.constructor
 
 #### Defined in
 
-[session/src/memory-store.ts:11](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/memory-store.ts#L11)
+[memory-store.ts:13](https://github.com/mattiasewers/sact/blob/982c487/packages/session/src/memory-store.ts#L13)
 
 ## Properties
 
 ### byteLength
 
-• `Optional` **byteLength**: `number`
+• **byteLength**: `number`
 
 #### Inherited from
 
@@ -61,7 +61,7 @@ GenericStore.byteLength
 
 #### Defined in
 
-[session/src/generic-store.ts:12](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L12)
+[generic-store.ts:12](https://github.com/mattiasewers/sact/blob/982c487/packages/session/src/generic-store.ts#L12)
 
 ___
 
@@ -75,7 +75,7 @@ GenericStore.prefix
 
 #### Defined in
 
-[session/src/generic-store.ts:11](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L11)
+[generic-store.ts:11](https://github.com/mattiasewers/sact/blob/982c487/packages/session/src/generic-store.ts#L11)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[session/src/memory-store.ts:11](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/memory-store.ts#L11)
+[memory-store.ts:11](https://github.com/mattiasewers/sact/blob/982c487/packages/session/src/memory-store.ts#L11)
 
 ## Methods
 
@@ -103,7 +103,7 @@ GenericStore.createSessionId
 
 #### Defined in
 
-[session/src/generic-store.ts:24](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L24)
+[generic-store.ts:24](https://github.com/mattiasewers/sact/blob/982c487/packages/session/src/generic-store.ts#L24)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[session/src/memory-store.ts:28](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/memory-store.ts#L28)
+[memory-store.ts:28](https://github.com/mattiasewers/sact/blob/982c487/packages/session/src/memory-store.ts#L28)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[session/src/memory-store.ts:17](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/memory-store.ts#L17)
+[memory-store.ts:17](https://github.com/mattiasewers/sact/blob/982c487/packages/session/src/memory-store.ts#L17)
 
 ___
 
@@ -167,7 +167,7 @@ GenericStore.getReferenceKey
 
 #### Defined in
 
-[session/src/generic-store.ts:32](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L32)
+[generic-store.ts:32](https://github.com/mattiasewers/sact/blob/982c487/packages/session/src/generic-store.ts#L32)
 
 ___
 
@@ -191,7 +191,7 @@ GenericStore.getSessionKey
 
 #### Defined in
 
-[session/src/generic-store.ts:28](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/generic-store.ts#L28)
+[generic-store.ts:28](https://github.com/mattiasewers/sact/blob/982c487/packages/session/src/generic-store.ts#L28)
 
 ___
 
@@ -213,4 +213,4 @@ ___
 
 #### Defined in
 
-[session/src/memory-store.ts:22](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/memory-store.ts#L22)
+[memory-store.ts:22](https://github.com/mattiasewers/sact/blob/982c487/packages/session/src/memory-store.ts#L22)

@@ -6,15 +6,15 @@
 
 ### Classes
 
-- [MemoryStore](classes/memorystore.md)
-- [RedisStore](classes/redisstore.md)
-- [Session](classes/session.md)
+- [MemoryStore](classes/MemoryStore.md)
+- [RedisStore](classes/RedisStore.md)
+- [Session](classes/Session.md)
 
 ### Interfaces
 
-- [Options](interfaces/options.md)
-- [SessionReq](interfaces/sessionreq.md)
-- [SessionRes](interfaces/sessionres.md)
+- [Options](interfaces/Options.md)
+- [SessionReq](interfaces/SessionReq.md)
+- [SessionRes](interfaces/SessionRes.md)
 
 ### Functions
 
@@ -30,8 +30,8 @@
 
 | Name | Type |
 | :------ | :------ |
-| `sact` | `Sact`<`unknown`, `unknown`\> |
-| `opt?` | [`Options`](interfaces/options.md) |
+| `sact` | `any` |
+| `opt?` | [`Options`](interfaces/Options.md) |
 
 #### Returns
 
@@ -39,4 +39,4 @@
 
 #### Defined in
 
-[session/src/index.ts:25](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/index.ts#L25)
+[index.ts:29](https://github.com/mattiasewers/sact/blob/982c487/packages/session/src/index.ts#L29)

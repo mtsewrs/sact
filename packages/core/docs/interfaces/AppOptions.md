@@ -9,17 +9,17 @@ These are options passed directly to uSockets, C layer.
 
 - **`AppOptions`**
 
-  ↳ [`Options`](options.md)
+  ↳ [`Options`](Options.md)
 
 ## Table of contents
 
 ### Properties
 
-- [cert\_file\_name](appoptions.md#cert_file_name)
-- [dh\_params\_file\_name](appoptions.md#dh_params_file_name)
-- [key\_file\_name](appoptions.md#key_file_name)
-- [passphrase](appoptions.md#passphrase)
-- [ssl\_prefer\_low\_memory\_usage](appoptions.md#ssl_prefer_low_memory_usage)
+- [cert\_file\_name](AppOptions.md#cert_file_name)
+- [dh\_params\_file\_name](AppOptions.md#dh_params_file_name)
+- [key\_file\_name](AppOptions.md#key_file_name)
+- [passphrase](AppOptions.md#passphrase)
+- [ssl\_prefer\_low\_memory\_usage](AppOptions.md#ssl_prefer_low_memory_usage)
 
 ## Properties
 
@@ -29,7 +29,7 @@ These are options passed directly to uSockets, C layer.
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:263
+node_modules/uWebSockets.js/index.d.ts:252
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:265
+node_modules/uWebSockets.js/index.d.ts:254
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:262
+node_modules/uWebSockets.js/index.d.ts:251
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:264
+node_modules/uWebSockets.js/index.d.ts:253
 
 ___
 
@@ -71,4 +71,4 @@ This translates to SSL_MODE_RELEASE_BUFFERS
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:267
+node_modules/uWebSockets.js/index.d.ts:256

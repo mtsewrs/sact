@@ -6,7 +6,7 @@
 
 ### Interfaces
 
-- [Options](interfaces/options.md)
+- [Options](interfaces/Options.md)
 
 ### Functions
 
@@ -22,8 +22,8 @@
 
 | Name | Type |
 | :------ | :------ |
-| `sact` | `Sact`<`BodyReq`, `unknown`\> |
-| `opt?` | [`Options`](interfaces/options.md) |
+| `sact` | `any` |
+| `opt?` | [`Options`](interfaces/Options.md) |
 
 #### Returns
 
@@ -31,4 +31,4 @@
 
 #### Defined in
 
-[graphql/src/graphql.ts:22](https://github.com/mattiasewers/sact/blob/df76a34/packages/graphql/src/graphql.ts#L22)
+[graphql.ts:29](https://github.com/mattiasewers/sact/blob/982c487/packages/graphql/src/graphql.ts#L29)

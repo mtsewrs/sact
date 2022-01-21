@@ -6,9 +6,9 @@
 
 ### Interfaces
 
-- [CookieReq](interfaces/cookiereq.md)
-- [CookieRes](interfaces/cookieres.md)
-- [Options](interfaces/options.md)
+- [CookieReq](interfaces/CookieReq.md)
+- [CookieRes](interfaces/CookieRes.md)
+- [Options](interfaces/Options.md)
 
 ### Functions
 
@@ -24,8 +24,8 @@
 
 | Name | Type |
 | :------ | :------ |
-| `sact` | `Sact`<`unknown`, `unknown`\> |
-| `opt?` | [`Options`](interfaces/options.md) |
+| `sact` | `any` |
+| `opt?` | [`Options`](interfaces/Options.md) |
 
 #### Returns
 
@@ -33,4 +33,4 @@
 
 #### Defined in
 
-[packages/cookie/src/cookie.ts:17](https://github.com/mattiasewers/sact/blob/df76a34/packages/cookie/src/cookie.ts#L17)
+[packages/cookie/src/cookie.ts:17](https://github.com/mattiasewers/sact/blob/982c487/packages/cookie/src/cookie.ts#L17)

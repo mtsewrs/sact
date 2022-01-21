@@ -1,4 +1,4 @@
-[@sact/core](../README.md) / [Exports](../modules.md) / us_socket
+[@sact/core](../README.md) / [Exports](../modules.md) / us\_socket
 
 # Interface: us\_socket
 

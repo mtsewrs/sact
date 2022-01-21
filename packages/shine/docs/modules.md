@@ -6,8 +6,8 @@
 
 ### Interfaces
 
-- [Ctx](interfaces/ctx.md)
-- [Options](interfaces/options.md)
+- [Ctx](interfaces/Ctx.md)
+- [Options](interfaces/Options.md)
 
 ### Functions
 
@@ -23,8 +23,8 @@
 
 | Name | Type |
 | :------ | :------ |
-| `sact` | `Sact`<`BodyReq`, `unknown`\> |
-| `opt?` | [`Options`](interfaces/options.md) |
+| `sact` | `any` |
+| `opt?` | [`Options`](interfaces/Options.md) |
 
 #### Returns
 
@@ -32,4 +32,4 @@
 
 #### Defined in
 
-[index.ts:32](https://github.com/mattiasewers/sact/blob/df76a34/packages/shine/src/index.ts#L32)
+[index.ts:32](https://github.com/mattiasewers/sact/blob/982c487/packages/shine/src/index.ts#L32)

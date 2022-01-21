@@ -6,8 +6,8 @@
 
 ### Interfaces
 
-- [AuthReq](interfaces/authreq.md)
-- [Options](interfaces/options.md)
+- [AuthReq](interfaces/AuthReq.md)
+- [Options](interfaces/Options.md)
 
 ### Functions
 
@@ -23,8 +23,8 @@
 
 | Name | Type |
 | :------ | :------ |
-| `sact` | `Sact`<`unknown`, `unknown`\> |
-| `opt?` | [`Options`](interfaces/options.md) |
+| `sact` | `any` |
+| `opt?` | [`Options`](interfaces/Options.md) |
 
 #### Returns
 
@@ -32,4 +32,4 @@
 
 #### Defined in
 
-[auth.ts:71](https://github.com/mattiasewers/sact/blob/df76a34/packages/auth/src/auth.ts#L71)
+[auth.ts:72](https://github.com/mattiasewers/sact/blob/982c487/packages/auth/src/auth.ts#L72)

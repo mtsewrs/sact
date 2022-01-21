@@ -4,7 +4,7 @@
   <img align="center" height="300" src="https://user-images.githubusercontent.com/4136218/105098174-f9b08480-5aa9-11eb-8167-52683d4e5b97.png" />
 </p>
 
-<p align="center">⚡️ Simple and fast node websocket and http framework</p>
+<p align="center">⚡️ Minimal and fast node framework</p>
 <p align="center">
   <a href="https://www.npmjs.com/~sactcore" target="_blank"><img src="https://img.shields.io/npm/v/@sact/core.svg" alt="NPM Version" /></a>
   <a href="https://www.npmjs.com/~sactcore" target="_blank"><img src="https://img.shields.io/npm/dm/@sact/core.svg" alt="NPM Downloads" /></a>
@@ -22,7 +22,7 @@
 ### Core plugins
 
 - @sact/cookie - Cookie parsing
-- @sact/session - Sessions
+- @sact/session - Sessions using redis or in-memory
 - @sact/auth - Opinionated authentication
 - @sact/graphql - Graphql
 - @sact/shine - Shine (opinionated json-rpc api sub-framework)
@@ -38,7 +38,7 @@ API documentation are heavily lacking but generated ones by typedoc are located 
 #### Minimal setup
 
 ```js
-import { Stract } from '@sact/core';
+import { Sact } from '@sact/core';
 
 const app = new Sact();
 
@@ -85,4 +85,4 @@ const plugin = (app, options) => {
 app.register(plugin, {});
 ```
 
-This framework uses https://github.com/uNetworking/uWebSockets under the hood
+This framework uses https://github.com/uNetworking/uWebSockets

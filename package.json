@@ -46,6 +46,14 @@
         ],
         "outputs": []
       },
+      "docs": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          "./docs"
+        ]
+      },
       "dev": {
         "cache": false
       }

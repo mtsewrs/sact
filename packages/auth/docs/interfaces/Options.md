@@ -6,8 +6,8 @@
 
 ### Properties
 
-- [secret](options.md#secret)
-- [tokenName](options.md#tokenname)
+- [secret](Options.md#secret)
+- [tokenName](Options.md#tokenname)
 
 ## Properties
 
@@ -19,7 +19,7 @@ secret for jwt token
 
 #### Defined in
 
-[auth.ts:9](https://github.com/mattiasewers/sact/blob/df76a34/packages/auth/src/auth.ts#L9)
+[auth.ts:10](https://github.com/mattiasewers/sact/blob/982c487/packages/auth/src/auth.ts#L10)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[auth.ts:10](https://github.com/mattiasewers/sact/blob/df76a34/packages/auth/src/auth.ts#L10)
+[auth.ts:11](https://github.com/mattiasewers/sact/blob/982c487/packages/auth/src/auth.ts#L11)

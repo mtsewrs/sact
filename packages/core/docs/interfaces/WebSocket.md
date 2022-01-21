@@ -15,32 +15,32 @@ Arbitrary user data may be attached to this object. In C++ this is done by using
 
 ### Methods
 
-- [close](websocket.md#close)
-- [cork](websocket.md#cork)
-- [end](websocket.md#end)
-- [getBufferedAmount](websocket.md#getbufferedamount)
-- [getRemoteAddress](websocket.md#getremoteaddress)
-- [getRemoteAddressAsText](websocket.md#getremoteaddressastext)
-- [getTopics](websocket.md#gettopics)
-- [isSubscribed](websocket.md#issubscribed)
-- [ping](websocket.md#ping)
-- [publish](websocket.md#publish)
-- [send](websocket.md#send)
-- [subscribe](websocket.md#subscribe)
-- [unsubscribe](websocket.md#unsubscribe)
+- [close](WebSocket.md#close)
+- [cork](WebSocket.md#cork)
+- [end](WebSocket.md#end)
+- [getBufferedAmount](WebSocket.md#getbufferedamount)
+- [getRemoteAddress](WebSocket.md#getremoteaddress)
+- [getRemoteAddressAsText](WebSocket.md#getremoteaddressastext)
+- [getTopics](WebSocket.md#gettopics)
+- [isSubscribed](WebSocket.md#issubscribed)
+- [ping](WebSocket.md#ping)
+- [publish](WebSocket.md#publish)
+- [send](WebSocket.md#send)
+- [subscribe](WebSocket.md#subscribe)
+- [unsubscribe](WebSocket.md#unsubscribe)
 
 ## Methods
 
 ### close
 
-▸ **close**(): [`WebSocket`](websocket.md)
+▸ **close**(): `void`
 
 Forcefully closes this WebSocket. Immediately calls the close handler.
 No WebSocket close message is sent.
 
 #### Returns
 
-[`WebSocket`](websocket.md)
+`void`
 
 #### Defined in
 
@@ -50,7 +50,7 @@ ___
 
 ### cork
 
-▸ **cork**(`cb`): `void`
+▸ **cork**(`cb`): [`WebSocket`](WebSocket.md)
 
 See HttpResponse.cork. Takes a function in which the socket is corked (packing many sends into one single syscall/SSL block)
 
@@ -62,17 +62,17 @@ See HttpResponse.cork. Takes a function in which the socket is corked (packing m
 
 #### Returns
 
-`void`
+[`WebSocket`](WebSocket.md)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:107
+node_modules/uWebSockets.js/index.d.ts:94
 
 ___
 
 ### end
 
-▸ **end**(`code?`, `shortMessage?`): [`WebSocket`](websocket.md)
+▸ **end**(`code?`, `shortMessage?`): `void`
 
 Gracefully closes this WebSocket. Immediately calls the close handler.
 A WebSocket close message is sent with code and shortMessage.
@@ -86,7 +86,7 @@ A WebSocket close message is sent with code and shortMessage.
 
 #### Returns
 
-[`WebSocket`](websocket.md)
+`void`
 
 #### Defined in
 
@@ -128,7 +128,7 @@ See getRemoteAddressAsText() for a text version.
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:116
+node_modules/uWebSockets.js/index.d.ts:103
 
 ___
 
@@ -144,7 +144,7 @@ Returns the remote IP address as text. See RecognizedString.
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:119
+node_modules/uWebSockets.js/index.d.ts:106
 
 ___
 
@@ -160,7 +160,7 @@ Returns a list of topics this websocket is subscribed to.
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:92
+node_modules/uWebSockets.js/index.d.ts:86
 
 ___
 
@@ -182,7 +182,7 @@ Returns whether this websocket is subscribed to topic.
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:89
+node_modules/uWebSockets.js/index.d.ts:83
 
 ___
 
@@ -212,15 +212,8 @@ ___
 
 ▸ **publish**(`topic`, `message`, `isBinary?`, `compress?`): `boolean`
 
-Publish a message to a topic in MQTT syntax. You cannot publish using wildcards, only fully specified topics. Just like with MQTT.
-
-"parent/child" kind of tree is allowed, but not "parent/#" kind of wildcard publishing.
-
-The pub/sub system does not guarantee order between what you manually send using WebSocket.send
-and what you publish using WebSocket.publish. WebSocket messages are perfectly atomic, but the order in which they appear can get scrambled if you mix the two sending functions on the same socket.
-This shouldn't matter in most applications. Order is guaranteed relative to other calls to WebSocket.publish.
-
-Also keep in mind that backpressure will be automatically managed with pub/sub, meaning some outgoing messages may be dropped if backpressure is greater than specified maxBackpressure.
+Publish a message under topic. Backpressure is managed according to maxBackpressure, closeOnBackpressureLimit settings.
+Order is guaranteed since v20.
 
 #### Parameters
 
@@ -237,7 +230,7 @@ Also keep in mind that backpressure will be automatically managed with pub/sub, 
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:104
+node_modules/uWebSockets.js/index.d.ts:91
 
 ___
 
@@ -272,12 +265,7 @@ ___
 
 ▸ **subscribe**(`topic`): `boolean`
 
-Subscribe to a topic in MQTT syntax.
-
-MQTT syntax includes things like "root/child/+/grandchild" where "+" is a
-wildcard and "root/#" where "#" is a terminating wildcard.
-
-Read more about MQTT.
+Subscribe to a topic.
 
 #### Parameters
 
@@ -291,7 +279,7 @@ Read more about MQTT.
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:83
+node_modules/uWebSockets.js/index.d.ts:77
 
 ___
 
@@ -313,4 +301,4 @@ Unsubscribe from a topic. Returns true on success, if the WebSocket was subscrib
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:86
+node_modules/uWebSockets.js/index.d.ts:80

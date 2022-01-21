@@ -12,8 +12,8 @@
 
 ### Properties
 
-- [cookies](sessionreq.md#cookies)
-- [session](sessionreq.md#session)
+- [cookies](SessionReq.md#cookies)
+- [session](SessionReq.md#session)
 
 ## Properties
 
@@ -27,14 +27,14 @@
 
 #### Defined in
 
-[session/src/index.ts:15](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/index.ts#L15)
+[index.ts:15](https://github.com/mattiasewers/sact/blob/982c487/packages/session/src/index.ts#L15)
 
 ___
 
 ### session
 
-• **session**: [`Session`](../classes/session.md)<`T`\>
+• **session**: [`Session`](../classes/Session.md)<`T`\>
 
 #### Defined in
 
-[session/src/index.ts:14](https://github.com/mattiasewers/sact/blob/df76a34/packages/session/src/index.ts#L14)
+[index.ts:14](https://github.com/mattiasewers/sact/blob/982c487/packages/session/src/index.ts#L14)

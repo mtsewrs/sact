@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[packages/core/src/body.ts:14](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/body.ts#L14)
+[packages/core/src/body.ts:17](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/body.ts#L17)
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/body.ts:15](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/body.ts#L15)
+[packages/core/src/body.ts:18](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/body.ts#L18)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/body.ts:11](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/body.ts#L11)
+[packages/core/src/body.ts:14](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/body.ts#L14)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/body.ts:16](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/body.ts#L16)
+[packages/core/src/body.ts:19](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/body.ts#L19)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/body.ts:13](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/body.ts#L13)
+[packages/core/src/body.ts:16](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/body.ts#L16)
 
 ___
 
@@ -71,4 +71,4 @@ ___
 
 #### Defined in
 
-[packages/core/src/body.ts:12](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/body.ts#L12)
+[packages/core/src/body.ts:15](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/body.ts#L15)

@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-- [`AppOptions`](appoptions.md)
+- [`AppOptions`](AppOptions.md)
 
   ↳ **`Options`**
 
@@ -12,12 +12,12 @@
 
 ### Properties
 
-- [cert\_file\_name](options.md#cert_file_name)
-- [dh\_params\_file\_name](options.md#dh_params_file_name)
-- [key\_file\_name](options.md#key_file_name)
-- [passphrase](options.md#passphrase)
-- [ssl](options.md#ssl)
-- [ssl\_prefer\_low\_memory\_usage](options.md#ssl_prefer_low_memory_usage)
+- [cert\_file\_name](Options.md#cert_file_name)
+- [dh\_params\_file\_name](Options.md#dh_params_file_name)
+- [key\_file\_name](Options.md#key_file_name)
+- [passphrase](Options.md#passphrase)
+- [ssl](Options.md#ssl)
+- [ssl\_prefer\_low\_memory\_usage](Options.md#ssl_prefer_low_memory_usage)
 
 ## Properties
 
@@ -27,11 +27,11 @@
 
 #### Inherited from
 
-[AppOptions](appoptions.md).[cert_file_name](appoptions.md#cert_file_name)
+[AppOptions](AppOptions.md).[cert_file_name](AppOptions.md#cert_file_name)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:263
+node_modules/uWebSockets.js/index.d.ts:252
 
 ___
 
@@ -41,11 +41,11 @@ ___
 
 #### Inherited from
 
-[AppOptions](appoptions.md).[dh_params_file_name](appoptions.md#dh_params_file_name)
+[AppOptions](AppOptions.md).[dh_params_file_name](AppOptions.md#dh_params_file_name)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:265
+node_modules/uWebSockets.js/index.d.ts:254
 
 ___
 
@@ -55,11 +55,11 @@ ___
 
 #### Inherited from
 
-[AppOptions](appoptions.md).[key_file_name](appoptions.md#key_file_name)
+[AppOptions](AppOptions.md).[key_file_name](AppOptions.md#key_file_name)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:262
+node_modules/uWebSockets.js/index.d.ts:251
 
 ___
 
@@ -69,11 +69,11 @@ ___
 
 #### Inherited from
 
-[AppOptions](appoptions.md).[passphrase](appoptions.md#passphrase)
+[AppOptions](AppOptions.md).[passphrase](AppOptions.md#passphrase)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:264
+node_modules/uWebSockets.js/index.d.ts:253
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/types.ts:9](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L9)
+[packages/core/src/types.ts:4](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/types.ts#L4)
 
 ___
 
@@ -95,8 +95,8 @@ This translates to SSL_MODE_RELEASE_BUFFERS
 
 #### Inherited from
 
-[AppOptions](appoptions.md).[ssl_prefer_low_memory_usage](appoptions.md#ssl_prefer_low_memory_usage)
+[AppOptions](AppOptions.md).[ssl_prefer_low_memory_usage](AppOptions.md#ssl_prefer_low_memory_usage)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:267
+node_modules/uWebSockets.js/index.d.ts:256

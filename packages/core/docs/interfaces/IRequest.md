@@ -1,26 +1,24 @@
-[@sact/core](../README.md) / [Exports](../modules.md) / HttpRequest
+[@sact/core](../README.md) / [Exports](../modules.md) / IRequest
 
-# Interface: HttpRequest
-
-An HttpRequest is stack allocated and only accessible during the callback invocation.
+# Interface: IRequest
 
 ## Hierarchy
 
-- **`HttpRequest`**
+- [`HttpRequest`](HttpRequest.md)
 
-  ↳ [`IRequest`](irequest.md)
+  ↳ **`IRequest`**
 
 ## Table of contents
 
 ### Methods
 
-- [forEach](httprequest.md#foreach)
-- [getHeader](httprequest.md#getheader)
-- [getMethod](httprequest.md#getmethod)
-- [getParameter](httprequest.md#getparameter)
-- [getQuery](httprequest.md#getquery)
-- [getUrl](httprequest.md#geturl)
-- [setYield](httprequest.md#setyield)
+- [forEach](IRequest.md#foreach)
+- [getHeader](IRequest.md#getheader)
+- [getMethod](IRequest.md#getmethod)
+- [getParameter](IRequest.md#getparameter)
+- [getQuery](IRequest.md#getquery)
+- [getUrl](IRequest.md#geturl)
+- [setYield](IRequest.md#setyield)
 
 ## Methods
 
@@ -40,9 +38,13 @@ Loops over all headers.
 
 `void`
 
+#### Inherited from
+
+[HttpRequest](HttpRequest.md).[forEach](HttpRequest.md#foreach)
+
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:223
+node_modules/uWebSockets.js/index.d.ts:210
 
 ___
 
@@ -62,9 +64,13 @@ Returns the lowercased header value or empty string.
 
 `string`
 
+#### Inherited from
+
+[HttpRequest](HttpRequest.md).[getHeader](HttpRequest.md#getheader)
+
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:211
+node_modules/uWebSockets.js/index.d.ts:198
 
 ___
 
@@ -78,9 +84,13 @@ Returns the HTTP method, useful for "any" routes.
 
 `string`
 
+#### Inherited from
+
+[HttpRequest](HttpRequest.md).[getMethod](HttpRequest.md#getmethod)
+
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:217
+node_modules/uWebSockets.js/index.d.ts:204
 
 ___
 
@@ -100,9 +110,13 @@ Returns the parsed parameter at index. Corresponds to route.
 
 `string`
 
+#### Inherited from
+
+[HttpRequest](HttpRequest.md).[getParameter](HttpRequest.md#getparameter)
+
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:213
+node_modules/uWebSockets.js/index.d.ts:200
 
 ___
 
@@ -116,9 +130,13 @@ Returns the raw querystring (the part of URL after ? sign) or empty string.
 
 `string`
 
+#### Inherited from
+
+[HttpRequest](HttpRequest.md).[getQuery](HttpRequest.md#getquery)
+
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:219
+node_modules/uWebSockets.js/index.d.ts:206
 
 ▸ **getQuery**(`key`): `string`
 
@@ -134,9 +152,13 @@ Returns a decoded query parameter value or empty string.
 
 `string`
 
+#### Inherited from
+
+[HttpRequest](HttpRequest.md).[getQuery](HttpRequest.md#getquery)
+
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:221
+node_modules/uWebSockets.js/index.d.ts:208
 
 ___
 
@@ -150,15 +172,19 @@ Returns the URL including initial /slash
 
 `string`
 
+#### Inherited from
+
+[HttpRequest](HttpRequest.md).[getUrl](HttpRequest.md#geturl)
+
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:215
+node_modules/uWebSockets.js/index.d.ts:202
 
 ___
 
 ### setYield
 
-▸ **setYield**(`yield`): [`HttpRequest`](httprequest.md)
+▸ **setYield**(`yield`): [`HttpRequest`](HttpRequest.md)
 
 Setting yield to true is to say that this route handler did not handle the route, causing the router to continue looking for a matching route handler, or fail.
 
@@ -170,8 +196,12 @@ Setting yield to true is to say that this route handler did not handle the route
 
 #### Returns
 
-[`HttpRequest`](httprequest.md)
+[`HttpRequest`](HttpRequest.md)
+
+#### Inherited from
+
+[HttpRequest](HttpRequest.md).[setYield](HttpRequest.md#setyield)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:225
+node_modules/uWebSockets.js/index.d.ts:212

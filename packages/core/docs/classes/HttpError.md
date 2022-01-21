@@ -12,20 +12,20 @@
 
 ### Constructors
 
-- [constructor](httperror.md#constructor)
+- [constructor](HttpError.md#constructor)
 
 ### Properties
 
-- [message](httperror.md#message)
-- [name](httperror.md#name)
-- [stack](httperror.md#stack)
-- [status](httperror.md#status)
-- [prepareStackTrace](httperror.md#preparestacktrace)
-- [stackTraceLimit](httperror.md#stacktracelimit)
+- [message](HttpError.md#message)
+- [name](HttpError.md#name)
+- [stack](HttpError.md#stack)
+- [status](HttpError.md#status)
+- [prepareStackTrace](HttpError.md#preparestacktrace)
+- [stackTraceLimit](HttpError.md#stacktracelimit)
 
 ### Methods
 
-- [captureStackTrace](httperror.md#capturestacktrace)
+- [captureStackTrace](HttpError.md#capturestacktrace)
 
 ## Constructors
 
@@ -46,7 +46,7 @@ Error.constructor
 
 #### Defined in
 
-[packages/core/src/error.ts:2](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/error.ts#L2)
+[packages/core/src/error.ts:4](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/error.ts#L4)
 
 ## Properties
 
@@ -60,7 +60,7 @@ Error.message
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:974
+node_modules/typescript/lib/lib.es5.d.ts:1023
 
 ___
 
@@ -74,7 +74,7 @@ Error.name
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:973
+node_modules/typescript/lib/lib.es5.d.ts:1022
 
 ___
 
@@ -88,7 +88,7 @@ Error.stack
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:975
+node_modules/typescript/lib/lib.es5.d.ts:1024
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/error.ts:2](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/error.ts#L2)
+[packages/core/src/error.ts:2](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/error.ts#L2)
 
 ___
 
@@ -111,6 +111,8 @@ ___
 ▸ (`err`, `stackTraces`): `any`
 
 Optional override for formatting stack traces
+
+**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 ##### Parameters
 
@@ -129,7 +131,7 @@ Error.prepareStackTrace
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:140
+node_modules/@types/node/globals.d.ts:11
 
 ___
 
@@ -143,7 +145,7 @@ Error.stackTraceLimit
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:142
+node_modules/@types/node/globals.d.ts:13
 
 ## Methods
 
@@ -157,7 +159,7 @@ Create .stack property on a target object
 
 | Name | Type |
 | :------ | :------ |
-| `targetObject` | `Object` |
+| `targetObject` | `object` |
 | `constructorOpt?` | `Function` |
 
 #### Returns
@@ -170,4 +172,4 @@ Error.captureStackTrace
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:133
+node_modules/@types/node/globals.d.ts:4

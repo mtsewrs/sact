@@ -12,9 +12,9 @@
 
 ### Properties
 
-- [params](ctx.md#params)
-- [req](ctx.md#req)
-- [res](ctx.md#res)
+- [params](Ctx.md#params)
+- [req](Ctx.md#req)
+- [res](Ctx.md#res)
 
 ## Properties
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[index.ts:14](https://github.com/mattiasewers/sact/blob/df76a34/packages/shine/src/index.ts#L14)
+[index.ts:14](https://github.com/mattiasewers/sact/blob/982c487/packages/shine/src/index.ts#L14)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[index.ts:16](https://github.com/mattiasewers/sact/blob/df76a34/packages/shine/src/index.ts#L16)
+[index.ts:16](https://github.com/mattiasewers/sact/blob/982c487/packages/shine/src/index.ts#L16)
 
 ___
 
@@ -44,4 +44,4 @@ ___
 
 #### Defined in
 
-[index.ts:15](https://github.com/mattiasewers/sact/blob/df76a34/packages/shine/src/index.ts#L15)
+[index.ts:15](https://github.com/mattiasewers/sact/blob/982c487/packages/shine/src/index.ts#L15)

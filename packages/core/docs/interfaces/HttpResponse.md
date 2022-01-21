@@ -8,7 +8,7 @@ An HttpResponse is valid until either onAborted callback or any of the .end/.try
 
 - **`HttpResponse`**
 
-  ↳ [`IResponse`](iresponse.md)
+  ↳ [`IResponse`](IResponse.md)
 
 ## Indexable
 
@@ -20,44 +20,44 @@ Arbitrary user data may be attached to this object
 
 ### Methods
 
-- [close](httpresponse.md#close)
-- [cork](httpresponse.md#cork)
-- [end](httpresponse.md#end)
-- [getProxiedRemoteAddress](httpresponse.md#getproxiedremoteaddress)
-- [getProxiedRemoteAddressAsText](httpresponse.md#getproxiedremoteaddressastext)
-- [getRemoteAddress](httpresponse.md#getremoteaddress)
-- [getRemoteAddressAsText](httpresponse.md#getremoteaddressastext)
-- [getWriteOffset](httpresponse.md#getwriteoffset)
-- [onAborted](httpresponse.md#onaborted)
-- [onData](httpresponse.md#ondata)
-- [onWritable](httpresponse.md#onwritable)
-- [tryEnd](httpresponse.md#tryend)
-- [upgrade](httpresponse.md#upgrade)
-- [write](httpresponse.md#write)
-- [writeHeader](httpresponse.md#writeheader)
-- [writeStatus](httpresponse.md#writestatus)
+- [close](HttpResponse.md#close)
+- [cork](HttpResponse.md#cork)
+- [end](HttpResponse.md#end)
+- [getProxiedRemoteAddress](HttpResponse.md#getproxiedremoteaddress)
+- [getProxiedRemoteAddressAsText](HttpResponse.md#getproxiedremoteaddressastext)
+- [getRemoteAddress](HttpResponse.md#getremoteaddress)
+- [getRemoteAddressAsText](HttpResponse.md#getremoteaddressastext)
+- [getWriteOffset](HttpResponse.md#getwriteoffset)
+- [onAborted](HttpResponse.md#onaborted)
+- [onData](HttpResponse.md#ondata)
+- [onWritable](HttpResponse.md#onwritable)
+- [tryEnd](HttpResponse.md#tryend)
+- [upgrade](HttpResponse.md#upgrade)
+- [write](HttpResponse.md#write)
+- [writeHeader](HttpResponse.md#writeheader)
+- [writeStatus](HttpResponse.md#writestatus)
 
 ## Methods
 
 ### close
 
-▸ **close**(): [`HttpResponse`](httpresponse.md)
+▸ **close**(): [`HttpResponse`](HttpResponse.md)
 
 Immediately force closes the connection. Any onAborted callback will run.
 
 #### Returns
 
-[`HttpResponse`](httpresponse.md)
+[`HttpResponse`](HttpResponse.md)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:154
+node_modules/uWebSockets.js/index.d.ts:141
 
 ___
 
 ### cork
 
-▸ **cork**(`cb`): `void`
+▸ **cork**(`cb`): [`HttpResponse`](HttpResponse.md)
 
 Corking a response is a performance improvement in both CPU and network, as you ready the IO system for writing multiple chunks at once.
 By default, you're corked in the immediately executing top portion of the route handler. In all other cases, such as when returning from
@@ -80,17 +80,17 @@ res.cork(() => {
 
 #### Returns
 
-`void`
+[`HttpResponse`](HttpResponse.md)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:199
+node_modules/uWebSockets.js/index.d.ts:186
 
 ___
 
 ### end
 
-▸ **end**(`body?`): [`HttpResponse`](httpresponse.md)
+▸ **end**(`body?`, `closeConnection?`): [`HttpResponse`](HttpResponse.md)
 
 Ends this response by copying the contents of body.
 
@@ -99,14 +99,15 @@ Ends this response by copying the contents of body.
 | Name | Type |
 | :------ | :------ |
 | `body?` | [`RecognizedString`](../modules.md#recognizedstring) |
+| `closeConnection?` | `boolean` |
 
 #### Returns
 
-[`HttpResponse`](httpresponse.md)
+[`HttpResponse`](HttpResponse.md)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:149
+node_modules/uWebSockets.js/index.d.ts:136
 
 ___
 
@@ -122,7 +123,7 @@ Returns the remote IP address in binary format (4 or 16 bytes), as reported by t
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:181
+node_modules/uWebSockets.js/index.d.ts:168
 
 ___
 
@@ -138,7 +139,7 @@ Returns the remote IP address as text, as reported by the PROXY Protocol v2 comp
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:184
+node_modules/uWebSockets.js/index.d.ts:171
 
 ___
 
@@ -154,7 +155,7 @@ Returns the remote IP address in binary format (4 or 16 bytes).
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:175
+node_modules/uWebSockets.js/index.d.ts:162
 
 ___
 
@@ -170,7 +171,7 @@ Returns the remote IP address as text.
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:178
+node_modules/uWebSockets.js/index.d.ts:165
 
 ___
 
@@ -186,13 +187,13 @@ Returns the global byte write offset for this response. Use with onWritable.
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:157
+node_modules/uWebSockets.js/index.d.ts:144
 
 ___
 
 ### onAborted
 
-▸ **onAborted**(`handler`): [`HttpResponse`](httpresponse.md)
+▸ **onAborted**(`handler`): [`HttpResponse`](HttpResponse.md)
 
 Every HttpResponse MUST have an attached abort handler IF you do not respond
 to it immediately inside of the callback. Returning from an Http request handler
@@ -207,17 +208,17 @@ When this event emits, the response has been aborted and may not be used.
 
 #### Returns
 
-[`HttpResponse`](httpresponse.md)
+[`HttpResponse`](HttpResponse.md)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:169
+node_modules/uWebSockets.js/index.d.ts:156
 
 ___
 
 ### onData
 
-▸ **onData**(`handler`): [`HttpResponse`](httpresponse.md)
+▸ **onData**(`handler`): [`HttpResponse`](HttpResponse.md)
 
 Handler for reading data from POST and such requests. You MUST copy the data of chunk if isLast is not true. We Neuter ArrayBuffers on return, making it zero length.
 
@@ -229,17 +230,17 @@ Handler for reading data from POST and such requests. You MUST copy the data of 
 
 #### Returns
 
-[`HttpResponse`](httpresponse.md)
+[`HttpResponse`](HttpResponse.md)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:172
+node_modules/uWebSockets.js/index.d.ts:159
 
 ___
 
 ### onWritable
 
-▸ **onWritable**(`handler`): [`HttpResponse`](httpresponse.md)
+▸ **onWritable**(`handler`): [`HttpResponse`](HttpResponse.md)
 
 Registers a handler for writable events. Continue failed write attempts in here.
 You MUST return true for success, false for failure.
@@ -253,11 +254,11 @@ Writing nothing is always success, so by default you must return true.
 
 #### Returns
 
-[`HttpResponse`](httpresponse.md)
+[`HttpResponse`](HttpResponse.md)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:163
+node_modules/uWebSockets.js/index.d.ts:150
 
 ___
 
@@ -280,7 +281,7 @@ Ends this response, or tries to, by streaming appropriately sized chunks of body
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:151
+node_modules/uWebSockets.js/index.d.ts:138
 
 ___
 
@@ -312,15 +313,15 @@ Upgrades a HttpResponse to a WebSocket. See UpgradeAsync, UpgradeSync example fi
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:202
+node_modules/uWebSockets.js/index.d.ts:189
 
 ___
 
 ### write
 
-▸ **write**(`chunk`): [`HttpResponse`](httpresponse.md)
+▸ **write**(`chunk`): `boolean`
 
-Enters or continues chunked encoding mode. Writes part of the response. End with zero length write.
+Enters or continues chunked encoding mode. Writes part of the response. End with zero length write. Returns true if no backpressure was added.
 
 #### Parameters
 
@@ -330,17 +331,17 @@ Enters or continues chunked encoding mode. Writes part of the response. End with
 
 #### Returns
 
-[`HttpResponse`](httpresponse.md)
+`boolean`
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:147
+node_modules/uWebSockets.js/index.d.ts:134
 
 ___
 
 ### writeHeader
 
-▸ **writeHeader**(`key`, `value`): [`HttpResponse`](httpresponse.md)
+▸ **writeHeader**(`key`, `value`): [`HttpResponse`](HttpResponse.md)
 
 Writes key and value to HTTP response.
 See writeStatus and corking.
@@ -354,17 +355,17 @@ See writeStatus and corking.
 
 #### Returns
 
-[`HttpResponse`](httpresponse.md)
+[`HttpResponse`](HttpResponse.md)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:145
+node_modules/uWebSockets.js/index.d.ts:132
 
 ___
 
 ### writeStatus
 
-▸ **writeStatus**(`status`): [`HttpResponse`](httpresponse.md)
+▸ **writeStatus**(`status`): [`HttpResponse`](HttpResponse.md)
 
 Writes the HTTP status message such as "200 OK".
 This has to be called first in any response, otherwise
@@ -388,8 +389,8 @@ the user manual under "corking".
 
 #### Returns
 
-[`HttpResponse`](httpresponse.md)
+[`HttpResponse`](HttpResponse.md)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:141
+node_modules/uWebSockets.js/index.d.ts:128

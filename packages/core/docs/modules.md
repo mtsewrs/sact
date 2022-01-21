@@ -6,28 +6,27 @@
 
 ### Enumerations
 
-- [ListenOptions](enums/listenoptions.md)
+- [ListenOptions](enums/ListenOptions.md)
 - [sizes](enums/sizes.md)
 
 ### Classes
 
-- [HttpError](classes/httperror.md)
-- [Sact](classes/sact.md)
+- [HttpError](classes/HttpError.md)
+- [Sact](classes/Sact.md)
 
 ### Interfaces
 
-- [AppOptions](interfaces/appoptions.md)
-- [BodyReq](interfaces/bodyreq.md)
-- [HttpRequest](interfaces/httprequest.md)
-- [HttpResponse](interfaces/httpresponse.md)
-- [IRequest](interfaces/irequest.md)
-- [IResponse](interfaces/iresponse.md)
-- [MultipartField](interfaces/multipartfield.md)
-- [Options](interfaces/options.md)
-- [Server](interfaces/server.md)
-- [TemplatedApp](interfaces/templatedapp.md)
-- [WebSocket](interfaces/websocket.md)
-- [WebSocketBehavior](interfaces/websocketbehavior.md)
+- [AppOptions](interfaces/AppOptions.md)
+- [BodyReq](interfaces/BodyReq.md)
+- [HttpRequest](interfaces/HttpRequest.md)
+- [HttpResponse](interfaces/HttpResponse.md)
+- [IRequest](interfaces/IRequest.md)
+- [IResponse](interfaces/IResponse.md)
+- [MultipartField](interfaces/MultipartField.md)
+- [Options](interfaces/Options.md)
+- [TemplatedApp](interfaces/TemplatedApp.md)
+- [WebSocket](interfaces/WebSocket.md)
+- [WebSocketBehavior](interfaces/WebSocketBehavior.md)
 - [us\_listen\_socket](interfaces/us_listen_socket.md)
 - [us\_socket](interfaces/us_socket.md)
 - [us\_socket\_context\_t](interfaces/us_socket_context_t.md)
@@ -51,8 +50,17 @@
 - [DEDICATED\_COMPRESSOR\_4KB](modules.md#dedicated_compressor_4kb)
 - [DEDICATED\_COMPRESSOR\_64KB](modules.md#dedicated_compressor_64kb)
 - [DEDICATED\_COMPRESSOR\_8KB](modules.md#dedicated_compressor_8kb)
+- [DEDICATED\_DECOMPRESSOR](modules.md#dedicated_decompressor)
+- [DEDICATED\_DECOMPRESSOR\_16KB](modules.md#dedicated_decompressor_16kb)
+- [DEDICATED\_DECOMPRESSOR\_1KB](modules.md#dedicated_decompressor_1kb)
+- [DEDICATED\_DECOMPRESSOR\_2KB](modules.md#dedicated_decompressor_2kb)
+- [DEDICATED\_DECOMPRESSOR\_32KB](modules.md#dedicated_decompressor_32kb)
+- [DEDICATED\_DECOMPRESSOR\_4KB](modules.md#dedicated_decompressor_4kb)
+- [DEDICATED\_DECOMPRESSOR\_512B](modules.md#dedicated_decompressor_512b)
+- [DEDICATED\_DECOMPRESSOR\_8KB](modules.md#dedicated_decompressor_8kb)
 - [DISABLED](modules.md#disabled)
 - [SHARED\_COMPRESSOR](modules.md#shared_compressor)
+- [SHARED\_DECOMPRESSOR](modules.md#shared_decompressor)
 
 ### Functions
 
@@ -68,18 +76,18 @@
 
 ### CallbackFunction
 
-Ƭ **CallbackFunction**<`REQ`, `RES`\>: (`req`: [`Request`](modules.md#request)<`REQ`\>, `res`: [`Response`](modules.md#response)<`RES`\>, `next`: () => `void`) => `Promise`<`any`\> \| `void`
+Ƭ **CallbackFunction**<`REQ`, `RES`\>: (`req`: [`Request`](modules.md#request)<`REQ`\>, `res`: [`Response`](modules.md#response)<`RES`\>) => `void` \| `Promise`<`any`\>
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `REQ` | { [key: string]: `any`;  } |
-| `RES` | { [key: string]: `any`;  } |
+| Name |
+| :------ |
+| `REQ` |
+| `RES` |
 
 #### Type declaration
 
-▸ (`req`, `res`, `next`): `Promise`<`any`\> \| `void`
+▸ (`req`, `res`): `void` \| `Promise`<`any`\>
 
 Callback function for routes
 
@@ -89,15 +97,14 @@ Callback function for routes
 | :------ | :------ |
 | `req` | [`Request`](modules.md#request)<`REQ`\> |
 | `res` | [`Response`](modules.md#response)<`RES`\> |
-| `next` | () => `void` |
 
 ##### Returns
 
-`Promise`<`any`\> \| `void`
+`void` \| `Promise`<`any`\>
 
 #### Defined in
 
-[packages/core/src/types.ts:15](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L15)
+[packages/core/src/types.ts:10](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/types.ts#L10)
 
 ___
 
@@ -105,25 +112,23 @@ ___
 
 Ƭ **CompressOptions**: `number`
 
-WebSocket compression options
+WebSocket compression options. Combine any compressor with any decompressor using bitwise OR.
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:342
+node_modules/uWebSockets.js/index.d.ts:331
 
 ___
 
 ### PLuginFunction
 
-Ƭ **PLuginFunction**<`OPTIONS`, `REQ`, `RES`\>: (`sact`: [`Sact`](classes/sact.md)<`REQ`, `RES`\>, `opt?`: `OPTIONS`) => `Promise`<`any`\> \| `void`
+Ƭ **PLuginFunction**<`OPTIONS`\>: (`sact`: `any`, `opt?`: `OPTIONS`) => `Promise`<`any`\> \| `void`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
 | `OPTIONS` | `any` |
-| `REQ` | `unknown` |
-| `RES` | `unknown` |
 
 #### Type declaration
 
@@ -133,7 +138,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `sact` | [`Sact`](classes/sact.md)<`REQ`, `RES`\> |
+| `sact` | `any` |
 | `opt?` | `OPTIONS` |
 
 ##### Returns
@@ -142,7 +147,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/sact.ts:156](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/sact.ts#L156)
+[packages/core/src/sact.ts:161](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/sact.ts#L161)
 
 ___
 
@@ -168,33 +173,33 @@ ___
 
 ### Request
 
-Ƭ **Request**<`T`\>: [`IRequest`](interfaces/irequest.md) & `T`
+Ƭ **Request**<`T`\>: [`IRequest`](interfaces/IRequest.md) & `T`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | { [key: string]: `any`;  } |
+| `T` | `unknown` |
 
 #### Defined in
 
-[packages/core/src/types.ts:41](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L41)
+[packages/core/src/types.ts:23](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/types.ts#L23)
 
 ___
 
 ### Response
 
-Ƭ **Response**<`T`\>: [`IResponse`](interfaces/iresponse.md) & `T`
+Ƭ **Response**<`T`\>: [`IResponse`](interfaces/IResponse.md) & `T`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | { [key: string]: `any`;  } |
+| `T` | `unknown` |
 
 #### Defined in
 
-[packages/core/src/types.ts:28](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/types.ts#L28)
+[packages/core/src/types.ts:15](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/types.ts#L15)
 
 ## Variables
 
@@ -206,7 +211,7 @@ Sliding dedicated compress window, requires 128KB of memory per socket
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:360
+node_modules/uWebSockets.js/index.d.ts:351
 
 ___
 
@@ -218,7 +223,7 @@ Sliding dedicated compress window, requires 16KB of memory per socket
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:354
+node_modules/uWebSockets.js/index.d.ts:345
 
 ___
 
@@ -230,7 +235,7 @@ Sliding dedicated compress window, requires 256KB of memory per socket
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:362
+node_modules/uWebSockets.js/index.d.ts:353
 
 ___
 
@@ -242,7 +247,7 @@ Sliding dedicated compress window, requires 32KB of memory per socket
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:356
+node_modules/uWebSockets.js/index.d.ts:347
 
 ___
 
@@ -254,7 +259,7 @@ Sliding dedicated compress window, requires 3KB of memory per socket
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:348
+node_modules/uWebSockets.js/index.d.ts:339
 
 ___
 
@@ -266,7 +271,7 @@ Sliding dedicated compress window, requires 4KB of memory per socket
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:350
+node_modules/uWebSockets.js/index.d.ts:341
 
 ___
 
@@ -278,7 +283,7 @@ Sliding dedicated compress window, requires 64KB of memory per socket
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:358
+node_modules/uWebSockets.js/index.d.ts:349
 
 ___
 
@@ -290,7 +295,103 @@ Sliding dedicated compress window, requires 8KB of memory per socket
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:352
+node_modules/uWebSockets.js/index.d.ts:343
+
+___
+
+### DEDICATED\_DECOMPRESSOR
+
+• **DEDICATED\_DECOMPRESSOR**: [`CompressOptions`](modules.md#compressoptions)
+
+Sliding dedicated decompress window, requires 32KB of memory per socket (plus about 23KB)
+
+#### Defined in
+
+node_modules/uWebSockets.js/index.d.ts:369
+
+___
+
+### DEDICATED\_DECOMPRESSOR\_16KB
+
+• **DEDICATED\_DECOMPRESSOR\_16KB**: [`CompressOptions`](modules.md#compressoptions)
+
+Sliding dedicated decompress window, requires 16KB of memory per socket (plus about 23KB)
+
+#### Defined in
+
+node_modules/uWebSockets.js/index.d.ts:357
+
+___
+
+### DEDICATED\_DECOMPRESSOR\_1KB
+
+• **DEDICATED\_DECOMPRESSOR\_1KB**: [`CompressOptions`](modules.md#compressoptions)
+
+Sliding dedicated decompress window, requires 1KB of memory per socket (plus about 23KB)
+
+#### Defined in
+
+node_modules/uWebSockets.js/index.d.ts:365
+
+___
+
+### DEDICATED\_DECOMPRESSOR\_2KB
+
+• **DEDICATED\_DECOMPRESSOR\_2KB**: [`CompressOptions`](modules.md#compressoptions)
+
+Sliding dedicated decompress window, requires 2KB of memory per socket (plus about 23KB)
+
+#### Defined in
+
+node_modules/uWebSockets.js/index.d.ts:363
+
+___
+
+### DEDICATED\_DECOMPRESSOR\_32KB
+
+• **DEDICATED\_DECOMPRESSOR\_32KB**: [`CompressOptions`](modules.md#compressoptions)
+
+Sliding dedicated decompress window, requires 32KB of memory per socket (plus about 23KB)
+
+#### Defined in
+
+node_modules/uWebSockets.js/index.d.ts:355
+
+___
+
+### DEDICATED\_DECOMPRESSOR\_4KB
+
+• **DEDICATED\_DECOMPRESSOR\_4KB**: [`CompressOptions`](modules.md#compressoptions)
+
+Sliding dedicated decompress window, requires 4KB of memory per socket (plus about 23KB)
+
+#### Defined in
+
+node_modules/uWebSockets.js/index.d.ts:361
+
+___
+
+### DEDICATED\_DECOMPRESSOR\_512B
+
+• **DEDICATED\_DECOMPRESSOR\_512B**: [`CompressOptions`](modules.md#compressoptions)
+
+Sliding dedicated decompress window, requires 512B of memory per socket (plus about 23KB)
+
+#### Defined in
+
+node_modules/uWebSockets.js/index.d.ts:367
+
+___
+
+### DEDICATED\_DECOMPRESSOR\_8KB
+
+• **DEDICATED\_DECOMPRESSOR\_8KB**: [`CompressOptions`](modules.md#compressoptions)
+
+Sliding dedicated decompress window, requires 8KB of memory per socket (plus about 23KB)
+
+#### Defined in
+
+node_modules/uWebSockets.js/index.d.ts:359
 
 ___
 
@@ -302,7 +403,7 @@ No compression (always a good idea if you operate using an efficient binary prot
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:344
+node_modules/uWebSockets.js/index.d.ts:333
 
 ___
 
@@ -310,17 +411,29 @@ ___
 
 • **SHARED\_COMPRESSOR**: [`CompressOptions`](modules.md#compressoptions)
 
-Zero memory overhead compression (recommended for pub/sub where same message is sent to many receivers)
+Zero memory overhead compression.
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:346
+node_modules/uWebSockets.js/index.d.ts:335
+
+___
+
+### SHARED\_DECOMPRESSOR
+
+• **SHARED\_DECOMPRESSOR**: [`CompressOptions`](modules.md#compressoptions)
+
+Zero memory overhead decompression.
+
+#### Defined in
+
+node_modules/uWebSockets.js/index.d.ts:337
 
 ## Functions
 
 ### App
 
-▸ **App**(`options?`): [`TemplatedApp`](interfaces/templatedapp.md)
+▸ **App**(`options?`): [`TemplatedApp`](interfaces/TemplatedApp.md)
 
 Constructs a non-SSL app. An app is your starting point where you attach behavior to URL routes.
 This is also where you listen and run your app, set any SSL options (in case of SSLApp) and the like.
@@ -329,21 +442,21 @@ This is also where you listen and run your app, set any SSL options (in case of 
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | [`AppOptions`](interfaces/appoptions.md) |
+| `options?` | [`AppOptions`](interfaces/AppOptions.md) |
 
 #### Returns
 
-[`TemplatedApp`](interfaces/templatedapp.md)
+[`TemplatedApp`](interfaces/TemplatedApp.md)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:320
+node_modules/uWebSockets.js/index.d.ts:309
 
 ___
 
 ### RateLimit
 
-▸ `Const` **RateLimit**(`limit`, `interval`): (`ws`: [`WebSocket`](interfaces/websocket.md)) => `boolean`
+▸ `Const` **RateLimit**(`limit`, `interval`): (`ws`: [`WebSocket`](interfaces/WebSocket.md)) => `boolean`
 
 const rateLimit = RateLimit(1, 10000) //  limit is: 1 message per 10 seconds.
 
@@ -368,7 +481,7 @@ rateLimit(ws) returns true if over limit
 
 | Name | Type |
 | :------ | :------ |
-| `ws` | [`WebSocket`](interfaces/websocket.md) |
+| `ws` | [`WebSocket`](interfaces/WebSocket.md) |
 
 ##### Returns
 
@@ -376,13 +489,13 @@ rateLimit(ws) returns true if over limit
 
 #### Defined in
 
-[packages/core/src/wsRateLimit.ts:12](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/wsRateLimit.ts#L12)
+[packages/core/src/wsRateLimit.ts:12](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/wsRateLimit.ts#L12)
 
 ___
 
 ### SSLApp
 
-▸ **SSLApp**(`options`): [`TemplatedApp`](interfaces/templatedapp.md)
+▸ **SSLApp**(`options`): [`TemplatedApp`](interfaces/TemplatedApp.md)
 
 Constructs an SSL app. See App.
 
@@ -390,15 +503,15 @@ Constructs an SSL app. See App.
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`AppOptions`](interfaces/appoptions.md) |
+| `options` | [`AppOptions`](interfaces/AppOptions.md) |
 
 #### Returns
 
-[`TemplatedApp`](interfaces/templatedapp.md)
+[`TemplatedApp`](interfaces/TemplatedApp.md)
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:323
+node_modules/uWebSockets.js/index.d.ts:312
 
 ___
 
@@ -410,7 +523,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `sact` | [`Sact`](classes/sact.md)<`unknown`, `unknown`\> |
+| `sact` | `any` |
 | `opt?` | `Options` |
 
 #### Returns
@@ -419,13 +532,13 @@ ___
 
 #### Defined in
 
-[packages/core/src/body.ts:23](https://github.com/mattiasewers/sact/blob/df76a34/packages/core/src/body.ts#L23)
+[packages/core/src/body.ts:29](https://github.com/mattiasewers/sact/blob/982c487/packages/core/src/body.ts#L29)
 
 ___
 
 ### getParts
 
-▸ **getParts**(`body`, `contentType`): [`MultipartField`](interfaces/multipartfield.md)[] \| `undefined`
+▸ **getParts**(`body`, `contentType`): [`MultipartField`](interfaces/MultipartField.md)[] \| `undefined`
 
 Takes a POSTed body and contentType, and returns an array of parts if the request is a multipart request
 
@@ -438,11 +551,11 @@ Takes a POSTed body and contentType, and returns an array of parts if the reques
 
 #### Returns
 
-[`MultipartField`](interfaces/multipartfield.md)[] \| `undefined`
+[`MultipartField`](interfaces/MultipartField.md)[] \| `undefined`
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:339
+node_modules/uWebSockets.js/index.d.ts:328
 
 ___
 
@@ -464,7 +577,7 @@ Closes a uSockets listen socket.
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:326
+node_modules/uWebSockets.js/index.d.ts:315
 
 ___
 
@@ -486,4 +599,4 @@ Gets local port of socket (or listenSocket) or -1.
 
 #### Defined in
 
-node_modules/uWebSockets.js/index.d.ts:329
+node_modules/uWebSockets.js/index.d.ts:318
