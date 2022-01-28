@@ -28,7 +28,7 @@
     "bracketSpacing": true
   },
   "devDependencies": {
-    "turbo": "^1.0.29"
+    "turbo": "^1.1.1"
   },
   "turbo": {
     "pipeline": {
