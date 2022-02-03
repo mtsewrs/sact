@@ -13,7 +13,7 @@
   "dependencies": {
     "@types/ioredis": "^4.28.7",
     "@types/ms": "^0.7.31",
-    "cookie": "^0.4.1",
+    "cookie": "^0.4.2",
     "ioredis": "^4.28.4",
     "ms": "^2.1.1"
   },
