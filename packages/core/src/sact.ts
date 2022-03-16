@@ -1,9 +1,7 @@
 import * as uws from 'uWebSockets.js';
-
 export * from 'uWebSockets.js';
 
 import { CallbackFunction, Options } from './types';
-
 import { handler } from './handler';
 
 const { us_listen_socket_close } = uws;
@@ -95,7 +93,7 @@ export class Sact<REQ = unknown, RES = unknown> {
     return this;
   }
 
-  register<T>(plugin: PLuginFunction<T>, opt?: T) {
+  register<T>(plugin: PLuginFunction<T>, opt?: T): this {
     const result = plugin(this, opt);
     if (result && result instanceof Promise) {
       this.plugins.push(result);
@@ -105,16 +103,13 @@ export class Sact<REQ = unknown, RES = unknown> {
 
   async ready() {
     for (const plugin of this.plugins) {
-      if (
-        (plugin && plugin instanceof Promise) ||
-        (plugin && plugin[Symbol.toStringTag] === 'AsyncFunction')
-      ) {
+      if (plugin && plugin instanceof Promise) {
         await plugin;
       }
     }
   }
 
-  numSubscribers(topic: uws.RecognizedString) {
+  numSubscribers(topic: uws.RecognizedString): number {
     return this.app.numSubscribers(topic);
   }
 

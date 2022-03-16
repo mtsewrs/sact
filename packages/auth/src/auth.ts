@@ -12,7 +12,7 @@ export interface Options {
 }
 
 export interface AuthReq {
-  user?: string;
+  user: string | undefined;
   /**
    * Log user out
    */
@@ -33,7 +33,7 @@ export interface AuthReq {
    * await req.authenticate() //  👈 All you need to do, the user will then be available on req.user
    * ```
    */
-  authenticate: () => Promise<void>;
+  authenticate: () => Promise<string | undefined>;
   /**
    * Authenticate the user or throw a 401 status if failed
    *
@@ -41,7 +41,7 @@ export interface AuthReq {
    * await req.authenticateOrFail() //  👈 All you need to do, the user will then be available on req.user
    * ```
    */
-  authenticateOrFail: () => Promise<void>;
+  authenticateOrFail: () => Promise<string>;
 }
 
 const verify = (
@@ -114,6 +114,7 @@ const auth: PLuginFunction<Options> = (
         }
 
         req.user = id;
+        return id;
       } else {
         throw new HttpError('Unauthorized', 401);
       }
@@ -138,6 +139,9 @@ const auth: PLuginFunction<Options> = (
         }
 
         req.user = id;
+        return id;
+      } else {
+        return;
       }
     };
   });

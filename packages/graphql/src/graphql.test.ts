@@ -1,7 +1,7 @@
 import request from 'supertest';
 import { Sact, body, HttpError } from '@sact/core';
 import { GraphQLSchema, GraphQLObjectType, GraphQLString } from 'graphql';
-import { graphql } from '.';
+import { graphql } from './graphql';
 
 const queryType = new GraphQLObjectType({
   name: 'QueryType',
@@ -42,8 +42,8 @@ app.register(graphql, {
   }),
 });
 
-beforeEach(async () => {
-  await app.listen();
+beforeEach(() => {
+  return app.listen();
 });
 
 afterEach(() => {

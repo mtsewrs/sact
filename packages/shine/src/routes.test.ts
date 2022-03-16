@@ -23,24 +23,14 @@ describe('shine', () => {
   })
 
   test('handle error', async () => {
-    const resp = await request(app).post('/api/user')
+    const resp = await request(app).post('/api/user/hello').send({})
     expect(resp.status).toEqual(400)
   })
 
   test('basic route', async () => {
     const text = 'some text'
-    const resp = await request(app)
-      .post('/api/user')
-      .send({ method: 'hello', params: { text } })
+    const resp = await request(app).post('/api/user/hello').send({ text })
     expect(resp.body.hello).toEqual(context.hello)
     expect(resp.body.text).toEqual(text)
-  })
-
-  test('not found', async () => {
-    const resp = await request(app)
-      .post('/api/user')
-      .send({ method: 'notFound' })
-    expect(resp.body.message).toEqual('Method not found')
-    expect(resp.body.status).toEqual(404)
   })
 })

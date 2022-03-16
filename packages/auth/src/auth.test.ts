@@ -16,8 +16,8 @@ app.register(auth, {
 });
 
 app.get('/error', async (req) => {
-  await req.authenticateOrFail();
-  return { user: req.user };
+  const user = await req.authenticateOrFail();
+  return { user };
 });
 
 app.get('/', async (req) => {
@@ -27,7 +27,7 @@ app.get('/', async (req) => {
 
 app.get('/login', async (req) => {
   await req.login(id);
-  return { success: true };
+  return 'ok';
 });
 
 describe('auth', () => {
@@ -45,9 +45,9 @@ describe('auth', () => {
   });
 
   test('login', async () => {
-    const login = await request(app).get('/login');
-    cookie = login.header['set-cookie'];
-    expect(login.body.success).toEqual(true);
+    const resp = await request(app).get('/login');
+    cookie = resp.header['set-cookie'];
+    expect(resp.status).toEqual(200);
   });
 
   test('authenticate', async () => {

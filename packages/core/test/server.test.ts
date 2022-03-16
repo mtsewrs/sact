@@ -1,6 +1,6 @@
 import request from 'supertest';
-import { Sact, body, BodyReq, HttpError } from '../src/index';
 import { Readable } from 'stream';
+import { Sact, body, BodyReq, HttpError } from '../src/index';
 
 const app = new Sact<BodyReq>();
 
@@ -11,11 +11,11 @@ app.get('/', async () => {
 });
 
 app.post('/', async (req) => {
-  const body = await req.json();
+  const body = await req.json<{ foo: string }>();
   return body.foo;
 });
 
-app.post('/files', async (req) => {
+app.post('/fields', async (req) => {
   const fields = await req.fields();
   if (!fields) {
     throw new HttpError('No fields', 400);
@@ -29,7 +29,7 @@ app.post('/stream', async (req) => {
   if (!(stream instanceof Readable)) {
     throw new HttpError('Not a stream', 500);
   }
-  return { ok: true };
+  return 'ok';
 });
 
 app.get('/error', async () => {
@@ -60,7 +60,7 @@ describe('Basic core server functionality ', () => {
 
   test('multipart requests', async () => {
     const resp = await request(app)
-      .post('/files')
+      .post('/fields')
       .field('logo_field', 'my awesome logo')
       .attach('logo', __dirname + '/public/logo.png');
     expect(resp.body.name).toEqual('logo_field');
@@ -69,9 +69,7 @@ describe('Basic core server functionality ', () => {
   });
 
   test('read stream body', async () => {
-    const resp = await request(app)
-      .post('/stream')
-      .attach('logo', __dirname + '/public/logo.png');
+    const resp = await request(app).post('/stream').send({});
     expect(resp.status).toEqual(200);
   });
 

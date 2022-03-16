@@ -30,6 +30,7 @@ export function handlePromise(res: Response, promise: Promise<any>): void {
                 error: true,
                 message: error.message,
                 status: error.status,
+                data: error.data,
               })
             );
           });
@@ -43,7 +44,7 @@ export function handlePromise(res: Response, promise: Promise<any>): void {
             res.end(
               JSON.stringify({
                 error: true,
-                message: error.message,
+                message: error.message ?? error.toString(),
                 status: 500,
               })
             );

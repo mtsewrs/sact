@@ -12,11 +12,8 @@
   },
   "files": [
     "tsconfig.json",
-    "build",
     "dist",
-    "LICENSE",
-    "readme.md",
-    "bin"
+    "readme.md"
   ],
   "license": "MIT",
   "prettier": {
@@ -25,5 +22,8 @@
   },
   "dependencies": {
     "fs-jetpack": "^4.3.1"
+  },
+  "peerDependencies": {
+    "zod": "^3.13.4"
   }
 }

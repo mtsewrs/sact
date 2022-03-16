@@ -2,18 +2,21 @@ import { Request, Response, BodyReq, PLuginFunction, Sact } from '@sact/core'
 import * as jetpack from 'fs-jetpack'
 import { parse } from 'path'
 
-import { http } from './http'
+import { build_routes } from './build_routes'
 
 export interface Ctx<
   T extends {
     req?: unknown
     res?: unknown
     params?: unknown
+    context?: unknown
   }
 > {
   params: T['params']
   res: Response<T['res']>
   req: Request<BodyReq & T['req']>
+  context: T['context']
+  method: 'post' | 'get' | 'delete' | 'put' | 'head'
 }
 
 export interface Options {
@@ -69,5 +72,5 @@ export const shine: PLuginFunction<Options> = (app: Sact<BodyReq>, options) => {
     }
   }
 
-  http(app, paths, methods, context, prefix)
+  build_routes(app, paths, methods, context, prefix)
 }

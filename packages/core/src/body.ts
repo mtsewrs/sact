@@ -5,7 +5,7 @@ import { HttpError } from './error';
 import { readStream } from './readStream';
 
 export interface BodyReq {
-  json: <T = { [key: string]: any }>() => Promise<T>;
+  json: <T = Record<string, any>>() => Promise<T>;
   fields: () => Promise<undefined | MultipartField[]>;
   stream: () => Promise<Readable>;
 }

@@ -1,9 +1,20 @@
+import { z, ZodType } from 'zod'
 import { Ctx } from '../..'
 
-interface Context<params> extends Ctx<{ params: params }> {
-  hello: string
+interface Route<T extends ZodType<any, any, any>> {
+  handler: (
+    ctx: Ctx<{ params: z.infer<T>; context: { hello: string } }>
+  ) => Promise<any>
+  schema?: T
 }
 
-export const hello = async (ctx: Context<{ text: string }>) => {
-  return { hello: ctx.hello, text: ctx.params.text }
+const schema = z.object({
+  text: z.string(),
+})
+
+export const hello: Route<typeof schema> = {
+  schema,
+  handler: async (ctx) => {
+    return { hello: ctx.context.hello, text: ctx.params.text }
+  },
 }
