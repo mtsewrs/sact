@@ -11,10 +11,10 @@
     "prepublishOnly": "yarn test && yarn build"
   },
   "dependencies": {
-    "@types/ioredis": "^4.28.7",
+    "@types/ioredis": "^4.28.8",
     "@types/ms": "^0.7.31",
-    "cookie": "^0.4.1",
-    "ioredis": "^4.28.3",
+    "cookie": "^0.4.2",
+    "ioredis": "^4.28.5",
     "ms": "^2.1.1"
   },
   "devDependencies": {
