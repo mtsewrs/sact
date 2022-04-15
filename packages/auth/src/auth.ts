@@ -1,6 +1,5 @@
 import { PLuginFunction, HttpError, Sact } from '@sact/core';
-import { SessionReq, SessionRes, MemoryStore } from '@sact/session';
-import { RedisStore } from '@sact/session/src';
+import { SessionReq, SessionRes, MemoryStore, RedisStore } from '@sact/session';
 import * as jwt from 'jsonwebtoken';
 
 export interface Options {

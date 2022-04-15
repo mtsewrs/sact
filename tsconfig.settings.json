@@ -14,12 +14,12 @@
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "strict": true
+    "strict": true,
+    "paths": {
+      "@sact/core": ["./packages/core/src"],
+      "@sact/session": ["./packages/session/src"],
+      "@sact/cookie": ["./packages/cookie/src"]
+    }
   },
-  "exclude": ["node_modules", "test", "dist"],
-  "references": [
-    { "path": "../core" },
-    { "path": "../session" },
-    { "path": "../cookie" }
-  ]
+  "exclude": ["node_modules", "test", "dist"]
 }
