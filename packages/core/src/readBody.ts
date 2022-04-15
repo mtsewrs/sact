@@ -6,7 +6,7 @@ export function readBody(
   limit: number
 ): Promise<Buffer> {
   return new Promise((resolve, reject) => {
-    let buffer: Buffer = Buffer.from('');
+    let buffer = Buffer.from('');
     res.onData((ab, isLast) => {
       const chunk = Buffer.from(ab);
       buffer = Buffer.concat([buffer, chunk]);

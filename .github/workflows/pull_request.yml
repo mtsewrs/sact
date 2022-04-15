@@ -38,18 +38,19 @@ jobs:
         uses: actions/cache@v2
         with:
           path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: Install
-        run: yarn --frozen-lockfile
+        run: pnpm install
+        env:
+          CI: true
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Test code
-        run: yarn test
+        run: pnpm test
         env:
-          # The hostname used to communicate with the Redis service container
           CI: true
           REDIS_HOST: redis
 

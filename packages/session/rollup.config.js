@@ -4,5 +4,5 @@ import { dependencies } from './package.json';
 export default configure({
   input: './src/index.ts',
   dependencies,
-  external: Object.keys(dependencies),
+  external: [...Object.keys(dependencies), 'crypto'],
 });
