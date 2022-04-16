@@ -4,5 +4,5 @@ import { dependencies } from './package.json'
 export default configure({
   input: './src/index.ts',
   dependencies,
-  external: [...Object.keys(dependencies), '@sact/core'],
+  external: [...Object.keys(dependencies), '@sact/core', 'path'],
 })
