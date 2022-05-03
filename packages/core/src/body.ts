@@ -47,8 +47,8 @@ export const body: PLuginFunction<Options> = (
       return sact.uws.getParts(buffer, header);
     };
 
-    req.stream = async () => {
-      return await readStream(res);
+    req.stream = () => {
+      return readStream(res);
     };
   });
 };

@@ -14,7 +14,7 @@ const schema = z.object({
 
 export const hello: Route<typeof schema> = {
   schema,
-  handler: async (ctx) => {
-    return { hello: ctx.context.hello, text: ctx.params.text }
+  handler: async ({ context, params }) => {
+    return { hello: context.hello, text: params.text }
   },
 }

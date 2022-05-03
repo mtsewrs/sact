@@ -48,7 +48,7 @@ export const shine: PLuginFunction<Options> = (app: Sact<BodyReq>, options) => {
   }
 
   const functionsFound = []
-  const methods: { [key: string]: any } = {}
+  const methods: Record<string, any> = {}
   for (let i = 0; i < paths.length; i++) {
     const p = paths[i]
 
