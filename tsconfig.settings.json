@@ -4,7 +4,11 @@
     "rootDir": ".",
     "target": "esnext",
     "module": "commonjs",
-    "lib": ["dom", "esnext", "dom.iterable"],
+    "lib": [
+      "dom",
+      "esnext",
+      "dom.iterable"
+    ],
     "importHelpers": true,
     "declaration": true,
     "noImplicitThis": true,
@@ -16,10 +20,20 @@
     "esModuleInterop": true,
     "strict": true,
     "paths": {
-      "@sact/core": ["./packages/core/src"],
-      "@sact/session": ["./packages/session/src"],
-      "@sact/cookie": ["./packages/cookie/src"]
+      "@sact/core": [
+        "./packages/core/src"
+      ],
+      "@sact/cookie": [
+        "./packages/cookie/src"
+      ],
+      "@sact/session": [
+        "./packages/session/src"
+      ]
     }
   },
-  "exclude": ["node_modules", "test", "dist"]
+  "exclude": [
+    "node_modules",
+    "test",
+    "dist"
+  ]
 }

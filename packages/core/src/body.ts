@@ -6,7 +6,7 @@ import { readStream } from './readStream';
 
 export interface BodyReq {
   json: <T = Record<string, any>>() => Promise<T>;
-  fields: () => Promise<undefined | MultipartField[]>;
+  fields: () => Promise<MultipartField[] | undefined>;
   stream: () => Promise<Readable>;
 }
 
