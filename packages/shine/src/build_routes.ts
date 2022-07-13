@@ -1,54 +1,89 @@
 import { Sact, BodyReq, HttpError } from '@sact/core'
-import { z } from 'zod'
-
-interface Route {
-  handler: (arg: any) => Promise<any>
-  schema: z.ZodObject<any>
-}
 
 export function build_routes(
   app: Sact<BodyReq>,
   paths: string[],
   methods: any,
-  context: any,
   prefix: string
 ) {
   for (let i = 0; i < paths.length; i++) {
     const path = paths[i]
     const m = Object.keys(methods[path])
     for (let j = 0; j < m.length; j++) {
-      const method = m[j]
-      const route: Route = methods[path][method]
+      const method_route = m[j]
+      const route = methods[path][method_route]
+      if (!route) continue
+
+      const method = method_route.replace('_post', '').replace('_get', '')
+      const isGet = method_route.includes('get')
 
       const schema = route.schema
       const handler = route.handler
 
-      app.any(prefix + '/' + path + '/' + method, (req, res) => {
-        const m = req.getMethod()
-        if (m === 'post') {
-          return req.json().then((data) => {
-            const result = schema.safeParse(data)
-            if (!result.success) {
-              throw new HttpError(result.error.name, 400, result.error.errors)
-            } else {
-              return handler({
-                context,
-                req,
-                res,
-                params: result.data,
-                method: m,
-              })
-            }
-          })
-        } else {
+      if (isGet) {
+        app.get(prefix + '/' + path + '/' + method, (req, res) => {
           return handler({
-            ...context,
-            req,
-            res,
-            method: m,
+            request: req,
+            response: res
           })
-        }
-      })
+        })
+      } else {
+        app.post(prefix + '/' + path + '/' + method, (req, res) => {
+          if (!schema) {
+            throw new HttpError('No schema supplied to route', 500)
+          }
+          const contentType = req.getHeader('content-type')
+          if (contentType === 'application/json') {
+            return req.json().then(data => {
+              const result = schema.safeParse(data)
+              if (!result.success) {
+                throw new HttpError(result.error.name, 400, result.error.errors)
+              } else {
+                return handler({
+                  request: req,
+                  response: res,
+                  params: result.data
+                })
+              }
+            })
+          } else if (contentType === 'application/x-www-form-urlencoded') {
+            return req.form().then(data => {
+              const result = schema.safeParse(data)
+              if (!result.success) {
+                throw new HttpError(result.error.name, 400, result.error.errors)
+              } else {
+                return handler({
+                  request: req,
+                  response: res,
+                  params: result.data
+                })
+              }
+            })
+          } else if (contentType.includes('multipart/form-data')) {
+            return req.fields().then(fields => {
+              const data = fields?.reduce(
+                (prev, field) => ({
+                  ...prev,
+                  [field.name]: Buffer.from(field.data)
+                }),
+                {}
+              )
+              const result = schema.safeParse(data)
+              if (!result.success) {
+                throw new HttpError(result.error.name, 400, result.error.errors)
+              } else {
+                return handler({
+                  request: req,
+                  response: res,
+                  params: result.data
+                })
+              }
+            })
+          } else {
+            throw new HttpError('Invalid post request', 400)
+          }
+        })
+      }
     }
   }
 }

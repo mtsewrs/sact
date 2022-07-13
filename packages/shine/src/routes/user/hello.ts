@@ -1,20 +1,19 @@
-import { z, ZodType } from 'zod'
-import { Ctx } from '../..'
-
-interface Route<T extends ZodType<any, any, any>> {
-  handler: (
-    ctx: Ctx<{ params: z.infer<T>; context: { hello: string } }>
-  ) => Promise<any>
-  schema?: T
-}
+import { z } from 'zod'
+import { PostRoute, GetRoute } from '../../types'
 
 const schema = z.object({
-  text: z.string(),
+  text: z.string()
 })
 
-export const hello: Route<typeof schema> = {
+export const post: PostRoute<typeof schema> = {
   schema,
-  handler: async ({ context, params }) => {
-    return { hello: context.hello, text: params.text }
-  },
+  handler: ({ params }) => {
+    return { text: params.text }
+  }
+}
+
+export const get: GetRoute = {
+  handler: () => {
+    return { text: 'hello' }
+  }
 }

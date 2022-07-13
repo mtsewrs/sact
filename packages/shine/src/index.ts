@@ -1,26 +1,10 @@
-import { Request, Response, BodyReq, PLuginFunction, Sact } from '@sact/core'
+import { BodyReq, PLuginFunction, Sact } from '@sact/core'
 import * as jetpack from 'fs-jetpack'
 import { parse } from 'path'
 
 import { build_routes } from './build_routes'
 
-export interface Ctx<
-  T extends {
-    req?: unknown
-    res?: unknown
-    params?: unknown
-    context?: unknown
-  }
-> {
-  params: T['params']
-  res: Response<T['res']>
-  req: Request<BodyReq & T['req']>
-  context: T['context']
-  method: 'post' | 'get' | 'delete' | 'put' | 'head'
-}
-
 export interface Options {
-  context?: any
   prefix?: string
   /**
    * path from your project root
@@ -33,14 +17,13 @@ export interface Options {
 }
 
 export const shine: PLuginFunction<Options> = (app: Sact<BodyReq>, options) => {
-  const context = options?.context || {}
   const prefix = options?.prefix || ''
   const ts = options?.ts
 
   const path = options?.path || 'src/routes'
   let paths = jetpack.list(path)
   const functions = jetpack.find(path, {
-    matching: ts ? '**/*.ts' : '**/*.js',
+    matching: ts ? '**/*.ts' : '**/*.js'
   })
 
   if (!functions.length || !paths?.length) {
@@ -61,16 +44,18 @@ export const shine: PLuginFunction<Options> = (app: Sact<BodyReq>, options) => {
         if (methods[p]) {
           methods[p] = {
             ...methods[p],
-            [name]: method.default || method[name],
+            [`${name}_get`]: method['get'],
+            [`${name}_post`]: method['post']
           }
         } else {
           methods[p] = {
-            [name]: method.default || method[name],
+            [`${name}_get`]: method['get'],
+            [`${name}_post`]: method['post']
           }
         }
       }
     }
   }
 
-  build_routes(app, paths, methods, context, prefix)
+  build_routes(app, paths, methods, prefix)
 }

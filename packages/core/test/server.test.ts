@@ -6,16 +6,16 @@ const app = new Sact<BodyReq>();
 
 app.register(body);
 
-app.get('/', async () => {
+app.get('/', () => {
   return { foo: 'bar' };
 });
 
-app.post('/', async (req) => {
+app.post('/', async req => {
   const body = await req.json<{ foo: string }>();
   return body.foo;
 });
 
-app.post('/fields', async (req) => {
+app.post('/fields', async req => {
   const fields = await req.fields();
   if (!fields) {
     throw new HttpError('No fields', 400);
@@ -24,15 +24,19 @@ app.post('/fields', async (req) => {
   return { name: field.name, filename: image.filename };
 });
 
-app.post('/stream', async (req) => {
+app.post('/stream', async req => {
   const stream = await req.stream();
   if (!(stream instanceof Readable)) {
     throw new HttpError('Not a stream', 500);
   }
-  return 'ok';
+  return stream;
 });
 
 app.get('/error', async () => {
+  throw new HttpError('error', 400);
+});
+
+app.get('/sync-error', () => {
   throw new HttpError('error', 400);
 });
 
@@ -53,7 +57,9 @@ describe('Basic core server functionality ', () => {
   });
 
   test('json post', async () => {
-    const resp = await request(app).post('/').send({ foo: 'bar' });
+    const resp = await request(app)
+      .post('/')
+      .send({ foo: 'bar' });
     expect(resp.text).toEqual('bar');
     expect(resp.status).toEqual(200);
   });
@@ -68,9 +74,13 @@ describe('Basic core server functionality ', () => {
     expect(resp.status).toEqual(200);
   });
 
-  test('read stream body', async () => {
-    const resp = await request(app).post('/stream').send({});
+  test('read stream body and return stream', async () => {
+    const data = { foo: 'bar' };
+    const resp = await request(app)
+      .post('/stream')
+      .send(data);
     expect(resp.status).toEqual(200);
+    expect(data).toEqual(JSON.parse(resp.body.toString()));
   });
 
   test('custom error response', async () => {
@@ -84,5 +94,10 @@ describe('Basic core server functionality ', () => {
     const resp = await request(app).get('/raw');
     expect(resp.text).toEqual('hello');
     expect(resp.status).toEqual(200);
+  });
+
+  test('sync error', async () => {
+    const resp = await request(app).get('/sync-error');
+    expect(resp.status).toEqual(400);
   });
 });

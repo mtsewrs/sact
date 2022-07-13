@@ -7,22 +7,22 @@ const app = new Sact() as Sact<SessionReq<RedisStore>, SessionRes> & {
 };
 
 app.register(session, {
-  store: new RedisStore(),
+  store: new RedisStore()
 });
 
-const name = 'some-id';
+const userId = 'some-id';
 
-app.get('/get', async (req) => {
+app.get('/get', async req => {
   const session = await req.session.get();
   return session ? session : 'no session';
 });
 
-app.get('/set', async (req) => {
-  await req.session.set(name, { role: 'admin' });
+app.get('/set', async req => {
+  await req.session.set(userId, { role: 'admin' });
   return 'ok';
 });
 
-app.get('/delete', async (req) => {
+app.get('/delete', async req => {
   const session = await req.session.get();
   const ok = await app.store.deleteActiveSessions(session.id);
   if (ok) {
@@ -60,13 +60,17 @@ describe('redis session', () => {
   });
 
   test('get', async () => {
-    const resp = await request(app).get('/get').set({ cookie });
-    expect(resp.body.id).toEqual(name);
+    const resp = await request(app)
+      .get('/get')
+      .set({ cookie });
+    expect(resp.body.id).toEqual(userId);
     expect(resp.body.role).toEqual('admin');
   });
 
   test('delete', async () => {
-    const resp = await request(app).get('/delete').set({ cookie });
+    const resp = await request(app)
+      .get('/delete')
+      .set({ cookie });
     expect(resp.text).toEqual('ok');
   });
 

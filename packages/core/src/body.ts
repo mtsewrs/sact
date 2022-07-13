@@ -1,4 +1,5 @@
 import { Readable } from 'stream';
+import { parse, ParsedUrlQuery } from 'querystring';
 import { MultipartField, PLuginFunction, Sact } from './sact';
 import { readBody } from './readBody';
 import { HttpError } from './error';
@@ -8,6 +9,8 @@ export interface BodyReq {
   json: <T = Record<string, any>>() => Promise<T>;
   fields: () => Promise<MultipartField[] | undefined>;
   stream: () => Promise<Readable>;
+  buffer: () => Promise<Buffer>;
+  form: () => Promise<ParsedUrlQuery>;
 }
 
 export enum sizes {
@@ -39,6 +42,16 @@ export const body: PLuginFunction<Options> = (
       } catch {
         throw new HttpError('Invalid json', 400);
       }
+    };
+
+    req.form = async () => {
+      const buffer = await readBody(res, limit);
+      const form = buffer.toString();
+      return parse(form);
+    };
+
+    req.buffer = () => {
+      return readBody(res, limit);
     };
 
     req.fields = async () => {

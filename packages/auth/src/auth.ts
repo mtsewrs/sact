@@ -7,7 +7,7 @@ export interface Options {
    * secret for jwt token
    */
   secret?: string;
-  tokenName?: string;
+  cookieName?: string;
 }
 
 export interface AuthReq {
@@ -76,33 +76,33 @@ const auth: PLuginFunction<Options> = (
     throw new Error('[sact-auth] secret is required');
   }
   const secret = options.secret;
-  const tokenName = options.tokenName || 'token';
+  const cookieName = options.cookieName || 'token';
 
   sact.use((req, res) => {
     req.login = async (id: string, meta?: any) => {
       const token = await sign({ id }, secret);
       await req.session.set(id, meta);
-      res.setCookie(tokenName, token);
+      res.setCookie(cookieName, token);
     };
 
     req.logout = async () => {
       await req.session.delete();
-      res.setCookie(tokenName, '');
+      res.setCookie(cookieName, '');
     };
 
     req.authenticateOrFail = async () => {
-      const token = req.cookies[tokenName];
+      const token = req.cookies[cookieName];
       if (token) {
         let id: string | undefined;
         try {
           const jwt = await verify(token, secret);
           id = jwt.id as string;
-        } catch (error: any) {
-          if (error.name === 'TokenExpiredError') {
+        } catch (error) {
+          if (error instanceof jwt.TokenExpiredError) {
             const session = await req.session.get();
             if (session) {
               const token = await sign({ id: session.id }, secret);
-              res.setCookie(tokenName, token);
+              res.setCookie(cookieName, token);
               id = session.id;
             }
           }
@@ -120,18 +120,18 @@ const auth: PLuginFunction<Options> = (
     };
 
     req.authenticate = async () => {
-      const token = req.cookies[tokenName];
+      const token = req.cookies[cookieName];
       if (token) {
         let id: string | undefined;
         try {
           const jwt = await verify(token, secret);
           id = jwt.id as string;
-        } catch (error: any) {
-          if (error.name === 'TokenExpiredError') {
+        } catch (error) {
+          if (error instanceof jwt.TokenExpiredError) {
             const session = await req.session.get();
             if (session && session.id) {
               const token = await sign({ id: session.id }, secret);
-              res.setCookie(tokenName, token);
+              res.setCookie(cookieName, token);
               id = session.id;
             }
           }

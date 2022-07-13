@@ -1,8 +1,11 @@
+import { Readable } from 'stream';
 import { AppOptions, HttpResponse, HttpRequest } from 'uWebSockets.js';
 
 export interface Options extends AppOptions {
   ssl?: boolean;
 }
+
+type ReturnType = any | void | Readable;
 
 /**
  * Callback function for routes
@@ -10,7 +13,7 @@ export interface Options extends AppOptions {
 export type CallbackFunction<REQ, RES> = (
   req: Request<REQ>,
   res: Response<RES>
-) => void | Promise<any>;
+) => ReturnType | Promise<ReturnType>;
 
 export type Response<T = unknown> = IResponse & T;
 

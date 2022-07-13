@@ -65,13 +65,15 @@ export class Sact<REQ = unknown, RES = unknown> {
    * @param port number, defaults to 0
    * @returns Promise with port, listen token and url
    */
-  async listen(port = 0): Promise<{
+  async listen(
+    port = 0
+  ): Promise<{
     port: number;
     token: unknown;
     url: string;
   }> {
     return new Promise((resolve, reject) => {
-      this.app.listen(port, (token) => {
+      this.app.listen(port, token => {
         if (token) {
           this.port = port = this.uws.us_socket_local_port(token);
           this.token = token;
@@ -153,7 +155,7 @@ export class Sact<REQ = unknown, RES = unknown> {
   }
 }
 
-export type PLuginFunction<OPTIONS = any> = (
+export type PLuginFunction<OPTIONS = unknown> = (
   sact: any,
   opt?: OPTIONS
 ) => Promise<any> | void;
