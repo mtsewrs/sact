@@ -1,0 +1,24 @@
+{
+  "name": "@sact/trpc",
+  "version": "0.1.0",
+  "main": "./dist/trpc.js",
+  "types": "./dist/trpc.d.ts",
+  "scripts": {
+    "docs": "typedoc --plugin typedoc-plugin-markdown --out docs src/trpc.ts",
+    "test": "jest",
+    "build": "rm -rf dist && rollup -c",
+    "prepublishOnly": "yarn test && yarn build"
+  },
+  "dependencies": {
+    "@trpc/server": "^10.0.0-proxy-beta.18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "ff021c91132db9e0a74a7475ef054c61b8052016",
+  "devDependencies": {
+    "@trpc/client": "^10.0.0-proxy-beta.18",
+    "undici": "^5.11.0",
+    "zod": "^3.19.1"
+  }
+}
