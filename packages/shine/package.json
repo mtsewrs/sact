@@ -21,7 +21,7 @@
     "singleQuote": true
   },
   "dependencies": {
-    "fs-jetpack": "^4.3.1"
+    "fs-jetpack": "^5.1.0"
   },
   "peerDependencies": {
     "zod": "^3.13.4"
