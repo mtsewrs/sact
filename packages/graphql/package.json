@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/graphql": "^14.5.0",
-    "@types/node": "^18.6.3"
+    "@types/node": "^18.11.17"
   },
   "gitHead": "686179b2bb78358d3739f7b2024fe34bedc698a7"
 }
